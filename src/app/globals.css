@@ -18,12 +18,40 @@
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  display: flex;
+  background: #eaeaea;
+  padding: 18px;
+}
+
+.inner {
+  position: relative;
+  width: 150%;
+  overflow: hidden;
+  height: 20rem;
+}
+
+.wrapper {
+  position: absolute;
+  display: flex;
+  height: 100%;
+  
+}
+
+section {
+  display: flex;
+  animation: swipe var(--speed) linear infinite backwards;
+}
+
+
+
+@keyframes swipe {
+  0% {
+    transform: translate(0);
+  }
+
+  100% {
+    transform: translate(-100%);
+  }
 }
 
 @layer utilities {
