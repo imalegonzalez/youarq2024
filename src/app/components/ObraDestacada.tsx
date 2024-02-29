@@ -7,7 +7,7 @@ const ObraDestacada = ({post}) => {
         obraDestacada ?
             (<CardObra post={post}/>)
             :
-            (<div></div>)
+            null
     )
 }
 

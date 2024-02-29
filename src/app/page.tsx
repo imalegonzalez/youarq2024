@@ -13,21 +13,8 @@ export default async function Home() {
 
   return (
     <div className=" px-1 w-full  ">
-      <h2 className=" text-2xl my-3 font-bold ">Proyectos destacados</h2>
-      {/* <div className=" flex flex-row gap-2  ">
-        {data.map((post, i) => (
-          <CardObra key={post.fields.slug} post={post}/>
-        ))}
-      </div> */}
-      <InfiniteScroll data={data}/>
-      <section className=" h-[3000px]">
-        {/* {data.map((card) => {
-          <CardObra key={card.fields.slug} post={card} />
-        })} */}
-        {data.map((post, i) => (
-                        <CardObra key={post.fields.slug} post={post}/>
-                    ))}
-      </section>
+      <h2 className=" text-2xl my-3 font-bold ">home</h2>
+      
     </div>
   )
 }

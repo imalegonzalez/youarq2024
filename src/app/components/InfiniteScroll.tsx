@@ -4,7 +4,7 @@ import CardObra from "./ObraDestacada";
 import {client} from "../lib/contentful/client"
 import ObraDestacada from "./ObraDestacada";
 
-const InfiniteScroll = ({post, speed=15000, data}) => {
+const InfiniteScroll = ({post, speed=25000, data}) => {
     // const data = getData();
     return (
     // <div className=" flex flex-row gap-2  ">
@@ -13,19 +13,19 @@ const InfiniteScroll = ({post, speed=15000, data}) => {
     //     ))}
     //   </div>
     <>
-        <div className="inner md:w-[50vw] m-auto">
+        <div className="inner w-full m-auto">
             <div className="wrapper">
-                <section style={{ "--speed": `${speed}ms` }}>
+                <section className=" flex gap-2" style={{ "--speed": `${speed}ms` }}>
                     {data.map((post, i) => (
                         <ObraDestacada key={post.fields.slug} post={post}/>
                     ))}
                 </section>
-                <section style={{ "--speed": `${speed}ms` }}>
+                <section className=" flex gap-2" style={{ "--speed": `${speed}ms` }}>
                     {data.map((post, i) => (
                         <ObraDestacada key={post.fields.slug} post={post}/>
                     ))}
                 </section>
-                <section style={{ "--speed": `${speed}ms` }}>
+                <section className=" flex gap-2" style={{ "--speed": `${speed}ms` }}>
                     {data.map((post, i) => (
                         <ObraDestacada key={post.fields.slug} post={post}/>
                     ))}
