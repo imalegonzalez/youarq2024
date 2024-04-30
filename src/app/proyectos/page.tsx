@@ -10,13 +10,13 @@ import Gallery from "../components/Gallery";
 // posts will be populated at build time by getStaticProps()
 export default async function Home() {
   const data = await getData();
-  // console.log(data[1].fields.categoria.fields.nombreCategoria)
+  console.log(data[1].fields.categoria.fields.nombreCategoria)
   
 
 
 
   return (
-    <div className=" w-full lg:max-w-5xl lg:m-auto px-4 py-10  ">
+    <div className=" w-full  px-3 py-10  ">
       <h2 className=" text-3xl my-3 font-medium ">Proyectos <br></br>Destacados</h2>
       {/* <div className=" flex flex-row gap-2  ">
         {data.map((post, i) => (

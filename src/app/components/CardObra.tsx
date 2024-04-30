@@ -5,12 +5,12 @@ import Link from "next/link";
 
 const CardObra = ({post, width}) => {
     const { nombreDeObra, descripcionCorta, imagenDestacada, categoria, tag, subtitle,obraDestacada, slug} = post.fields
-    return <Link href={`http://localhost:3000/proyectos/${slug}`}>
+    return <Link className='w-full md:grow md:shrink md:basis-1/3 md:max-w-[50%]' href={`http://localhost:3000/proyectos/${slug}`}>
            { width == "full" ?
-            (<div key={post.sys.id} className=" rounded-lg p-2 w-fit md:w-64 lg:w-64 card">
-                <figure className="rounded-lg relative w-full h-52 overflow-hidden">
+            (<div key={post.sys.id} className=" rounded-lg p-2 w-full card">
+                <figure className=" card-figure rounded-lg relative overflow-hidden sm:max-h-96 w-full">
                     <p className=" text-xs absolute px-3 py-1 m-2 bg-white rounded-full">{categoria.fields.nombreCategoria}</p>
-                    <img src={imagenDestacada.fields.file.url} width={400} height={400} alt={nombreDeObra} />
+                    <img src={imagenDestacada.fields.file.url} alt={nombreDeObra}/>
                 </figure>
                 <div className=" top-0 py-2 flex flex-row justify-between">
                     <div>

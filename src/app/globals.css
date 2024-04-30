@@ -12,7 +12,7 @@
   --primary-font: 'Raleway', sans-serif;
 }
 
-@media (prefers-color-scheme: dark) {
+@media () {
   :root {
     --foreground-rgb: 255, 255, 255;
     --background-start-rgb: 0, 0, 0;
@@ -32,6 +32,7 @@ body {
 .card{
   background-color: white!important;
   border: 1px solid #F7F6F5;
+  flex-shrink: 1;
 }
 
 .card:hover{
@@ -40,17 +41,21 @@ body {
  
 }
 
+.card-figure img{
+  width: 100%;
+}
+
 .inner {
   position: relative;
-  overflow: inherit;
-  position: relative;
+  overflow: hidden;
+  
   height: 20rem;
 }
-.inner::before {
+/* .inner::before {
   content: "";
   height: 100%;
   width: 350px;
-  transform: translateX(-230px);
+  transform: translateX(-430px);
   background: linear-gradient(-90deg, rgba(255, 255, 255, 0) 0%, #F7F6F5 70%);
   display: block;
   z-index: 999;
@@ -61,13 +66,13 @@ body {
   content: "";
   height: 100%;
   width: 350px;
-  transform: translateX(950px);
+  transform: translateX(1050px);
   background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, #F7F6F5 70%);
   display: block;
   z-index: 999;
   position: absolute;
 
-}
+} */
 
 .wrapper {
   position: absolute;
