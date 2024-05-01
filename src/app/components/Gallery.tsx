@@ -5,7 +5,7 @@ import CardObra from "./CardObra";
 
 const Gallery = ({data}) => {
     const [filtroCategoria, setFiltroCategoria] = useState(null);
-    const [tarjetasFiltradas, setTarjetasFiltradas] = useState([]);
+    const [tarjetasFiltradas, setTarjetasFiltradas] = useState(data);
 
     useEffect(() => {
         if (!filtroCategoria) {
@@ -21,8 +21,8 @@ const Gallery = ({data}) => {
     };
     return (
     <>
-       <section className=" w-full flex flex-col ">
-        <h2 className="w-full m-0 text-3xl font-medium ">Nuestras obras</h2>
+       <section className=" w-full flex flex-col md:px-12 ">
+        <h2 className="w-full m-0 md:text-2xl text-gray-700 ">Todas las obras</h2>
         <div className="flex gap-2 mt-2 mb-2">
         <button
           className={`btn ${filtroCategoria === null ? 'btn-active' : ''}`}
@@ -52,7 +52,7 @@ const Gallery = ({data}) => {
         
         <div className=" flex gap-2 flex-wrap">
           {tarjetasFiltradas.map((post, i) => (
-              <CardObra width="full" key={post.fields.slug} post={post}/>
+              <CardObra key={post.fields.slug} post={post}/>
           ))}
         </div>
       </section>

@@ -5,7 +5,7 @@ const ObraDestacada = ({post}) => {
     const { nombreDeObra, descripcionCorta, imagenDestacada, categoria, tag, subtitle,obraDestacada, slug} = post.fields
     return (
         obraDestacada ?
-            (<CardObra post={post}/>)
+            (<CardObra size="small" post={post}/>)
             :
             null
     )

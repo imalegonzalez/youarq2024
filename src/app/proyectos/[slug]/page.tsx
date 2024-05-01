@@ -9,13 +9,13 @@ export default async function PostObra({ params }) {
   })
   
   const { nombreDeObra, descripcionCorta, imagenDestacada, categoria, tag, subtitle,obraDestacada, slug, fotosDurante } = res.items[0].fields
-  console.log(res.items[0].fields.descripcionLarga.content)
+  // console.log(res.items[0].fields.descripcionLarga.content)
   return (
     <>
-    <section className="">
-    <button onClick={router}>Back</button>
-    <p>Nombre del Proyecto</p>
-  </section>
+      <section className="">
+        <button >Back</button>
+        <p>Nombre del Proyecto</p>
+      </section>
     <section className="p-3">
       <div className="flex flex-col w-full bg-white p-6 rounded-md">
         <h1 className="flex max-w-full">{nombreDeObra}</h1>
@@ -26,7 +26,7 @@ export default async function PostObra({ params }) {
               <p className=" inline-block text-xs px-2 py-1 mr-1 mt-1 bg-slate-500 rounded-full text-white">{tag}</p>
             ))}
         </div>
-    </div>
+      </div>
     </section>
     </>
   )
