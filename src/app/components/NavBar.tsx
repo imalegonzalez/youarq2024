@@ -13,53 +13,54 @@ import {
 } from "@/app/components/shadcn/navigation-menu"
 import { cn } from "@/lib/utils"
 import Link from "next/link";
+import { useEffect, useState } from "react";
 
 const components = [
   {
     title: "Cocinas",
-    href: "/docs/primitives/alert-dialog",
+    href: "/",
     description:
       "A modal dialog that interrupts the user with important content and expects a response.",
   },
   {
     title: "Baños",
-    href: "/docs/primitives/alert-dialog",
+    href: "/",
     description:
       "A modal dialog that interrupts the user with important content and expects a response.",
   },
   {
     title: "Lavaderos",
-    href: "/docs/primitives/alert-dialog",
+    href: "/",
     description:
       "A modal dialog that interrupts the user with important content and expects a response.",
   },
   {
     title: "Dormitorios",
-    href: "/docs/primitives/alert-dialog",
+    href: "/",
     description:
       "A modal dialog that interrupts the user with important content and expects a response.",
   },
   {
     title: "Toda la casa",
-    href: "/docs/primitives/alert-dialog",
+    href: "/",
     description:
       "A modal dialog that interrupts the user with important content and expects a response.",
   },
   {
     title: "Ampliaciones",
-    href: "/docs/primitives/alert-dialog",
+    href: "/",
     description:
       "A modal dialog that interrupts the user with important content and expects a response.",
   },
   {
     title: "Estructural",
-    href: "/docs/primitives/alert-dialog",
+    href: "/",
     description:
       "A modal dialog that interrupts the user with important content and expects a response.",
   },
   {
     title: "Exterior",
-    href: "/docs/primitives/alert-dialog",
+    href: "/",
     description:
       "A modal dialog that interrupts the user with important content and expects a response.",
   },
@@ -92,49 +93,90 @@ const NavBar = () => {
   const pathname = usePathname()
   // Verifica si la ruta actual comienza con '/proyectos/'
   const showNavbar = !pathname.startsWith('/proyectos/');
+  const [isOpen, setIsOpen] = useState(false)
+  const [serviceIsOpen, setServiceIsOpen] = useState(false)
+
+  const handleOpen = (e) => {
+    e.preventDefault()
+    setIsOpen((open) => !open)
+    setServiceIsOpen((open) => false)
+    console.log(isOpen)
+  }
+
+  const handleOpenServices = (e) => {
+    setServiceIsOpen((open) => !open)
+    console.log(serviceIsOpen)
+  }
+
+  useEffect(() => {
+    setIsOpen((open) => false)
+    setServiceIsOpen((open) => false)
+  }, [pathname])
+  
 
   if(!showNavbar){
     return null
   }
   return (
     <>
-      <section className="h-20 px-3 md:px-14 flex w-full fixed z-10 bg-white justify-between items-center ">
-        <p className=" font-bold">Youarq</p>
-        <div className=" gap-20 font-normal text-sm flex hidden md:block">
-          <NavigationMenu>
-            <NavigationMenuList className=" gap-4 font-normal text-sm flex">
-            <NavigationMenuItem>
-                <NavigationMenuLink><Link href="/" className=" rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">Cómo trabajamos</Link></NavigationMenuLink> 
-              </NavigationMenuItem>
-              <NavigationMenuItem>
-                <NavigationMenuTrigger>Servicios</NavigationMenuTrigger>
-                  <NavigationMenuContent>
-                    <ul className="grid w-[200px] gap-1  p-4 md:w-[200px] md:grid-cols-2 lg:w-[400px] ">
-                      {components.map((component) => (
-                        <ListItem
-                          key={component.title}
-                          title={component.title}
-                          href={component.href}
-                        >
-                        
-                        </ListItem>
-                      ))}
-                    </ul>
-                </NavigationMenuContent>
-              </NavigationMenuItem>
-              <NavigationMenuItem>
-                <Link href="/" className=" rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">Nuestras obras</Link> 
-              </NavigationMenuItem>
-              <NavigationMenuItem>
-                <NavigationMenuLink><Link href="/" className=" rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">Diseños</Link></NavigationMenuLink> 
-              </NavigationMenuItem>
-            </NavigationMenuList>
-          </NavigationMenu>
+      <section className=" md:flex-row md:w-full md:px-3 flex wrap flex-col fixed z-10 bg-white justify-between items-center ">
+        <div className="menu-header">
+          <p className="flex font-bold items-center">Youarq</p>
+          <a onClick={handleOpen} className="menu_trigger" href="/">Menu</a>
+        </div>
+        <div className={`menu__bar ${isOpen ? "is-open" : ""}`}>
+          <div className="md:gap-5 font-normal text-sm menu_wrapper ">
+            <div className="item-wrapper">
+              <Link href="/" className=" rounded-md p-4 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">Cómo trabajamos</Link>
+              <NavigationMenu className=" hidden md:flex">
+                <NavigationMenuList className="font-normal md:text-sm flex">
+                  <NavigationMenuItem>
+                    <NavigationMenuTrigger className="triggerServicios">Remodelaciones</NavigationMenuTrigger>
+                      <NavigationMenuContent>
+                        <ul className="grid w-[200px] gap-1  p-4 md:w-[200px] md:grid-cols-2 lg:w-[400px] ">
+                          {components.map((component) => (
+                            <ListItem
+                              key={component.title}
+                              title={component.title}
+                              href={component.href}
+                            >
+                            
+                            </ListItem>
+                          ))}
+                        </ul>
+                    </NavigationMenuContent>
+                  </NavigationMenuItem>
+                </NavigationMenuList>
+              </NavigationMenu>
+              <span onClick={handleOpenServices} className="flex justify-between rounded-md p-4 leading-none no-underline outline-none transition-colors md:hidden hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"><p>Servicios</p><p>{">"}</p></span>
+              {(serviceIsOpen ? 
+                  <div className={`servicesMenu ${serviceIsOpen ? "is-open" : ""}`}>
+                    <div className=" text-slate-500 text-[20px]" onClick={handleOpenServices}><h3>{"<"} {"Volver"}</h3></div>
+                  <ul className="w-[60%]">
+                   
+                            {components.map((component) => (
+                              <li
+                                key={component.title}
+                                
+                              >
+                                <a href={component.href}>
+                                {component.title}
+                                </a>
+                              </li>
+                            ))}
+                  </ul>
+                </div>
+              :null)}
+              <Link href="/proyectos" className=" rounded-md p-4 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">Nuestras obras</Link>               
+              <Link href="/" className=" rounded-md p-4 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">Diseños</Link>
+            </div>
+            <div className="gap-3 text-sm flex cta">
+                <a className=" px-8 py-4 md:px-4 md:py-2 md:content-center rounded-xl text-white bg-[#EC6956] w-full text-center" href="">Pedí un presupuesto</a>
+            </div>
+          </div>
         </div>
         
-        <div className=" gap-3 text-sm flex">
-          <a className=" px-8 py-3 rounded-xl text-white bg-[#EC6956]" href="">Pedí un presupuesto</a>
-        </div>
+        
       </section>
     </>
    

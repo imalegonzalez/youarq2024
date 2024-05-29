@@ -1,19 +1,12 @@
 
-import Image from "next/image";
 import {client} from "../lib/contentful/client"
 import InfiniteScroll from "../components/InfiniteScroll";
-import CardObra from '../components/CardObra';
-import { useState } from "react";
 import Gallery from "../components/Gallery";
-
 
 // posts will be populated at build time by getStaticProps()
 export default async function Home() {
   const data = await getData();
   // console.log(data[1].fields.categoria.fields.nombreCategoria)
-  
-
-
 
   return (
     <div className=" w-full  px-3 py-10 mt-10 ">
@@ -28,7 +21,6 @@ export default async function Home() {
   )
 }
  
-
 export async function getData() {
   const res = await client.getEntries({ content_type: 'obra' })
   return res.items

@@ -1,3 +1,4 @@
+
 import type { Metadata } from "next";
 import { Inter, Raleway } from "next/font/google";
 import "./globals.css";
@@ -5,6 +6,7 @@ import "./globals.css";
 import '@fortawesome/fontawesome-svg-core/styles.css';
 import { config } from '@fortawesome/fontawesome-svg-core';
 import Navbar from "./components/NavBar";
+import { Toaster } from "@/components/ui/toaster"
 config.autoAddCss = false; // Evita la inyección automática de CSS
 
 const raleway = Raleway({ subsets: ["latin"] });
@@ -27,6 +29,7 @@ export default function RootLayout({
       <body className={raleway.className}>
         <Navbar/>
         {children}
+        <Toaster />
       </body>
     </html>
   );
