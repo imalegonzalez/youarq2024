@@ -50,7 +50,7 @@ const Gallery = ({data}) => {
         </button>
       </div>
         
-        <div className=" flex gap-2 flex-wrap">
+        <div className=" grid md:grid-cols-3 gap-3 flex-wrap">
           {tarjetasFiltradas.map((post, i) => (
               <CardObra key={post.fields.slug} post={post}/>
           ))}

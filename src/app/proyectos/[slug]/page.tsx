@@ -53,7 +53,7 @@ export default async function PostObra({ params }) {
   return (
     <div className="bg-[#F7F6F5] p-1 obraSection">
       <div className="horizontal-scroll-wrapper">
-        <nav className="flex w-full bg-[--primary] rounded-xl justify-between px-2 text-white">
+        <nav className="flex w-full bg-[--primary] rounded-xl justify-between p-3 text-white">
           <Link href="/proyectos" className="p-2 rounded-full text-white">
             <FontAwesomeIcon className="" icon={faArrowLeft} />
           </Link>
@@ -62,7 +62,7 @@ export default async function PostObra({ params }) {
         </nav>
         <div className="">
           <div className="">
-            <div className="">
+            <div className="gap-4 flex flex-col">
               <ObraSection
                 subtitle={subtitle}
                 nombreDeObra={nombreDeObra}
@@ -82,21 +82,33 @@ export default async function PostObra({ params }) {
                 descripcionDespues={descripcionDespues}
                 fotosDespues={fotosDespues}
               />
-              <div className="flex w-full flex-shrink">
+              <div className="flex w-full gap-4 ">
                 <ObraSection
                   disenador={disenador}
                   directorDeObra={directorDeObra}
                 />
-                <div className="">
-                  {nextProyecto && (
-                    <div>
-                      <p>{nextProyecto.fields.nombreDeObra}</p>
-                      <Link href={`/proyectos/${nextProyecto.fields.slug}`}>
-                        <button>Siguiente obra</button>
-                      </Link>
+                {nextProyecto && (
+                  <Link href={`/proyectos/${nextProyecto.fields.slug}`}>
+                    <div cßlassName="flex justify-start bg-orange-500 rounded-xl mt-1 flex-grow overflow-hidden">
+                      <div className="flex w-full">
+                        <div className=" max-w-56">
+                          <img
+                            className=" w-full"
+                            src={
+                              nextProyecto.fields.imagenDestacada.fields.file
+                                .url
+                            }
+                            alt=""
+                          />
+                        </div>
+                        <div className="w-full">
+                          <p>{nextProyecto.fields.nombreDeObra}</p>
+                          <button>Siguiente obra</button>
+                        </div>
+                      </div>
                     </div>
-                  )}
-                </div>
+                  </Link>
+                )}
               </div>
             </div>
           </div>

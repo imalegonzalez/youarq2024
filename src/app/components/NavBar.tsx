@@ -11,6 +11,7 @@ import {
   NavigationMenuViewport,
   navigationMenuTriggerStyle,
 } from "@/app/components/shadcn/navigation-menu"
+
 import { cn } from "@/lib/utils"
 import Link from "next/link";
 import { useEffect, useState } from "react";
@@ -119,19 +120,19 @@ const NavBar = () => {
   }
   return (
     <>
-      <section className=" md:flex-row md:w-full md:px-3 flex wrap flex-col fixed z-10 bg-white justify-between items-center ">
+      <section className=" md:flex-row  md:w-full md:px-3 flex wrap flex-col fixed z-10 bg-white justify-between items-center ">
         <div className="menu-header">
           <p className="flex font-bold items-center">Youarq</p>
           <a onClick={handleOpen} className="menu_trigger" href="/">Menu</a>
         </div>
         <div className={`menu__bar ${isOpen ? "is-open" : ""}`}>
           <div className="md:gap-5 font-normal text-sm menu_wrapper ">
-            <div className="item-wrapper">
-              <Link href="/" className=" rounded-md p-4 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">Cómo trabajamos</Link>
+            <div className="item-wrapper object-center items-center md:gap-2">
+              <Link href="/" className="group inline-flex h-10 w-max items-center justify-center rounded-md bg-background p-4 text-sm transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-accent/50 data-[state=open]:bg-accent/50 md:rounded-md md:p-4  md:leading-none md:no-underline md:outline-none md:transition-colors md:hover:bg-accent md:hover:text-accent-foreground md:focus:bg-accent md:focus:text-accent-foreground">Cómo trabajamos</Link>
               <NavigationMenu className=" hidden md:flex">
-                <NavigationMenuList className="font-normal md:text-sm flex">
+                <NavigationMenuList className="">
                   <NavigationMenuItem>
-                    <NavigationMenuTrigger className="triggerServicios">Remodelaciones</NavigationMenuTrigger>
+                    <NavigationMenuTrigger>Remodelaciones</NavigationMenuTrigger>
                       <NavigationMenuContent>
                         <ul className="grid w-[200px] gap-1  p-4 md:w-[200px] md:grid-cols-2 lg:w-[400px] ">
                           {components.map((component) => (
@@ -167,8 +168,8 @@ const NavBar = () => {
                   </ul>
                 </div>
               :null)}
-              <Link href="/proyectos" className=" rounded-md p-4 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">Nuestras obras</Link>               
-              <Link href="/" className=" rounded-md p-4 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">Diseños</Link>
+              <Link href="/proyectos" className="group inline-flex h-10 w-max items-center justify-center rounded-md bg-background p-4 text-sm transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-accent/50 data-[state=open]:bg-accent/50 md:rounded-md md:p-4  md:leading-none md:no-underline md:outline-none md:transition-colors md:hover:bg-accent md:hover:text-accent-foreground md:focus:bg-accent md:focus:text-accent-foreground">Nuestras obras</Link>               
+              <Link href="/" className=" group inline-flex h-10 w-max items-center justify-center rounded-md bg-background p-4 text-sm transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-accent/50 data-[state=open]:bg-accent/50 md:rounded-md md:p-4  md:leading-none md:no-underline md:outline-none md:transition-colors md:hover:bg-accent md:hover:text-accent-foreground md:focus:bg-accent md:focus:text-accent-foreground">Diseños</Link>
             </div>
             <div className="gap-3 text-sm flex cta">
                 <a className=" px-8 py-4 md:px-4 md:py-2 md:content-center rounded-xl text-white bg-[#EC6956] w-full text-center" href="">Pedí un presupuesto</a>

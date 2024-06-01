@@ -5,15 +5,19 @@ const ObraSection = (props) => {
     return (
       <section className="p-5 flex flex-col rounded-xl mt-1 bg-white ">
         <div className="flex flex-wrap justify-between w-full bg-white rounded-md md:flex-nowrap  ">
-          <div className=" py-10 md:min-w-[40%] md:h-fit md:sticky md:top-[calc(100vh-70%)] md:flex-col">
-            <h3 className="text-md text-gray-400">{props.subtitle}</h3>
-            <h1 className="text-3xl font-bold mt-2">{props.nombreDeObra}</h1>
+          <div className=" py-10 md:min-w-[50%] md:p-16 md:h-fit md:sticky md:top-[calc(100vh-70%)] md:flex-col">
+            <h3 className="text-xl text-gray-400">{props.subtitle}</h3>
+            <h1 className="text-7xl font-bold mt-2 md:mt-10">{props.nombreDeObra}</h1>
             <p className="mb-3 text-lg flex mt-2 text-gray-600 flex-row md:max-w-3xl">
               {props.descripcionCorta}
+              {props.descripcionCorta}
+              {props.descripcionCorta}
+              {props.descripcionCorta}
+              {props.descripcionCorta}
             </p>
-            <div className="flex gap-1 text-sm text-slate-600">
+            <div className="flex gap-1 text-sm text-slate-600 flex-wrap w-full ">
               {props.tag.map((tag) => (
-                <p className=" px-3 py-1 bg-slate-200 rounded-full">{tag}</p>
+                <p className=" px-3 py-1 bg-slate-100 capitalize rounded-full">{tag}</p>
               ))}
             </div>
           </div>
@@ -31,9 +35,9 @@ const ObraSection = (props) => {
   if (props.fotosAntes) {
     return (
       <section className="flex justify-end flex-col bg-white rounded-xl mt-1 p-5 md:flex-row">
-        <div className="py-10 md:min-w-[50%] md:flex md:h-fit  md:content-center md:sticky md:top-[calc(100vh-50%)] md:flex-col">
-          <h4 className="text-3xl font-bold mt-2">Primeros pasos</h4>
-          <p className=" max-w-4xl mt-2">{props.descripcionAntes}</p>
+        <div className="py-10 md:min-w-[50%] md:p-16 md:flex md:h-fit  md:content-center md:sticky md:top-[calc(100vh-70%)] md:flex-col">
+          <h4 className="text-5xl font-bold mt-2">Primeros pasos</h4>
+          <p className="mb-3 text-lg flex mt-2 text-gray-600 flex-row md:max-w-3xl">{props.descripcionAntes}{props.descripcionAntes}{props.descripcionAntes}{props.descripcionAntes}{props.descripcionAntes}</p>
         </div>
         <div className="gap-2 flex flex-col">
           <h3 className="text-xl font-bold mb-2 ">Fotos del Antes</h3>
@@ -53,9 +57,9 @@ const ObraSection = (props) => {
   if (props.fotosDurantes) {
     return (
       <section className="flex justify-end flex-col bg-white rounded-xl mt-1 p-5  md:flex-row">
-        <div className="py-10 md:min-w-[50%] md:flex md:h-fit  md:content-center md:sticky md:top-[calc(100vh-50%)] md:flex-col">
-          <h4 className="text-3xl font-bold mt-2">En la obra</h4>
-          <p className=" max-w-4xl mt-2">{props.descripcionDurante}</p>
+        <div className="py-10 md:min-w-[50%] md:p-16 md:flex md:h-fit  md:content-center md:sticky md:top-[calc(100vh-70%)] md:flex-col">
+          <h4 className="text-5xl font-bold mt-2">En la obra</h4>
+          <p className=" mb-3 text-lg flex mt-2 text-gray-600 flex-row md:max-w-3xl">{props.descripcionDurante}{props.descripcionDurante}{props.descripcionDurante}{props.descripcionDurante}{props.descripcionDurante}{props.descripcionDurante}</p>
         </div>
         <div className="gap-2 flex flex-col">
           <h3 className="text-xl font-bold mb-2 ">Fotos Durante</h3>
@@ -76,9 +80,9 @@ const ObraSection = (props) => {
     console.log(props.fotosDespues);
     return (
       <section className="flex flex-col  bg-white rounded-xl mt-1  p-5 md:flex-row">
-        <div className="py-10 max-w-4xl flex flex-col justify-center md:min-w-[50%] md:flex md:h-fit  md:content-center md:sticky md:top-[calc(100vh-50%)] md:flex-col">
-          <h4 className="text-3xl font-bold mt-2">Resultado</h4>
-          <p className=" max-w-4xl mt-2">{props.descripcionDespues}</p>
+        <div className="py-10 max-w-4xl flex flex-col justify-center md:min-w-[50%] md:p-16 md:flex md:h-fit  md:content-center md:sticky md:top-[calc(100vh-70%)] md:flex-col">
+          <h4 className="text-5xl font-bold mt-2">Resultado</h4>
+          <p className="mb-3 text-lg flex mt-2 text-gray-600 flex-row md:max-w-3xl">{props.descripcionDespues}{props.descripcionDespues}</p>
         </div>
         <div className="gap-2 flex flex-col">
           <h3 className="text-xl font-bold mb-2 ">Fotos Despues</h3>
@@ -97,7 +101,7 @@ const ObraSection = (props) => {
 
   if (props.disenador && props.directorDeObra) {
     return (
-      <section className="flex gap-10 bg-white rounded-xl mt-1 p-5 justify-start items-center py-10">
+      <section className="flex gap-10 bg-white rounded-xl mt-1 p-5 py-10 justify-around min-w-[70%]">
         <div>
           <h3>Diseñador</h3>
           <p className="text-xl font-bold">
