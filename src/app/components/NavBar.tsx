@@ -91,8 +91,8 @@ const ListItem = (({ className, title, children, href, ...props }) => {
 
 const NavBar = () => {
   const pathname = usePathname()
-  // Verifica si la ruta actual comienza con '/proyectos/'
-  const showNavbar = !pathname.startsWith('/proyectos/');
+  // Verifica si la ruta actual coincide con las rutas especificadas
+  const dontShowNavbar = pathname.startsWith('/proyectos/') || pathname.startsWith('/estimado');
   const [isOpen, setIsOpen] = useState(false)
   const [serviceIsOpen, setServiceIsOpen] = useState(false)
 
@@ -114,7 +114,7 @@ const NavBar = () => {
   }, [pathname])
   
 
-  if(!showNavbar){
+  if(dontShowNavbar){
     return null
   }
   return (
@@ -171,7 +171,10 @@ const NavBar = () => {
               <Link href="/" className=" rounded-md p-4 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">Diseños</Link>
             </div>
             <div className="gap-3 text-sm flex cta">
-                <a className=" px-8 py-4 md:px-4 md:py-2 md:content-center rounded-xl text-white bg-[#EC6956] w-full text-center" href="">Pedí un presupuesto</a>
+                <Link href="/asesoramiento" className=" px-8 py-4 md:px-4 md:py-2 md:content-center rounded-xl text-white bg-[#EC6956] w-full text-center" >
+                
+                <p>Pedí un presupuesto</p>
+                </Link>
             </div>
           </div>
         </div>
