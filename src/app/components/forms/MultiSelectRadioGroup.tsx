@@ -26,9 +26,9 @@ export default function MultiSelectRadioGroup() {
       <CardHeader>
         <div className="flex items-center justify-between">
           <CardTitle className="text-2xl font-bold">Select your interests</CardTitle>
-          <SparklesIcon className="h-6 w-6 text-primary" />
+         
         </div>
-        <CardDescription>Choose the topics you're most interested in.</CardDescription>
+        <CardDescription>Choose the topics youre most interested in.</CardDescription>
       </CardHeader>
       <CardContent>
         <div className="grid gap-4">
