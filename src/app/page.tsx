@@ -3,6 +3,7 @@ import { client } from "./lib/contentful/client";
 import InfiniteScroll from "./components/InfiniteScroll";
 import CardObra from "./components/CardObra";
 
+// Data fetching function
 async function fetchData() {
   const res = await client.getEntries({ content_type: "obra" });
   return res.items;
