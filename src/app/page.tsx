@@ -9,7 +9,11 @@ export default async function Home() {
   const data = await getData();
   // console.log(data[1].fields)
 
-
+ async function getData() {
+"use server"
+  const res = await client.getEntries({ content_type: 'obra' })
+  return res.items
+}
 
   return (
     <div className=" px-1 w-full  ">
