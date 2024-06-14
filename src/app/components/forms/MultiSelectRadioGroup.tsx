@@ -16,7 +16,7 @@ export default function MultiSelectRadioGroup() {
 
   const interests = [
     { value: 'technology', label: 'Technology', description: 'Software, hardware, AI, and more.', Icon: CodeIcon },
-    { value: 'design', label: 'Design', description: 'UI, UX, graphic design, and more.', Icon: }BrushIcon },
+    { value: 'design', label: 'Design', description: 'UI, UX, graphic design, and more.', Icon: BrushIcon },
     { value: 'business', label: 'Business', description: 'Entrepreneurship, finance, marketing, and more.', Icon: BriefcaseIcon },
     { value: 'lifestyle', label: 'Lifestyle', description: 'Health, fitness, travel, and more.', Icon: ApertureIcon },
   ];
