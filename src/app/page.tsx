@@ -10,7 +10,6 @@ export default async function Home() {
   // console.log(data[1].fields)
 
  async function getData() {
-"use server"
   const res = await client.getEntries({ content_type: 'obra' })
   return res.items
 }
