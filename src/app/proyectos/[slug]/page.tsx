@@ -91,6 +91,10 @@ export default async function PostObra({ params }) {
                   <Link href={`/proyectos/${nextProyecto.fields.slug}`}>
                     <div cßlassName="flex justify-start bg-orange-500 rounded-xl mt-1 flex-grow overflow-hidden">
                       <div className="flex w-full">
+                        <div className="w-full">
+                          <p>{nextProyecto.fields.nombreDeObra}</p>
+                          <button>Siguiente obra</button>
+                        </div>
                         <div className=" max-w-56">
                           <img
                             className=" w-full"
@@ -100,10 +104,6 @@ export default async function PostObra({ params }) {
                             }
                             alt=""
                           />
-                        </div>
-                        <div className="w-full">
-                          <p>{nextProyecto.fields.nombreDeObra}</p>
-                          <button>Siguiente obra</button>
                         </div>
                       </div>
                     </div>

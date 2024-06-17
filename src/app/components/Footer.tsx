@@ -1,9 +1,18 @@
+"use client"
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import Balancer from 'react-wrap-balancer';
 
 
 export default function Footer() {
+  const pathname = usePathname()
+  // Verifica si la ruta actual coincide con las rutas especificadas
+  const dontShowNavbar = pathname.startsWith('/proyectos/') || pathname.startsWith('/estimado');
+
+  if(dontShowNavbar){
+    return null
+  }
   return (
       <section className=" p-20 bg-white flex flex-col">
         <div className="grid md:grid-cols-[1.5fr_0.5fr_0.5fr] gap-12">

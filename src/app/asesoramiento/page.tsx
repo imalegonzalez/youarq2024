@@ -14,11 +14,14 @@ export default async function Asesoramiento() {
       <h1 className="text-3xl font-medium mb-4">¿Cómo te gustaría empezar?</h1>
       <div className="md:w-3/5 md:flex-row w-full flex flex-col justify-center align-middle gap-5 ">
         <Card className="md:w-1/2 flex flex-col justify-center items-center">
-            <CardHeader>
+            {/* <CardHeader>
             <CardTitle>Quiero un estimado de obra</CardTitle>
             <CardDescription></CardDescription>
-            </CardHeader>
+            </CardHeader> */} 
             <CardContent  className="text-center">
+              <h1 className="">
+              Quiero un estimado de obra
+              </h1>
             <p>Responde algunas preguntas sobre tu remodelación para poder brindarte un estimado de cuando podría salir</p>
             </CardContent>
             <CardFooter className="w-full">
