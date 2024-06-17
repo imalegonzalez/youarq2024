@@ -4,9 +4,10 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "tsc --project tsconfig.build.json && next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "prebuild": "npx eslint . --fix"
   },
   "dependencies": {
     "@contentful/rich-text-react-renderer": "^15.19.4",

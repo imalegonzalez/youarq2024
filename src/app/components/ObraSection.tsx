@@ -16,8 +16,8 @@ const ObraSection = (props) => {
               {props.descripcionCorta}
             </p>
             <div className="flex gap-1 text-sm text-slate-600 flex-wrap w-full ">
-              {props.tag.map((tag) => (
-                <p className=" px-3 py-1 bg-slate-100 capitalize rounded-full">{tag}</p>
+              {props.tag.map((tag,index) => (
+                <p key={index} className=" px-3 py-1 bg-slate-100 capitalize rounded-full">{tag}</p>
               ))}
             </div>
           </div>
@@ -43,7 +43,7 @@ const ObraSection = (props) => {
           <h3 className="text-xl font-bold mb-2 ">Fotos del Antes</h3>
           <div className="grid gap-5">
             {props.fotosAntes.map((foto, i) => (
-              <AdaptativeImagen
+              <AdaptativeImagen key={i}
                 src={foto.fields.file.url}
                 alt={`Foto antes ${i}`}
               />
@@ -65,7 +65,7 @@ const ObraSection = (props) => {
           <h3 className="text-xl font-bold mb-2 ">Fotos Durante</h3>
           <div className="grid gap-5">
             {props.fotosDurantes.map((foto, i) => (
-              <AdaptativeImagen
+              <AdaptativeImagen key={i}
                 src={foto.fields.file.url}
                 alt={`Foto antes ${i}`}
               />
@@ -88,7 +88,7 @@ const ObraSection = (props) => {
           <h3 className="text-xl font-bold mb-2 ">Fotos Despues</h3>
           <div className="grid gap-5">
             {props.fotosDespues.map((foto, i) => (
-              <AdaptativeImagen
+              <AdaptativeImagen key={i}
                 src={foto.fields.file.url}
                 alt={`Foto antes ${i}`}
               />

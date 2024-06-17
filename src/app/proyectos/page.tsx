@@ -3,6 +3,11 @@ import {client} from "../lib/contentful/client"
 import InfiniteScroll from "../components/InfiniteScroll";
 import Gallery from "../components/Gallery";
 
+async function getData() {
+  const res = await client.getEntries({ content_type: 'obra' })
+  return res.items
+}
+
 // posts will be populated at build time by getStaticProps()
 export default async function Home() {
   const data = await getData();
@@ -19,9 +24,4 @@ export default async function Home() {
       
     </div>
   )
-}
- 
-export async function getData() {
-  const res = await client.getEntries({ content_type: 'obra' })
-  return res.items
 }
