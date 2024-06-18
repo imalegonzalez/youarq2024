@@ -4,6 +4,14 @@ import CardObra from "./ObraDestacada";
 import {client} from "../lib/contentful/client"
 import ObraDestacada from "./ObraDestacada";
 
+interface CustomCSSProperties extends React.CSSProperties {
+    '--speed'?: string | number;
+  }
+  
+  const styles: CustomCSSProperties = {
+    '--speed': '2s',
+  };
+
 const InfiniteScroll = ({post, speed=25000, data}) => {
     // const data = getData();
     return (
