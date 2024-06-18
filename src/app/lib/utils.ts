@@ -1,3 +1,5 @@
+import { client } from './contentful/client';
+
 async function getProyectoData(slug) {
     const res = await client.getEntries({
       content_type: "obra",

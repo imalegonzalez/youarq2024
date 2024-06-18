@@ -67,8 +67,14 @@ const components = [
   },
   
 ]
+interface ListItemProps {
+  className?: string;
+  title: string;
+  children?: React.ReactNode;
+  href: string;
+}
 
-const ListItem = (({ className, title, children, href, ...props }) => {
+const ListItem: React.FC<ListItemProps> = (({ className, title, children, href, ...props }) => {
   return (
     <li>
       <NavigationMenuLink>

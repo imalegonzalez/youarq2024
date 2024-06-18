@@ -39,6 +39,7 @@ interface CardObraProps {
   post: Post;
   width?: number;
   size?: "small" | "large";
+  obra: any;
 }
 
 const CardObra: React.FC<CardObraProps> = ({ post, width, size }) => {

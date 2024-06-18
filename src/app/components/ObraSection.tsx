@@ -25,6 +25,7 @@ const ObraSection = (props) => {
             <AdaptativeImagen
               src={props.imagenDestacada.fields.file.url}
               alt={props.nombreDeObra}
+              className=""
             />
           </div>
         </div>

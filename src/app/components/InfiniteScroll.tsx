@@ -3,8 +3,9 @@
 import CardObra from "./ObraDestacada";
 import {client} from "../lib/contentful/client"
 import ObraDestacada from "./ObraDestacada";
+import { CSSProperties } from 'react';
 
-interface CustomCSSProperties extends React.CSSProperties {
+interface CustomCSSProperties extends CSSProperties {
     '--speed'?: string | number;
   }
   

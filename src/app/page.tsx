@@ -10,17 +10,22 @@ async function fetchData() {
   return res.items;
 }
 
+interface CardObraProps {
+  obra: any;
+  // otras propiedades
+}
+
 export default async function Home() {
-  // const data = await getAllObras();
+  const data = await getAllObras();
 
   return (
     <div className="px-1 w-full">
       <h2 className="text-2xl my-3 font-bold">home</h2>
-      {/* {data.map((item, index) => (
+      {data.map((item, index) => (
         <div key={index} className="my-4">
           <CardObra obra={item} />
         </div>
-      ))} */}
+      ))}
     </div>
   );
 }

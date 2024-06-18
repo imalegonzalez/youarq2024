@@ -89,7 +89,7 @@ export default async function PostObra({ params }) {
                 />
                 {nextProyecto && (
                   <Link href={`/proyectos/${nextProyecto.fields.slug}`}>
-                    <div cßlassName="flex justify-start bg-orange-500 rounded-xl mt-1 flex-grow overflow-hidden">
+                    <div className="flex justify-start bg-orange-500 rounded-xl mt-1 flex-grow overflow-hidden">
                       <div className="flex w-full">
                         <div className="w-full">
                           <p>{nextProyecto.fields.nombreDeObra}</p>
