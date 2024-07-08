@@ -16,14 +16,14 @@ interface CardObraProps {
 }
 
 export default async function Home() {
-  const data = await getAllObras();
+  const data = await fetchData();
 
   return (
     <div className="px-1 w-full">
       <h2 className="text-2xl my-3 font-bold">home</h2>
       {data.map((item, index) => (
         <div key={index} className="my-4">
-          <CardObra obra={item} />
+          <CardObra post={item} />
         </div>
       ))}
     </div>
