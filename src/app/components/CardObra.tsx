@@ -1,46 +1,9 @@
+// src/app/components/CardObra.tsx
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import Link from "next/link";
-
-interface Categoria {
-  fields: {
-    nombreCategoria: string;
-  };
-}
-
-interface ImagenDestacada {
-  fields: {
-    file: {
-      url: string;
-    };
-  };
-}
-
-interface PostFields {
-  nombreDeObra: string;
-  descripcionCorta: string;
-  imagenDestacada: ImagenDestacada;
-  categoria: Categoria;
-  tag: string;
-  subtitle: string;
-  obraDestacada: boolean;
-  slug: string;
-}
-
-interface Post {
-  sys: {
-    id: string;
-  };
-  fields: PostFields;
-}
-
-interface CardObraProps {
-  post: Post;
-  width?: number;
-  size?: "small" | "large";
-  obra: any;
-}
+import { CardObraProps } from './types';
 
 const CardObra: React.FC<CardObraProps> = ({ post, width, size }) => {
   const {
@@ -58,7 +21,7 @@ const CardObra: React.FC<CardObraProps> = ({ post, width, size }) => {
     return (
       <Link
         className="w-[270px] md:grow md:shrink md:basis-1/4"
-        href={`http://localhost:3000/proyectos/${slug}`}
+        href={`/proyectos/${slug}`}
       >
         <div key={post.sys.id} className="rounded-lg bg-white card">
           <figure className="rounded-t-lg object-cover relative w-full h-52 overflow-hidden">
@@ -87,7 +50,7 @@ const CardObra: React.FC<CardObraProps> = ({ post, width, size }) => {
   return (
     <Link
       className="w-full md:grow md:shrink md:max-w-full"
-      href={`http://localhost:3000/proyectos/${slug}`}
+      href={`/proyectos/${slug}`}
     >
       <div key={post.sys.id} className="rounded-lg w-full card">
         <figure className="object-cover rounded-t-lg relative overflow-hidden h-80 sm:max-h-96 w-full">
@@ -113,5 +76,3 @@ const CardObra: React.FC<CardObraProps> = ({ post, width, size }) => {
 };
 
 export default CardObra;
-
-

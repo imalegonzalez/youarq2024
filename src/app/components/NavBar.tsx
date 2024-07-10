@@ -3,13 +3,11 @@ import { usePathname } from "next/navigation";
 import {
   NavigationMenu,
   NavigationMenuContent,
-  NavigationMenuIndicator,
   NavigationMenuItem,
   NavigationMenuLink,
   NavigationMenuList,
   NavigationMenuTrigger,
-  NavigationMenuViewport,
-  navigationMenuTriggerStyle,
+ 
 } from "@/app/components/shadcn/navigation-menu"
 
 import { cn } from "@/lib/utils"
@@ -103,14 +101,14 @@ const NavBar = () => {
   const [isOpen, setIsOpen] = useState(false)
   const [serviceIsOpen, setServiceIsOpen] = useState(false)
 
-  const handleOpen = (e) => {
+  const handleOpen = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
     e.preventDefault()
     setIsOpen((open) => !open)
     setServiceIsOpen((open) => false)
     console.log(isOpen)
   }
 
-  const handleOpenServices = (e) => {
+  const handleOpenServices = (e: React.MouseEvent<HTMLSpanElement, MouseEvent>) => {
     setServiceIsOpen((open) => !open)
     console.log(serviceIsOpen)
   }

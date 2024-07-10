@@ -2,18 +2,18 @@
 import { useEffect, useState } from "react";
 import CardObra from "./CardObra";
 
-const Gallery = ({data}) => {
+const Gallery = ({obras}) => {
     const [filtroCategoria, setFiltroCategoria] = useState(null);
-    const [tarjetasFiltradas, setTarjetasFiltradas] = useState(data);
+    const [tarjetasFiltradas, setTarjetasFiltradas] = useState(obras);
 
     useEffect(() => {
         if (!filtroCategoria) {
-        setTarjetasFiltradas(data);
+        setTarjetasFiltradas(obras);
         } else {
-        const tarjetasFiltradas = data.filter((post) => post.fields.categoria.fields.nombreCategoria === filtroCategoria);
+        const tarjetasFiltradas = obras.filter((post) => post.fields.categoria.fields.nombreCategoria === filtroCategoria);
         setTarjetasFiltradas(tarjetasFiltradas);
         }
-    }, [data, filtroCategoria]);
+    }, [obras, filtroCategoria]);
 
     const filtrarPorCategoria = (categoria) => {
         setFiltroCategoria(categoria);

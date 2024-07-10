@@ -20,7 +20,7 @@ export default function Footer() {
             <Link href="/">
               <h3 className="sr-only">brijr/components</h3>
               <Image
-                src={""}
+                src={"/"}
                 alt="Logo"
                 width={120}
                 height={27.27}

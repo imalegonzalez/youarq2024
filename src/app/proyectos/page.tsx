@@ -20,7 +20,7 @@ export default async function Home() {
         <h2 className=" md:text-2xl text-gray-700 my-3 px-1  mt-8 mb-5 ">Obras destacadas</h2>
         <InfiniteScroll data={data}/>
       </section>
-      <Gallery data={data} />
+      <Gallery obras={data} />
       
     </div>
   )
