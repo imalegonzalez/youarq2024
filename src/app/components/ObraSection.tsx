@@ -130,7 +130,7 @@ const ObraSection: React.FC<ObraSectionProps> = (props) => {
           <AdaptativeImagen
             src={props.disenador[0].fields.fotoArquitecto.fields.file.url}
             alt="Foto del diseñador"
-            className={" w-36"}
+            className={"w-36"}
           />
         </div>
         <div>
@@ -141,7 +141,7 @@ const ObraSection: React.FC<ObraSectionProps> = (props) => {
           <AdaptativeImagen
             src={props.directorDeObra[0].fields.fotoArquitecto.fields.file.url}
             alt="Foto del director de obra"
-            className={" w-36"}
+            className={"w-36"}
           />
         </div>
       </section>

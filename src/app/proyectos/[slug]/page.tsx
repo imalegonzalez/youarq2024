@@ -58,7 +58,7 @@ export default async function PostObra({ params }) {
             <FontAwesomeIcon className="" icon={faArrowLeft} />
           </Link>
           <p className="font-semibold align-middle content-center">youarq</p>
-          <ShareButton />
+          <ShareButton url="" />
         </nav>
         <div className="">
           <div className="">
