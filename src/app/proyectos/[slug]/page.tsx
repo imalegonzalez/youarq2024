@@ -82,25 +82,25 @@ export default async function PostObra({ params }: { params: { slug: string } })
                 descripcionDespues={descripcionDespues}
                 fotosDespues={fotosDespues}
               />
-              <div className="flex w-full gap-4">
+              <div className="flex flex-wrap w-full gap-4">
                 <ObraSection
                   disenador={disenador}
                   directorDeObra={directorDeObra}
                 />
                 {nextProyecto && (
-                  <Link href={`/proyectos/${nextProyecto.fields.slug}`}>
-                    <div className="flex justify-start bg-orange-500 rounded-xl mt-1 flex-grow overflow-hidden">
+                  <Link className=" flex-auto" href={`/proyectos/${nextProyecto.fields.slug}`}>
+                    <div className="flex justify-start bg-[--primary] rounded-xl mt-1 flex-grow overflow-hidden">
                       <div className="flex w-full">
-                        <div className="w-full">
-                          <p>{nextProyecto.fields.nombreDeObra}</p>
-                          <button>Siguiente obra</button>
+                        <div className="w-full p-5">
+                          <button className=" text-slate-100 text-xs">Siguiente obra</button>
+                          <p className=" font-bold text-slate-100 mt-[-5px]">{nextProyecto.fields.nombreDeObra}</p>
                         </div>
                         <div className="max-w-56">
-                          <img
+                          {/* <img
                             className="w-full"
                             src={nextProyecto.fields.imagenDestacada.fields.file.url}
                             alt={nextProyecto.fields.nombreDeObra}
-                          />
+                          /> */}
                         </div>
                       </div>
                     </div>
