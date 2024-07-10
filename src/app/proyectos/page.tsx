@@ -2,10 +2,11 @@
 import {client} from "../lib/contentful/client"
 import InfiniteScroll from "../components/InfiniteScroll";
 import Gallery from "../components/Gallery";
+import { Post } from "@/types/contentful";
 
-async function getData() {
+async function getData(): Promise<Post[]> {
   const res = await client.getEntries({ content_type: 'obra' })
-  return res.items
+  return res.items as Post[]
 }
 
 // posts will be populated at build time by getStaticProps()

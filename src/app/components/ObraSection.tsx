@@ -1,6 +1,29 @@
 import AdaptativeImagen from "./AdaptativeImagen"; // Asegúrate de importar el componente correctamente
+import { PostFields, Foto, Arquitecto } from "@/types/contentful";
 
-const ObraSection = (props) => {
+interface ObraSectionProps {
+  nombreDeObra?: string;
+  descripcionCorta?: string;
+  imagenDestacada?: {
+    fields: {
+      file: {
+        url: string;
+      };
+    };
+  };
+  tag?: string[];
+  subtitle?: string;
+  fotosAntes?: Foto[];
+  descripcionAntes?: string;
+  fotosDurantes?: Foto[];
+  descripcionDurante?: string;
+  fotosDespues?: Foto[];
+  descripcionDespues?: string;
+  disenador?: Arquitecto[];
+  directorDeObra?: Arquitecto[];
+}
+
+const ObraSection: React.FC<ObraSectionProps> = (props) => {
   if (props.nombreDeObra) {
     return (
       <section className="p-5 flex flex-col rounded-xl mt-1 bg-white ">
@@ -10,13 +33,9 @@ const ObraSection = (props) => {
             <h1 className="text-7xl font-bold mt-2 md:mt-10">{props.nombreDeObra}</h1>
             <p className="mb-3 text-lg flex mt-2 text-gray-600 flex-row md:max-w-3xl">
               {props.descripcionCorta}
-              {props.descripcionCorta}
-              {props.descripcionCorta}
-              {props.descripcionCorta}
-              {props.descripcionCorta}
             </p>
             <div className="flex gap-1 text-sm text-slate-600 flex-wrap w-full ">
-              {props.tag.map((tag,index) => (
+              {props.tag.map((tag, index) => (
                 <p key={index} className=" px-3 py-1 bg-slate-100 capitalize rounded-full">{tag}</p>
               ))}
             </div>
@@ -38,7 +57,7 @@ const ObraSection = (props) => {
       <section className="flex justify-end flex-col bg-white rounded-xl mt-1 p-5 md:flex-row">
         <div className="py-10 md:min-w-[50%] md:p-16 md:flex md:h-fit  md:content-center md:sticky md:top-[calc(100vh-70%)] md:flex-col">
           <h4 className="text-5xl font-bold mt-2">Primeros pasos</h4>
-          <p className="mb-3 text-lg flex mt-2 text-gray-600 flex-row md:max-w-3xl">{props.descripcionAntes}{props.descripcionAntes}{props.descripcionAntes}{props.descripcionAntes}{props.descripcionAntes}</p>
+          <p className="mb-3 text-lg flex mt-2 text-gray-600 flex-row md:max-w-3xl">{props.descripcionAntes}</p>
         </div>
         <div className="gap-2 flex flex-col">
           <h3 className="text-xl font-bold mb-2 ">Fotos del Antes</h3>
@@ -60,7 +79,7 @@ const ObraSection = (props) => {
       <section className="flex justify-end flex-col bg-white rounded-xl mt-1 p-5  md:flex-row">
         <div className="py-10 md:min-w-[50%] md:p-16 md:flex md:h-fit  md:content-center md:sticky md:top-[calc(100vh-70%)] md:flex-col">
           <h4 className="text-5xl font-bold mt-2">En la obra</h4>
-          <p className=" mb-3 text-lg flex mt-2 text-gray-600 flex-row md:max-w-3xl">{props.descripcionDurante}{props.descripcionDurante}{props.descripcionDurante}{props.descripcionDurante}{props.descripcionDurante}{props.descripcionDurante}</p>
+          <p className=" mb-3 text-lg flex mt-2 text-gray-600 flex-row md:max-w-3xl">{props.descripcionDurante}</p>
         </div>
         <div className="gap-2 flex flex-col">
           <h3 className="text-xl font-bold mb-2 ">Fotos Durante</h3>
@@ -83,7 +102,7 @@ const ObraSection = (props) => {
       <section className="flex flex-col  bg-white rounded-xl mt-1  p-5 md:flex-row">
         <div className="py-10 max-w-4xl flex flex-col justify-center md:min-w-[50%] md:p-16 md:flex md:h-fit  md:content-center md:sticky md:top-[calc(100vh-70%)] md:flex-col">
           <h4 className="text-5xl font-bold mt-2">Resultado</h4>
-          <p className="mb-3 text-lg flex mt-2 text-gray-600 flex-row md:max-w-3xl">{props.descripcionDespues}{props.descripcionDespues}</p>
+          <p className="mb-3 text-lg flex mt-2 text-gray-600 flex-row md:max-w-3xl">{props.descripcionDespues}</p>
         </div>
         <div className="gap-2 flex flex-col">
           <h3 className="text-xl font-bold mb-2 ">Fotos Despues</h3>

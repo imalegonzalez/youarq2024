@@ -38,3 +38,18 @@ export interface Categoria {
     size?: "small" | "large";
 
   }
+
+  export interface Foto {
+    fields: {
+      file: {
+        url: string;
+      };
+    };
+  }
+  
+  export interface Arquitecto {
+    fields: {
+      nombreArquitecto: string;
+      fotoArquitecto: Foto;
+    };
+  }

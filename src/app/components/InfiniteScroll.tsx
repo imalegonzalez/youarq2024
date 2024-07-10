@@ -4,37 +4,38 @@ import CardObra from "./ObraDestacada";
 import {client} from "../lib/contentful/client"
 import ObraDestacada from "./ObraDestacada";
 import { CSSProperties } from 'react';
+import { Post } from "@/types/contentful";
+
+interface InfiniteScrollProps {
+    data: Post[];
+    speed?: number;
+  }
 
 interface CustomCSSProperties extends CSSProperties {
-    '--speed'?: string | number;
+    '--speed'?: string;
   }
   
-  const styles: CustomCSSProperties = {
-    '--speed': '2s',
-  };
 
-const InfiniteScroll = ({post, speed=25000, data}) => {
-    // const data = getData();
+
+const InfiniteScroll: React.FC<InfiniteScrollProps> = ({speed=25000, data}) => {
+    const styles = {
+        '--speed': `${speed}ms`,
+      } as React.CSSProperties;
     return (
-    // <div className=" flex flex-row gap-2  ">
-    //     {data.map((post, i) => (
-    //       <CardObra key={post.fields.slug} post={post}/>
-    //     ))}
-    //   </div>
     <>
         <div className="inner w-full m-auto">
             <div className="wrapper">
-                <section className=" flex gap-2" style={{ "--speed": `${speed}ms` }}>
+                <section className=" flex gap-2" style={styles}>
                     {data.map((post, i) => (
                         <ObraDestacada key={post.fields.slug} post={post}/>
                     ))}
                 </section>
-                <section className=" flex gap-2" style={{ "--speed": `${speed}ms` }}>
+                <section className=" flex gap-2" style={styles}>
                     {data.map((post, i) => (
                         <ObraDestacada key={post.fields.slug} post={post}/>
                     ))}
                 </section>
-                <section className=" flex gap-2" style={{ "--speed": `${speed}ms` }}>
+                <section className=" flex gap-2" style={styles}>
                     {data.map((post, i) => (
                         <ObraDestacada key={post.fields.slug} post={post}/>
                     ))}
@@ -44,13 +45,6 @@ const InfiniteScroll = ({post, speed=25000, data}) => {
     </>
   )
 }
-
-// export async function getData() {
-//     // Call an external API endpoint to get posts.
-//     // You can use any data fetching library
-//     const res = await client.getEntries({ content_type: 'obra' })
-//     return res.items
-//   }
 
 export default InfiniteScroll
 

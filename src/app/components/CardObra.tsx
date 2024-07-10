@@ -3,7 +3,7 @@ import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import Link from "next/link";
-import { CardObraProps } from './types';
+import { CardObraProps } from '../../types/contentful';
 
 const CardObra: React.FC<CardObraProps> = ({ post, width, size }) => {
   const {
