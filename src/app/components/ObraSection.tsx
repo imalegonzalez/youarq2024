@@ -4,7 +4,7 @@ import { PostFields, Foto, Arquitecto } from "@/types/contentful";
 interface ObraSectionProps {
   nombreDeObra?: string;
   descripcionCorta?: string;
-  imagenDestacada?: {
+  imagenDestacada: {
     fields: {
       file: {
         url: string;
@@ -35,7 +35,7 @@ const ObraSection: React.FC<ObraSectionProps> = (props) => {
               {props.descripcionCorta}
             </p>
             <div className="flex gap-1 text-sm text-slate-600 flex-wrap w-full ">
-              {props.tag.map((tag, index) => (
+              {props.tag?.map((tag, index) => (
                 <p key={index} className=" px-3 py-1 bg-slate-100 capitalize rounded-full">{tag}</p>
               ))}
             </div>
