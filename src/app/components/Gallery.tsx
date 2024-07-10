@@ -8,8 +8,8 @@ interface GalleryProps {
 }
 
 const Gallery: React.FC<GalleryProps> = ({ obras }) => {
-  const [filtroCategoria, setFiltroCategoria] = useState(null);
-  const [tarjetasFiltradas, setTarjetasFiltradas] = useState(obras);
+  const [filtroCategoria, setFiltroCategoria] = useState<string | null>(null);
+  const [tarjetasFiltradas, setTarjetasFiltradas] = useState<Post[]>(obras);
 
   useEffect(() => {
     if (!filtroCategoria) {
@@ -20,7 +20,7 @@ const Gallery: React.FC<GalleryProps> = ({ obras }) => {
     }
   }, [obras, filtroCategoria]);
 
-  const filtrarPorCategoria = (categoria) => {
+  const filtrarPorCategoria = (categoria: string | null) => {
     setFiltroCategoria(categoria);
   };
   return (
