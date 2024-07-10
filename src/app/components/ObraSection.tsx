@@ -4,7 +4,7 @@ import { PostFields, Foto, Arquitecto } from "@/types/contentful";
 interface ObraSectionProps {
   nombreDeObra?: string;
   descripcionCorta?: string;
-  imagenDestacada: {
+  imagenDestacada?: {
     fields: {
       file: {
         url: string;
@@ -41,11 +41,13 @@ const ObraSection: React.FC<ObraSectionProps> = (props) => {
             </div>
           </div>
           <div className="md:flex md:justify-end ">
-            <AdaptativeImagen
-              src={props.imagenDestacada.fields.file.url}
-              alt={props.nombreDeObra}
-              className=""
-            />
+          {props.imagenDestacada && (
+              <AdaptativeImagen
+                src={props.imagenDestacada.fields.file.url}
+                alt={props.nombreDeObra}
+                className=""
+              />
+            )}
           </div>
         </div>
       </section>

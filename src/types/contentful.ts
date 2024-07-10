@@ -19,10 +19,18 @@ export interface Categoria {
     descripcionCorta: string;
     imagenDestacada: ImagenDestacada;
     categoria: Categoria;
-    tag: string;
+    tag: string[];
     subtitle: string;
     obraDestacada: boolean;
     slug: string;
+    fotosAntes: Foto[];
+    descripcionAntes: string;
+    fotosDurantes: Foto[];
+    descripcionDurante: string;
+    descripcionDespues: string;
+    fotosDespues: Foto[];
+    disenador: Arquitecto[];
+    directorDeObra: Arquitecto[];
   }
   
   export interface Post {

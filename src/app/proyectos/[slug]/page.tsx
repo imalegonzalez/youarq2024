@@ -1,33 +1,34 @@
+// src/app/proyectos/[slug]/page.tsx
 import { client } from "@/app/lib/contentful/client";
 import Link from "next/link";
 import ShareButton from "@/app/components/ShareButton";
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import ObraSection from "@/app/components/ObraSection";
+import { Post } from "@/types/contentful";
 
-async function getProyectoData(slug) {
+async function getProyectoData(slug: string): Promise<Post | undefined> {
   const res = await client.getEntries({
     content_type: "obra",
     "fields.slug": slug,
   });
-  return res.items[0];
+  return res.items[0] as Post;
 }
 
-async function getAllObras() {
+async function getAllObras(): Promise<Post[]> {
   const res = await client.getEntries({
     content_type: "obra",
   });
-  return res.items;
+  return res.items as Post[];
 }
 
-export default async function PostObra({ params }) {
+export default async function PostObra({ params }: { params: { slug: string } }) {
   const { slug } = params;
   const proyecto = await getProyectoData(slug);
   const obras = await getAllObras();
 
   const index = obras.findIndex((obra) => obra.fields.slug === slug);
   const nextProyecto = obras[(index + 1) % obras.length];
-  console.log(nextProyecto);
 
   if (!proyecto) {
     return <div>Proyecto no encontrado</div>;
@@ -37,7 +38,6 @@ export default async function PostObra({ params }) {
     nombreDeObra,
     descripcionCorta,
     imagenDestacada,
-    categoria,
     tag,
     subtitle,
     fotosAntes,
@@ -82,7 +82,7 @@ export default async function PostObra({ params }) {
                 descripcionDespues={descripcionDespues}
                 fotosDespues={fotosDespues}
               />
-              <div className="flex w-full gap-4 ">
+              <div className="flex w-full gap-4">
                 <ObraSection
                   disenador={disenador}
                   directorDeObra={directorDeObra}
@@ -95,14 +95,11 @@ export default async function PostObra({ params }) {
                           <p>{nextProyecto.fields.nombreDeObra}</p>
                           <button>Siguiente obra</button>
                         </div>
-                        <div className=" max-w-56">
+                        <div className="max-w-56">
                           <img
-                            className=" w-full"
-                            src={
-                              nextProyecto.fields.imagenDestacada.fields.file
-                                .url
-                            }
-                            alt=""
+                            className="w-full"
+                            src={nextProyecto.fields.imagenDestacada.fields.file.url}
+                            alt={nextProyecto.fields.nombreDeObra}
                           />
                         </div>
                       </div>
