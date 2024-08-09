@@ -123,8 +123,8 @@ const NavBar = () => {
     return null
   }
   return (
-    <>
-      <section className=" md:flex-row  md:w-full md:px-3 flex wrap flex-col fixed z-10 bg-white justify-between items-center ">
+    <nav className="p-3 w-full fixed  z-10">
+      <div className=" md:flex-row md:px-3 flex wrap flex-col  bg-white justify-between items-center bg-opacity-70 backdrop-blur-md border border-white border-opacity-20 rounded-lg shadow-sm">
         <div className="menu-header">
           <p className="flex font-bold items-center">Youarq</p>
           <a onClick={handleOpen} className="menu_trigger" href="/">Menu</a>
@@ -183,10 +183,8 @@ const NavBar = () => {
             </div>
           </div>
         </div>
-        
-        
-      </section>
-    </>
+      </div>
+    </nav>
    
 
   )

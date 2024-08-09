@@ -1,6 +1,7 @@
 
 import {client} from "../lib/contentful/client"
 import InfiniteScroll from "../components/InfiniteScroll";
+import NewInfiniteScroll from "../components/NewInfiniteScroll";
 import Gallery from "../components/Gallery";
 import { Post } from "@/types/contentful";
 
@@ -19,7 +20,8 @@ export default async function Home() {
       <h1 className="pathtitle w-full p-5 md:p-12 md:text-4xl text-xl bg-white font-medium rounded-xl">Nuestras Obras</h1>
       <section className=" md:px-12 flex flex-col">
         <h2 className=" md:text-2xl text-gray-700 my-3 px-1  mt-8 mb-5 ">Obras destacadas</h2>
-        <InfiniteScroll data={data}/>
+        {/* <InfiniteScroll data={data}/> */}
+        <NewInfiniteScroll data={data}/>
       </section>
       <Gallery obras={data} />
       
