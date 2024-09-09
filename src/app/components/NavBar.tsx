@@ -138,7 +138,7 @@ const NavBar = () => {
                   <NavigationMenuItem>
                     <NavigationMenuTrigger>Remodelaciones</NavigationMenuTrigger>
                       <NavigationMenuContent>
-                        <ul className="grid w-[200px] gap-1  p-4 md:w-[200px] md:grid-cols-2 lg:w-[400px] ">
+                        <ul className="grid w-[200px] gap-1  p-4 md:w-[200px] md:grid-cols-2 md:w-[400px] ">
                           {components.map((component) => (
                             <ListItem
                               key={component.title}
