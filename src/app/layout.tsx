@@ -33,7 +33,7 @@ export default function RootLayout({
         {children}
         <Toaster />
         {/* <Footer/> */}
-        <Cta/>
+        {/* <Cta/> */}
       </body>
     </html>
   );

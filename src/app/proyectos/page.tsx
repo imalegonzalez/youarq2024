@@ -4,6 +4,7 @@ import InfiniteScroll from "../components/InfiniteScroll";
 import NewInfiniteScroll from "../components/NewInfiniteScroll";
 import Gallery from "../components/Gallery";
 import { Post } from "@/types/contentful";
+import { Reviews } from "../components/Reviews";
 
 async function getData(): Promise<Post[]> {
   const res = await client.getEntries({ content_type: 'obra' })

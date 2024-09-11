@@ -3,6 +3,8 @@ import { client } from "./lib/contentful/client";
 import InfiniteScroll from "./components/InfiniteScroll";
 import CardObra from "./components/CardObra";
 import * as utils from './lib/utils';
+import Hero from "./components/home/Hero";
+import Features from "./components/home/Features";
 
 // Data fetching function
 async function fetchData() {
@@ -19,13 +21,9 @@ export default async function Home() {
   const data = await fetchData();
 
   return (
-    <div className="px-1 w-full">
-      <h2 className="text-2xl my-3 font-bold">home</h2>
-      {data.map((item, index) => (
-        <div key={index} className="my-4">
-          <CardObra post={item} />
-        </div>
-      ))}
-    </div>
+    <>
+      <Hero />
+      <Features/>
+    </>
   );
 }
