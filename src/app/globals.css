@@ -86,7 +86,7 @@
     color: rgb(var(--foreground-rgb));
     display: flex;
     flex-direction: column;
-    background: white;
+    background: #f8f8f8;
     overflow-x: hidden;
     font-family: var(--primary-font);
   }

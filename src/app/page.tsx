@@ -5,6 +5,8 @@ import CardObra from "./components/CardObra";
 import * as utils from './lib/utils';
 import Hero from "./components/home/Hero";
 import Features from "./components/home/Features";
+import SelectorObra from "./components/home/SelectorObra";
+import { ServiceAccordion } from "./components/home/ServiceAccordion";
 
 // Data fetching function
 async function fetchData() {
@@ -24,6 +26,8 @@ export default async function Home() {
     <>
       <Hero />
       <Features/>
+      <SelectorObra/>
+      <ServiceAccordion/>
     </>
   );
 }
