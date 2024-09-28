@@ -29,6 +29,7 @@
     "clsx": "^2.1.1",
     "contentful": "^10.6.21",
     "embla-carousel-react": "^8.2.1",
+    "framer-motion": "^11.8.0",
     "lucide-react": "^0.376.0",
     "next": "^14.2.3",
     "react": "^18",

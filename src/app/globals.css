@@ -86,7 +86,7 @@
     color: rgb(var(--foreground-rgb));
     display: flex;
     flex-direction: column;
-    background: #f8f8f8;
+    background: #efefef;
     overflow-x: hidden;
     font-family: var(--primary-font);
   }
@@ -264,7 +264,7 @@
 
     .menu__bar.is-open {
       display: block;
-      width: 90%;
+      width: 100%;
     }
 
     .menu_wrapper {

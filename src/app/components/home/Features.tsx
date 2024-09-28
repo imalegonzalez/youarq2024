@@ -22,7 +22,7 @@ const features = [
 
 function Features() {
   return (
-    <div className="grid grid-cols-2 p-2 gap-2 md:grid-cols-4 md:px-3">
+    <div className="grid grid-cols-2 p-2 gap-2 md:grid-cols-4 md:px-3 xl:px-48">
       {features.map((review, index) => (
         <Card
           key={index}

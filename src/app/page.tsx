@@ -7,6 +7,7 @@ import Hero from "./components/home/Hero";
 import Features from "./components/home/Features";
 import SelectorObra from "./components/home/SelectorObra";
 import { ServiceAccordion } from "./components/home/ServiceAccordion";
+import CustomerReview from "./components/CustomerReview";
 
 // Data fetching function
 async function fetchData() {
@@ -28,6 +29,7 @@ export default async function Home() {
       <Features/>
       <SelectorObra/>
       <ServiceAccordion/>
+      <CustomerReview/>
     </>
   );
 }

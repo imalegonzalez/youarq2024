@@ -10,8 +10,8 @@ const categories = [
 
 function SelectorObra() {
   return (
-    <div className="w-full px-0 py-8 md:px-3">
-      <h2 className="mb-6 text-2xl font-regular text-center">¿Qué necesitas remodelar?</h2>
+    <div className="w-full px-0 py-8 md:px-3 z-10 xl:px-48 md:my-14">
+      <h2 className="mb-6 text-2xl font-regular text-center md:text-4xl md:text-left">¿Qué necesitas remodelar?</h2>
       <div className="flex w-full gap-2 px-2 pb-4 overflow-x-auto snap-x snap-mandatory sm:justify-between sm:pb-0 md:gap-2 md:px-0">
         {categories.map((category, index) => (
           <Link
@@ -36,9 +36,9 @@ function SelectorObra() {
             />
             {/* <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/30 to-black/70 transition-opacity duration-300 group-hover:opacity-80" /> */}
             <div className="relative flex flex-col justify-end w-fit h-full p-4">
-              <h3 className="inline-block px-3 py-1 text-lg font-regular text-black bg-white rounded-full drop-shadow-lg">
+              <h4 className="inline-block px-3 py-1 text-sm font-regular text-black bg-white rounded-full drop-shadow-lg">
                 {category.name}
-              </h3>
+              </h4>
             </div>
           </Link>
         ))}
