@@ -36,7 +36,7 @@ function SelectorObra() {
             />
             {/* <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/30 to-black/70 transition-opacity duration-300 group-hover:opacity-80" /> */}
             <div className="relative flex flex-col justify-end w-fit h-full p-4">
-              <h4 className="inline-block px-3 py-1 text-sm font-regular text-black bg-white rounded-full drop-shadow-lg">
+              <h4 className="inline-block px-3 py-1 text-lg md:text-sm font-regular text-black bg-white rounded-full drop-shadow-lg">
                 {category.name}
               </h4>
             </div>
