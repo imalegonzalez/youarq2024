@@ -37,10 +37,9 @@ export function ServiceAccordion() {
     {
       title: "Propuesta de Inversión",
       content: (<ol>
-        <li>Analizamos la información recopilada durante la visita.</li>
-        <li>Preparamos una propuesta detallada de inversión basada en tus necesidades y presupuesto.</li>
-        <li>Te presentamos opciones y alternativas para tu proyecto.</li>
-        <li>Discutimos y ajustamos la propuesta según tus preferencias.</li>
+        <li>Analizamos la información recopilada durante la visita y preparamos una propuesta detallada de inversión basada en tus necesidades y presupuesto.</li>
+        <br />
+        <li>En una segunda reunión te presentamos opciones y alternativas para tu proyecto. Discutimos y ajustamos la propuesta según tus preferencias.</li>
       </ol>),
       image: "https://images.ctfassets.net/e51cz0cgcy2g/GhIYjIvEnaZxQEIl8hAJf/d4452de5697a5ed2ef01139599b26b26/Carhue_1.webp"
     },
@@ -48,10 +47,14 @@ export function ServiceAccordion() {
       title: "Manos a la obra",
       content: (<ol>
         <li>Una vez aprobada la propuesta, iniciamos la planificación detallada del proyecto.</li>
-        <li>Coordinamos el equipo de profesionales y contratistas necesarios.</li>
-        <li>Comenzamos la ejecución de la obra según el cronograma establecido.</li>
-        <li>Realizamos supervisiones regulares para asegurar la calidad y el cumplimiento de los plazos.</li>
-        <li>Mantenemos una comunicación constante contigo durante todo el proceso.</li>
+        <br />
+        <li>• Coordinamos el equipo de profesionales y contratistas necesarios.</li>
+     
+        <li>• Comenzamos la ejecución de la obra según el cronograma establecido.</li>
+
+        <li>• Realizamos supervisiones regulares para asegurar la calidad y el cumplimiento de los plazos.</li>
+
+        <li>• Mantenemos una comunicación constante contigo durante todo el proceso.</li>
       </ol>),
       image: "https://images.ctfassets.net/e51cz0cgcy2g/7EQTunohwwamfH7rCVg1xm/5da4a9d2acd6c857049e73b7150bdb9b/Curapaligue_3.webp"
     }
@@ -82,8 +85,8 @@ export function ServiceAccordion() {
             
             {/* Content */}
             <div className="ml-8 bg-white rounded-lg p-10">
-              <h3 className="text-xl font-semibold mb-2">{card.title}</h3>
-              <div>{card.content}</div>
+              <h3 className="text-xl font-semibold mb-2 text-gray-700 border-b pb-2">{card.title}</h3>
+              <div className='text-sm text-gray-500 leading-relaxed'>{card.content}</div>
             </div>
           </div>
         </section>
