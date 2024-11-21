@@ -8,6 +8,8 @@ import Features from "./components/home/Features";
 import SelectorObra from "./components/home/SelectorObra";
 import { ServiceAccordion } from "./components/home/ServiceAccordion";
 import CustomerReview from "./components/CustomerReview";
+import { RenovationProcess } from "./components/home/renovation-process";
+import SimplyProcess from "./components/home/SimplifiedProcess";
 
 // Data fetching function
 async function fetchData() {
@@ -28,7 +30,9 @@ export default async function Home() {
       <Hero />
       <Features/>
       <SelectorObra/>
-      <ServiceAccordion/>
+      <SimplyProcess/>
+      <RenovationProcess/>
+      
       <CustomerReview/>
       <section className="bg-white py-20  flex flex-col items-center">
         <h2 className="text-2xl font-regular mb-4 text-center md:text-4xl md:text-left xl:px-48">Nuestras obras</h2>

@@ -109,6 +109,7 @@ export function ServiceAccordion() {
             <>
               <div className="w-full md:w-[calc(50%-2rem)] pr-0 aspect-square">
                 <img src={card.image} alt={card.title} className="w-full h-full object-cover rounded-lg shadow-md" />
+              
               </div>
               <div className="w-full md:w-[calc(50%-2rem)] p-20 text-lg bg-white rounded-lg mt-4 md:mt-0 md:ml-16 rounded-lg border bg-card text-card-foreground shadow-sm">
                 <h3 className="text-2xl font-semibold mb-4 border-b pb-4">{card.title}</h3>

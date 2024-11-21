@@ -124,7 +124,7 @@ const NavBar = () => {
   }
   return (
     <nav className={`w-full fixed z-20 transition-all duration-300 ease-in-out ${isOpen ? 'p-0' : 'p-3'}`}>
-      <div className={`md:flex-row md:px-3 flex wrap flex-col bg-white justify-between items-center bg-opacity-70 backdrop-blur-md border border-white border-opacity-20 rounded-lg shadow-sm transition-all duration-300 ease-in-out ${isOpen ? 'nav-open' : 'nav-closed'}`}>
+      <div className={`md:mt-2 md:max-w-6xl md:mx-auto md:flex-row md:px-3 flex wrap flex-col bg-white justify-between items-center bg-opacity-70 backdrop-blur-md border border-white border-opacity-20 rounded-full shadow-sm transition-all duration-300 ease-in-out ${isOpen ? 'nav-open' : 'nav-closed'}`}>
         <div className="menu-header">
           <p className="flex font-bold items-center">Youarq</p>
           <a onClick={handleOpen} className="menu_trigger" href="/">{isOpen ? "Cerrar" : "Menu"}</a>
@@ -176,7 +176,7 @@ const NavBar = () => {
               <Link href="/" className=" group inline-flex h-10 w-max items-center justify-center rounded-md bg-transparent p-4 text-sm transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-accent/50 data-[state=open]:bg-accent/50 md:rounded-md md:p-4  md:leading-none md:no-underline md:outline-none md:transition-colors md:hover:bg-accent md:hover:text-accent-foreground md:focus:bg-accent md:focus:text-accent-foreground">Diseños</Link>
             </div>
             <div className="gap-3 text-sm flex cta">
-                <Link href="/asesoramiento" className=" px-8 py-4 md:px-4 md:py-2 md:content-center rounded-xl text-white bg-[#EC6956] w-full text-center" >
+                <Link href="/asesoramiento" className=" px-8 py-4 md:px-4 md:py-2 md:content-center rounded-full text-white bg-[#EC6956] w-full text-center" >
                 
                 <p>Pedí un presupuesto</p>
                 </Link>

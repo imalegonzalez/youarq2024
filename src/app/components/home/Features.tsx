@@ -22,20 +22,22 @@ const features = [
 
 function Features() {
   return (
-    <div className="grid grid-cols-2 p-2 gap-2 md:grid-cols-4 md:px-3 xl:px-48">
-      {features.map((review, index) => (
-        <Card
-          key={index}
-          className=" flex-col h-40 justify-center text-center content-center"
-        >
-          
-            <div className="flex justify-center items-center opacity-50">
-              {review.icon}
-            </div>
-            <h3 className=" text-xs mt-2">{review.name}</h3>
-          
-        </Card>
-      ))}
+    <div className="w-full py-2">
+      <div className="mx-auto max-w-6xl px-5">
+        <div className="grid grid-cols-2 gap-2 md:grid-cols-4">
+          {features.map((review, index) => (
+            <Card
+              key={index}
+              className="flex-col h-40 justify-center text-center content-center"
+            >
+              <div className="flex justify-center items-center opacity-50">
+                {review.icon}
+              </div>
+              <h3 className="text-xs mt-2">{review.name}</h3>
+            </Card>
+          ))}
+        </div>
+      </div>
     </div>
   );
 }
