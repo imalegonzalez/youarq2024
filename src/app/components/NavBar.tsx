@@ -100,7 +100,21 @@ const NavBar = () => {
   const dontShowNavbar = pathname.startsWith('/proyectos/') || pathname.startsWith('/estimado');
   const [isOpen, setIsOpen] = useState(false)
   const [serviceIsOpen, setServiceIsOpen] = useState(false)
+  
+  // Nuevo estado para manejar el scroll
+  const [isScrolled, setIsScrolled] = useState(false);
 
+  const handleScroll = () => {
+    setIsScrolled(window.scrollY > 0); // Cambia el estado basado en la posición del scroll
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll); // Agrega el listener de scroll
+    return () => {
+      window.removeEventListener("scroll", handleScroll); // Limpia el listener al desmontar
+    };
+  }, []);
+  
   const handleOpen = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
     e.preventDefault()
     setIsOpen((open) => !open)
@@ -123,8 +137,8 @@ const NavBar = () => {
     return null
   }
   return (
-    <nav className={`w-full fixed z-20 transition-all duration-300 ease-in-out ${isOpen ? 'p-0' : 'p-3'}`}>
-      <div className={`md:mt-2 md:max-w-6xl md:mx-auto md:flex-row md:px-3 flex wrap flex-col bg-white justify-between items-center bg-opacity-70 backdrop-blur-md border border-white border-opacity-20 rounded-full shadow-sm transition-all duration-300 ease-in-out ${isOpen ? 'nav-open' : 'nav-closed'}`}>
+    <nav className={`w-full fixed z-20 transition-all duration-300 ease-in-out ${isScrolled ? 'mt-1' : 'mt-3'} ${isOpen ? 'p-0' : 'p-3'}`}>
+      <div className={` md:max-w-6xl md:mx-auto md:flex-row md:px-3 flex wrap flex-col bg-white justify-between items-center bg-opacity-70 backdrop-blur-md border border-white border-opacity-20 rounded-full shadow-sm transition-all duration-300 ease-in-out ${isOpen ? 'nav-open' : 'nav-closed'}`}>
         <div className="menu-header">
           <p className="flex font-bold items-center">Youarq</p>
           <a onClick={handleOpen} className="menu_trigger" href="/">{isOpen ? "Cerrar" : "Menu"}</a>

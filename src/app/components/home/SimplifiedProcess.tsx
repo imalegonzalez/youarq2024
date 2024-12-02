@@ -1,45 +1,40 @@
+import { ListChecks, PaintRoller, Receipt, Route } from 'lucide-react';
 import Image from 'next/image';
 
 const SimplyProcess = () => {
   const steps = [
     {
-      title: "Planificá",
-      icon: "/icons/plan-icon.svg",
-      description: "Respondé unas preguntas sobre tu remodelación para obtener un estimado de tu proyecto al instante. Después agendá una llamada de consulta gratuita con un asesor de proyecto para obtener un precio refinado, cronograma y alcance detallado del trabajo."
+      title: "Cotizá",
+      icon: <Receipt size={40} strokeWidth={0.75} />,
+      description: "Recibi una visita de un asesor de proyecto para obtener un precio refinado, cronograma y alcance detallado del trabajo. Tambien recibiras informacion sobre las posibilidades de remodelacion de tu casa."
     },
     {
-      title: "Diseñá",
-      icon: "/icons/design-icon.svg",
-      description: "Trabajá con nuestro equipo de diseñadores y arquitectos y recibí todo el asesoramiento necesario para crear un espacio que sea verdaderamente tuyo. Nosotros nos encargamos de todo lo necesario para tu obra."
+      title: "Ajustá",
+      icon: <ListChecks size={40} strokeWidth={0.75} />,
+      description: "Trabaja mano a mano con tu Asesor Profesional para ajustar el plan de obra hasta que esté a tu gusto y responda a las necesidades de tu proyecto. Conoce el alcance de tu obra, los detalles que involucra y las formas de pago."
     },
     {
       title: "Remodelá",
-      icon: "/icons/build-icon.svg",
-      description: "Con los planes y materiales listos, nos encargamos de todo lo necesario para tu obra. Cada contratista está habilitado, asegurado y rigurosamente evaluado por su calidad y experiencia en el rubro."
+      icon: <PaintRoller size={40} strokeWidth={0.75} />,
+      description: "Una vez confirmada la cotizacion y firmado el contrato, nos encargamos de todo lo necesario para tu obra. Cada contratista está habilitado, asegurado y rigurosamente evaluado por su calidad y experiencia en el rubro."
     }
   ];
 
   return (
-    <section className="py-24 px-4 max-w-7xl mx-auto flex flex-col items-center">
-      <div className="text-center mb-16">
-        <h2 className="text-4xl font-serif mb-4">Remodelá con profesionales</h2>
+    <section className="py-24 px-4 max-w-6xl mx-auto flex flex-col items-center">
+      <div className="text-center mb-6 lg:mb-10  bg-white p-12 rounded-xl w-full">
+        <h2 className="text-4xl mb-2">Remodelá con profesionales</h2>
         <p className="text-gray-600">Facilitamos el proceso de remodelar tu casa</p>
       </div>
 
-      <div className="grid md:grid-cols-3 gap-12">
+      <div className="grid lg:grid-cols-3 gap-6 lg:gap-12">
         {steps.map((step, index) => (
-          <div key={index} className="text-center">
-            <div className="mb-6">
-              <Image
-                src={step.icon}
-                alt={`${step.title} icon`}
-                width={48}
-                height={48}
-                className="mx-auto"
-              />
+          <div key={index} className="text-center  bg-white p-12 rounded-xl">
+            <div className="mb-6 flex items-center justify-center">
+              {step.icon}
             </div>
-            <h3 className="text-2xl font-serif mb-4">{step.title}</h3>
-            <p className="text-gray-600 leading-relaxed">
+            <h3 className="text-2xl font-medium mb-4">{step.title}</h3>
+            <p className="text-gray-500 leading-relaxed">
               {step.description}
             </p>
           </div>
