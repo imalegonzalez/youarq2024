@@ -31,15 +31,10 @@ export default async function Home() {
       <Features/>
       <SelectorObra/>
       <SimplyProcess/>
-      <RenovationProcess/>
+      {/* <RenovationProcess/> */}
       
       <CustomerReview/>
-      <section className="bg-white py-20  flex flex-col items-center">
-        <h2 className="text-2xl font-regular mb-4 text-center md:text-4xl md:text-left xl:px-48">Nuestras obras</h2>
-        <div className=" w-full px-4 md:px-0 md:max-w-[1230px] ">
-          <NewInfiniteScroll data={data} />
-        </div>
-      </section>
+      
     </>
   );
 }
