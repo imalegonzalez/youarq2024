@@ -10,6 +10,9 @@ import { ServiceAccordion } from "./components/home/ServiceAccordion";
 import CustomerReview from "./components/CustomerReview";
 import { RenovationProcess } from "./components/home/renovation-process";
 import SimplyProcess from "./components/home/SimplifiedProcess";
+import ObraDestacada from "./components/ObraDestacada";
+import Link from "next/link";
+import Footer from "./components/Footer";
 
 // Data fetching function
 async function fetchData() {
@@ -32,8 +35,17 @@ export default async function Home() {
       <SelectorObra/>
       <SimplyProcess/>
       {/* <RenovationProcess/> */}
-      
       <CustomerReview/>
+        <div className=" w-full p-12 max-w-6xl mx-auto bg-white flex flex-col rounded-lg mb-4">  
+          <h3 className="text-2xl font-regular md:text-4xl ">Nuestras obras destacadas.</h3>
+        </div>
+      <section className="relative max-w-6xl mx-auto flex flex-col gap-4 mb-4">
+        <NewInfiniteScroll data={data}/>
+        <div className="absolute top-0 right-0 w-[50%] h-full bg-gradient-to-r from-transparent to-[#efefef] z-10">
+          <Link href={"/proyectos"} className="flex justify-end items-center h-full">Ver más</Link>
+        </div>
+      </section>
+      <Footer/>
       
     </>
   );

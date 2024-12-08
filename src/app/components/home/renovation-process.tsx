@@ -53,13 +53,12 @@ const steps: Step[] = [
 export function RenovationProcess({className}: {className?: string}) {
   return (
     <section className={cn("max-w-6xl mx-auto flex-col ", className)} >
-      <div className="mx-auto max-w-7xl px-4 py-12">
+      <div className="mx-auto max-w-7xl px-4">
         {/* Main Title */}
         <div className="mb-16">
-          <h1 className="text-4xl md:text-5xl md:max-w-4xl lg:text-6xl mb-4 leading-tight">
-            Hacemos que el proceso de renovación sea fácil.
+          <h1 className="text-4xl md:text-5xl  lg:text-6xl mb-4 leading-loose font-light">
+            Hacemos que el proceso de renovación sea más simple en <span className="font-medium">3 pasos.</span>
           </h1>
-          <p className="text-gray-600">En 3 simples pasos.</p>
         </div>
 
         {/* Process Steps */}

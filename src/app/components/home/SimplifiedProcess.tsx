@@ -21,13 +21,13 @@ const SimplyProcess = () => {
   ];
 
   return (
-    <section className="py-24 px-4 max-w-6xl mx-auto flex flex-col items-center">
-      <div className="text-center mb-6 lg:mb-10  bg-white p-12 rounded-xl w-full">
+    <section className="py-3 px-4 max-w-6xl mx-auto flex flex-col items-center gap-3">
+      <div className="text-center bg-white p-12 rounded-xl w-full">
         <h2 className="text-4xl mb-2">Remodelá con profesionales</h2>
         <p className="text-gray-600">Facilitamos el proceso de remodelar tu casa</p>
       </div>
 
-      <div className="grid lg:grid-cols-3 gap-6 lg:gap-12">
+      <div className="grid lg:grid-cols-3 gap-3 lg:gap-3">
         {steps.map((step, index) => (
           <div key={index} className="text-center  bg-white p-12 rounded-xl">
             <div className="mb-6 flex items-center justify-center">

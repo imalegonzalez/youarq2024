@@ -14,7 +14,7 @@ export default function Footer() {
     return null
   }
   return (
-      <section className=" p-20 bg-white flex flex-col">
+      <section className=" p-20 bg-white flex flex-col max-w-6xl mx-auto rounded-lg">
         <div className="grid md:grid-cols-[1.5fr_0.5fr_0.5fr] gap-12">
           <div className="flex flex-col gap-6 not-prose">
             <Link href="/">
@@ -29,8 +29,7 @@ export default function Footer() {
             </Link>
             <p>
               <Balancer>
-                brijr/components is a collection of Next.js, React, Typescript
-                components for building landing pages and websites.
+                Youarq es una empresa de construccion y remodelacion de casas.
               </Balancer>
             </p>
           </div>
@@ -60,8 +59,8 @@ export default function Footer() {
             </Button> */}
           </div>
           <p className="text-muted-foreground">
-            © <a href="https://github.com/brijr/components">brijr/components</a>
-            . All rights reserved. 2024-present.
+            © <a href="https://youarq.com">youarq</a>
+            . Todos los derechos reservados. 2019-2025.
           </p>
         </div>
       </section>

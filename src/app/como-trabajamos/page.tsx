@@ -5,8 +5,8 @@ import { RenovationProcess } from "../components/home/renovation-process";
 export default async function ComoTrabajamos() {
   return (
     <>
-      <Hero/>
-      <RenovationProcess className="max-w-6xl mx-auto mt-32"/>
+      <Hero showButton={false} title="Como trabajamos" subtitle=""  size="small"/>
+      <RenovationProcess className="max-w-6xl mx-auto mt-10"/>
     </>
   );
 }
