@@ -18,13 +18,13 @@ function SelectorObra() {
     <div className="w-full">
       <div className="mx-auto max-w-6xl px-5 gap-3 flex flex-col">
         <h2 className=" text-2xl font-regular text-center md:text-4xl md:text-left bg-white rounded-lg p-12">¿Qué necesitas remodelar?</h2>
-        <div className="grid grid-cols-3  w-full gap-2 overflow-x-auto snap-x snap-mandatory sm:justify-between sm:pb-0 md:gap-2">
+        <div className="grid md:grid md:grid-cols-3  w-full gap-2 overflow-x-auto snap-x snap-mandatory sm:justify-between sm:pb-0 md:gap-2">
           {categories1.map((category, index) => (
             <Link
               key={index}
               href={`/category/${category.name.toLowerCase()}`}
               className="
-                relative flex-shrink-0 w-[75%] basis-[75%] 
+                relative flex-shrink-0 w-full 
                 overflow-hidden rounded-lg shadow-lg
                 snap-center
                 group
@@ -34,7 +34,7 @@ function SelectorObra() {
                 md:flex-grow md:snap-align-none md:mr-0
                 lg:basis-[calc(20%-0.8rem)]
               "
-              style={{ aspectRatio: '4/5' }}
+              style={{ aspectRatio: '1/1' }}
             >
               <div
                 className="absolute inset-0 bg-cover bg-center transition-transform duration-300 group-hover:scale-105"
@@ -49,13 +49,13 @@ function SelectorObra() {
             </Link>
           ))}
         </div>
-        <div className="grid grid-cols-2  w-full gap-2 overflow-x-auto snap-x snap-mandatory sm:justify-between sm:pb-0 md:gap-2">
+        <div className="flex flex-col md:grid md:grid-cols-2  w-full gap-2 overflow-x-auto snap-x snap-mandatory sm:justify-between sm:pb-0 md:gap-2">
           {categories2.map((category, index) => (
             <Link
               key={index}
               href={`/category/${category.name.toLowerCase()}`}
               className="
-                relative flex-shrink-0 w-[75%] basis-[75%] 
+                relative flex-shrink-0 
                 overflow-hidden rounded-lg shadow-lg
                 snap-center
                 group
@@ -65,7 +65,7 @@ function SelectorObra() {
                 md:flex-grow md:snap-align-none md:mr-0
                 lg:basis-[calc(20%-0.8rem)]
               "
-              style={{ aspectRatio: '6/4' }}
+              style={{ aspectRatio: '1/1' }}
             >
               <div
                 className="absolute inset-0 bg-cover bg-center transition-transform duration-300 group-hover:scale-105"
