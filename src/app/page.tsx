@@ -12,7 +12,7 @@ import { RenovationProcess } from "./components/home/renovation-process";
 import SimplyProcess from "./components/home/SimplifiedProcess";
 import ObraDestacada from "./components/ObraDestacada";
 import Link from "next/link";
-import Footer from "./components/Footer";
+
 
 // Data fetching function
 async function fetchData() {
@@ -55,7 +55,7 @@ export default async function Home() {
           </div>
         </div>
       </section>
-      <Footer />
+      
     </>
   );
 }
