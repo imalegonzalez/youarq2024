@@ -78,7 +78,7 @@ export default function TestimonialCarousel() {
                           {testimonial.date}
                         </div>
                         <blockquote className="text-lg font-medium leading-relaxed">
-                          "{testimonial.quote}"
+                          &ldquo;{testimonial.quote}&rdquo;
                         </blockquote>
                         <footer className="text-sm text-muted-foreground">
                           <cite className="font-semibold not-italic">
