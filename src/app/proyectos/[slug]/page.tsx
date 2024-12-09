@@ -6,6 +6,7 @@ import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import ObraSection from "@/app/components/ObraSection";
 import { Post } from "@/types/contentful";
+import BackButton from "@/app/components/BackButton";
 
 async function getProyectoData(slug: string): Promise<Post | undefined> {
   const res = await client.getEntries({
@@ -53,10 +54,11 @@ export default async function PostObra({ params }: { params: { slug: string } })
   return (
     <div className="bg-[#F7F6F5] p-1 obraSection">
       <div className="horizontal-scroll-wrapper">
-        <nav className="flex w-full bg-[--primary] rounded-xl justify-between p-3 text-white">
-          <Link href="/proyectos" className="p-2 rounded-full text-white">
+        <nav className="flex w-full bg-[--primary] rounded-xl justify-between p-3 text-white sticky top-1 z-10 ring-1 ring-slate-900/10">
+          {/* <Link href="/proyectos" className="p-2 rounded-full text-white">
             <FontAwesomeIcon className="" icon={faArrowLeft} />
-          </Link>
+          </Link> */}
+          <BackButton />
           <p className="font-semibold align-middle content-center">youarq</p>
           <ShareButton url="" />
         </nav>
@@ -89,8 +91,8 @@ export default async function PostObra({ params }: { params: { slug: string } })
                 />
                 {nextProyecto && (
                   <Link className=" flex-auto" href={`/proyectos/${nextProyecto.fields.slug}`}>
-                    <div className="flex justify-start bg-[--primary] rounded-xl mt-1 flex-grow overflow-hidden">
-                      <div className="flex w-full">
+                    <div className="flex justify-start items-center h-[97%] bg-[--primary] rounded-xl mt-1 flex-grow overflow-hidden">
+                      <div className="flex w-full ">
                         <div className="w-full p-5">
                           <button className=" text-slate-100 text-xs">Siguiente obra</button>
                           <p className=" font-bold text-slate-100 mt-[-5px]">{nextProyecto.fields.nombreDeObra}</p>

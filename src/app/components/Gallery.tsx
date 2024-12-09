@@ -25,7 +25,7 @@ const Gallery: React.FC<GalleryProps> = ({ obras }) => {
   };
   return (
     <>
-      <section className=" w-full flex flex-col md:px-12 ">
+      <section className=" w-full flex flex-col md:px-12 mt-6 ">
         <h2 className="w-full m-0 md:text-2xl text-gray-700 ">Todas las obras</h2>
         <div className="flex gap-2 mt-2 mb-2">
           <button

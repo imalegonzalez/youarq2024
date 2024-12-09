@@ -8,6 +8,7 @@ import { config } from '@fortawesome/fontawesome-svg-core';
 import Navbar from "./components/NavBar";
 import { Toaster } from "@/components/ui/toaster"
 import Footer from "./components/Footer";
+import Cta from "./components/Cta";
 config.autoAddCss = false; // Evita la inyección automática de CSS
 
 const raleway = Raleway({ subsets: ["latin"] });
@@ -32,6 +33,7 @@ export default function RootLayout({
         {children}
         <Toaster />
         {/* <Footer/> */}
+        {/* <Cta/> */}
       </body>
     </html>
   );

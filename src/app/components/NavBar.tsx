@@ -100,7 +100,21 @@ const NavBar = () => {
   const dontShowNavbar = pathname.startsWith('/proyectos/') || pathname.startsWith('/estimado');
   const [isOpen, setIsOpen] = useState(false)
   const [serviceIsOpen, setServiceIsOpen] = useState(false)
+  
+  // Nuevo estado para manejar el scroll
+  const [isScrolled, setIsScrolled] = useState(false);
 
+  const handleScroll = () => {
+    setIsScrolled(window.scrollY > 0); // Cambia el estado basado en la posición del scroll
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll); // Agrega el listener de scroll
+    return () => {
+      window.removeEventListener("scroll", handleScroll); // Limpia el listener al desmontar
+    };
+  }, []);
+  
   const handleOpen = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
     e.preventDefault()
     setIsOpen((open) => !open)
@@ -123,22 +137,22 @@ const NavBar = () => {
     return null
   }
   return (
-    <>
-      <section className=" md:flex-row  md:w-full md:px-3 flex wrap flex-col fixed z-10 bg-white justify-between items-center ">
+    <nav className={`w-full fixed z-20 transition-all duration-300 ease-in-out ${isScrolled ? 'mt-1' : 'mt-3'} ${isOpen ? 'p-0' : 'p-3'}`}>
+      <div className={` md:max-w-6xl md:mx-auto md:flex-row md:px-3 flex wrap flex-col bg-white justify-between items-center bg-opacity-70 backdrop-blur-md border border-white border-opacity-20 rounded-full shadow-sm transition-all duration-300 ease-in-out ${isOpen ? 'nav-open' : 'nav-closed'}`}>
         <div className="menu-header">
-          <p className="flex font-bold items-center">Youarq</p>
-          <a onClick={handleOpen} className="menu_trigger" href="/">Menu</a>
+          <Link href={"/"} className="flex font-bold items-center">Youarq</Link>
+          <a onClick={handleOpen} className="menu_trigger" href="/">{isOpen ? "Cerrar" : "Menu"}</a>
         </div>
-        <div className={`menu__bar ${isOpen ? "is-open" : ""}`}>
+        <div className={`menu__bar transition-all duration-300 ease-in-out ${isOpen ? "is-open" : ""}`}>
           <div className="md:gap-5 font-normal text-sm menu_wrapper ">
             <div className="item-wrapper object-center items-center md:gap-2">
-              <Link href="/" className="group inline-flex h-10 w-max items-center justify-center rounded-md bg-background p-4 text-sm transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-accent/50 data-[state=open]:bg-accent/50 md:rounded-md md:p-4  md:leading-none md:no-underline md:outline-none md:transition-colors md:hover:bg-accent md:hover:text-accent-foreground md:focus:bg-accent md:focus:text-accent-foreground">Cómo trabajamos</Link>
+              <Link href="/como-trabajamos" className="group inline-flex h-10 w-max items-center justify-center rounded-md bg-transparent p-4 text-sm transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-accent/50 data-[state=open]:bg-accent/50 md:rounded-md md:p-4  md:leading-none md:no-underline md:outline-none md:transition-colors md:hover:bg-accent md:hover:text-accent-foreground md:focus:bg-accent md:focus:text-accent-foreground">Cómo trabajamos</Link>
               <NavigationMenu className=" hidden md:flex">
                 <NavigationMenuList className="">
                   <NavigationMenuItem>
-                    <NavigationMenuTrigger>Remodelaciones</NavigationMenuTrigger>
+                    <NavigationMenuTrigger className="bg-transparent">Remodelaciones</NavigationMenuTrigger>
                       <NavigationMenuContent>
-                        <ul className="grid w-[200px] gap-1  p-4 md:w-[200px] md:grid-cols-2 lg:w-[400px] ">
+                        <ul className="grid w-[200px] gap-1  p-4 md:w-[200px] md:grid-cols-2 md:w-[400px] ">
                           {components.map((component) => (
                             <ListItem
                               key={component.title}
@@ -172,21 +186,19 @@ const NavBar = () => {
                   </ul>
                 </div>
               :null)}
-              <Link href="/proyectos" className="group inline-flex h-10 w-max items-center justify-center rounded-md bg-background p-4 text-sm transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-accent/50 data-[state=open]:bg-accent/50 md:rounded-md md:p-4  md:leading-none md:no-underline md:outline-none md:transition-colors md:hover:bg-accent md:hover:text-accent-foreground md:focus:bg-accent md:focus:text-accent-foreground">Nuestras obras</Link>               
-              <Link href="/" className=" group inline-flex h-10 w-max items-center justify-center rounded-md bg-background p-4 text-sm transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-accent/50 data-[state=open]:bg-accent/50 md:rounded-md md:p-4  md:leading-none md:no-underline md:outline-none md:transition-colors md:hover:bg-accent md:hover:text-accent-foreground md:focus:bg-accent md:focus:text-accent-foreground">Diseños</Link>
+              <Link href="/proyectos" className="group inline-flex h-10 w-max items-center justify-center rounded-md bg-transparent p-4 text-sm transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-accent/50 data-[state=open]:bg-accent/50 md:rounded-md md:p-4  md:leading-none md:no-underline md:outline-none md:transition-colors md:hover:bg-accent md:hover:text-accent-foreground md:focus:bg-accent md:focus:text-accent-foreground">Nuestras obras</Link>               
+              <Link href="/" className=" group inline-flex h-10 w-max items-center justify-center rounded-md bg-transparent p-4 text-sm transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-accent/50 data-[state=open]:bg-accent/50 md:rounded-md md:p-4  md:leading-none md:no-underline md:outline-none md:transition-colors md:hover:bg-accent md:hover:text-accent-foreground md:focus:bg-accent md:focus:text-accent-foreground">Diseños</Link>
             </div>
             <div className="gap-3 text-sm flex cta">
-                <Link href="/asesoramiento" className=" px-8 py-4 md:px-4 md:py-2 md:content-center rounded-xl text-white bg-[#EC6956] w-full text-center" >
+                <Link href="/asesoramiento" className=" px-8 py-4 md:px-4 md:py-2 md:content-center rounded-full text-white bg-[#EC6956] w-full text-center" >
                 
                 <p>Pedí un presupuesto</p>
                 </Link>
             </div>
           </div>
         </div>
-        
-        
-      </section>
-    </>
+      </div>
+    </nav>
    
 
   )

@@ -86,7 +86,7 @@
     color: rgb(var(--foreground-rgb));
     display: flex;
     flex-direction: column;
-    background: white;
+    background: #efefef;
     overflow-x: hidden;
     font-family: var(--primary-font);
   }
@@ -247,7 +247,7 @@
     .menu-header {
       display: flex;
       justify-content: space-between;
-      padding: 20px 20px;
+      padding: 20px 30px;
       width: 100svw;
     }
 
@@ -257,14 +257,14 @@
       height: calc(100svh - 60px);
       position: relative;
     }
-    section .menu_trigger {
+    div .menu_trigger {
       width: auto;
       display: block;
     }
 
     .menu__bar.is-open {
       display: block;
-      width: 90%;
+      width: 100%;
     }
 
     .menu_wrapper {
