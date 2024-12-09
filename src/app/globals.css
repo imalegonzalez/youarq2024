@@ -247,7 +247,7 @@
     .menu-header {
       display: flex;
       justify-content: space-between;
-      padding: 20px 30px;
+      padding: 20px 50px;
       width: 100svw;
     }
 
@@ -264,8 +264,11 @@
 
     .menu__bar.is-open {
       display: block;
-      width: 100%;
+      width: 100vw;
+      transition: none;
+      border-radius: 0%!important;
     }
+
 
     .menu_wrapper {
       display: flex;
@@ -288,11 +291,7 @@
       justify-content: space-between;
     }
 
-    .cta {
-      position: absolute;
-      bottom: 40px;
-      width: 100%;
-    }
+   
 
     .servicesMenu {
       display: none;
