@@ -14,8 +14,8 @@ export default function Footer() {
     return null
   }
   return (
-      <section className=" p-20 bg-white flex flex-col max-w-6xl mx-auto rounded-lg">
-        <div className="grid md:grid-cols-[1.5fr_0.5fr_0.5fr] gap-12">
+      <section className=" p-20 bg-white flex flex-col max-w-6xl mx-auto rounded-lg ">
+        <div className="grid md:grid-cols-[1fr_0.5fr_0.5fr] gap-12">
           <div className="flex flex-col gap-6 not-prose">
             <Link href="/">
               <h3 className="sr-only">brijr/components</h3>

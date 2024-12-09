@@ -77,7 +77,7 @@ const Pricing: FC<{ className?: string }> = ({ className }) => {
             ].map((item, i) => (
               <li key={i} className="flex items-start gap-3">
                 <Dot className="w-5 h-5 flex-shrink-0 text-gray-600" />
-                <span className="text-base font-semibold">{item}</span>
+                <span className="text-base font-normal">{item}</span>
               </li>
             ))}
           </ul>

@@ -48,14 +48,14 @@ const testimonials: Testimonial[] = [
 
 export default function TestimonialCarousel() {
   return (
-    <div className="w-full max-w-6xl mx-auto my-12">
+    <div className="w-full max-w-6xl mx-auto px-4">
       <h3 className="text-2xl font-regular text-center md:text-4xl md:text-left mb-12 p-12 bg-white rounded-lg">Qué dicen nuestros clientes</h3>
       <Carousel
         opts={{
           align: "start",
           loop: true,
         }}
-        className="w-full px-4 "
+        className="w-full px-4 my-4"
       >
         <CarouselContent>
           {testimonials.map((testimonial) => (
