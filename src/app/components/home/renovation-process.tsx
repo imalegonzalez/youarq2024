@@ -110,7 +110,7 @@ export function RenovationProcess({ className }: { className?: string }) {
               className="order-2 md:order-1 md:grid md:col-span-4 md:grid-cols-5 md:gap-4"
             >
               <div className="md:col-span-4">
-                <p className="text-lg text-gray-600 font-sans">Cotizá</p>
+                <p className="text-sm text-gray-600 font-sans bg-white w-fit px-3 py-1 rounded-full mb-2">Cotizá</p>
                 <h3 className="text-3xl font-normal">
                   Visitamos tu hogar y cotizamos tu obra al detalle.
                 </h3>
@@ -174,7 +174,7 @@ export function RenovationProcess({ className }: { className?: string }) {
             {/* Step Info */}
             <div id="step-1" className=" md:grid md:col-span-3 md:grid-cols-5">
               <div className="md:col-span-5">
-                <p className="text-lg text-gray-600 font-sans">Ajustá</p>
+                <p className="text-sm text-gray-600 font-sans bg-white w-fit px-3 py-1 rounded-full mb-2">Ajustá</p>
                 <h3 className="text-3xl font-normal">
                   Presentación de propuesta de remodelación
                 </h3>
@@ -264,7 +264,7 @@ export function RenovationProcess({ className }: { className?: string }) {
             {/* Step Info */}
             <div id="step-1" className=" md:grid md:col-span-4 md:grid-cols-5">
               <div className="md:col-span-5">
-                <p className="text-lg text-gray-600 font-sans">Remodelá</p>
+                <p className="text-sm text-gray-600 font-sans bg-white w-fit px-3 py-1 rounded-full mb-2">Remodelá</p>
                 <h3 className="text-3xl font-normal">
                   Nos encargamos de toda la remodelación
                 </h3>
@@ -317,7 +317,7 @@ export function RenovationProcess({ className }: { className?: string }) {
                 actualizaciones de tu obra día a día.
               </p>
             </div>
-            <div className="md:col-span-4 space-y-4">
+            <div className="md:col-span-4 space-y-4 mb-12">
               <h4 className="font-normal text-3xl">Seguridad y cobertura</h4>
               <p className="text-gray-600 text-lg">
                 Todos nuestro personal esta asegurado, así como tu inversión.
