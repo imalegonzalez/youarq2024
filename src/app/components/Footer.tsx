@@ -14,7 +14,7 @@ export default function Footer() {
     return null
   }
   return (
-      <section className=" p-20 bg-white flex flex-col max-w-6xl mx-auto rounded-lg ">
+      <section className=" p-20 bg-white flex flex-col max-w-6xl mx-auto rounded-lg mt-10 ">
         <div className="grid md:grid-cols-[1fr_0.5fr_0.5fr] gap-12">
           <div className="flex flex-col gap-6 not-prose">
             <Link href="/">
