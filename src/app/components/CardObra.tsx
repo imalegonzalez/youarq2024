@@ -3,9 +3,15 @@ import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import Link from "next/link";
-import { CardObraProps } from '../../types/contentful';
+import { CardObraProps, Post } from '../../types/contentful';
 
-const CardObra: React.FC<CardObraProps> = ({ post, width, size }) => {
+interface CardObraProps {
+  post: Post;
+  className?: string;
+  size?: "glass";
+}
+
+const CardObra: React.FC<CardObraProps> = ({ post, width, size, className }) => {
   const {
     nombreDeObra,
     descripcionCorta,
@@ -20,7 +26,7 @@ const CardObra: React.FC<CardObraProps> = ({ post, width, size }) => {
   if (size === "small") {
     return (
       <Link
-        className="w-[300px] md:grow md:shrink md:basis-1/4"
+        className={`w-[300px] md:grow md:shrink md:basis-1/4 ${className}`}
         href={`/proyectos/${slug}`}
       >
         <div key={post.sys.id} className="rounded-lg bg-white card">
@@ -50,7 +56,7 @@ const CardObra: React.FC<CardObraProps> = ({ post, width, size }) => {
   if (size === "glass") {
     return (
       <Link
-        className="md:grow md:shrink md:basis-1/4"
+        className={`md:grow md:shrink md:basis-1/4 ${className}`}
         href={`/proyectos/${slug}`}
       >
         <div key={post.sys.id} className="mr-2 rounded-lg bg-white w-[270px] md:w-[300px] h-[250px]">
@@ -79,7 +85,7 @@ const CardObra: React.FC<CardObraProps> = ({ post, width, size }) => {
 
   return (
     <Link
-      className="w-full md:grow md:shrink md:max-w-full"
+        className={`w-full md:grow md:shrink md:max-w-full ${className}`}
       href={`/proyectos/${slug}`}
     >
       <div key={post.sys.id} className="rounded-lg w-full card">

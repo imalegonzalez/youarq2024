@@ -11,7 +11,7 @@ interface HeroProps {
 
 function Hero({
   title = "Remodelaciones \n bien hechas.",
-  subtitle = "Dejalo en manos de profesionales.\nNos encargamos de todo lo necesario para tu remodelación.",
+  subtitle = "Dejalo en manos de profesionales.\n Nos encargamos de todo lo necesario para tu remodelación.",
   buttonText = "Quiero remodelar mi casa",
   imageSrc = "http://images.ctfassets.net/e51cz0cgcy2g/1SWcMG1AKwqYpIK8FjDki5/5001c773dc4b39b7bcbb78674887d9cc/Juan_B_Justo_9.webp",
   showButton = true,

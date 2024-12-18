@@ -1,30 +1,24 @@
+import { client } from "@/app/lib/contentful/client";
 import { Button } from "@/components/ui/button";
+import { Post } from "@/types/contentful";
+import CardObra from "../CardObra";
+import InfiniteScroll from "../NewInfiniteScroll";
 
-interface ObrasProps {
-  title?: string;
-  subtitle?: string;
-  buttonText?: string;
-  imageSrc?: string;
-  showButton?: boolean;
-  size?: 'default' | 'small';
+async function ObrasLanding({ data }) {
+  const filteredData = data.filter(
+    (post: Post) => post.fields.categoria.fields.nombreCategoria === "Baño"
+  );
+  console.log(filteredData.length);
+  return (
+    <section className="flex gap-2 flex-wrap max-w-6xl justify-center mx-auto  py-10">
+      <div className="flex gap-2 flex-wrap w-full">
+        {filteredData.map((post: Post, index: number) => (
+          <CardObra className="w-[25%]" post={post} key={index} />
+        ))}
+        {/* <InfiniteScroll data={filteredData} className=""/> */}
+      </div>
+    </section>
+  );
 }
 
-function ObrasLanding({
-  title = "Remodelaciones \n bien hechas.",
-  subtitle = "Dejalo en manos de profesionales.\nNos encargamos de todo lo necesario para tu remodelación.",
-  buttonText = "Quiero remodelar mi casa",
-  imageSrc = "http://images.ctfassets.net/e51cz0cgcy2g/1SWcMG1AKwqYpIK8FjDki5/5001c773dc4b39b7bcbb78674887d9cc/Juan_B_Justo_9.webp",
-  showButton = true,
-  size = 'default'
-}: ObrasProps) {
-    return (
-        <div>
-            <h1>{title}</h1>
-            <p>{subtitle}</p>
-            {showButton && <Button>{buttonText}</Button>}
-        </div>
-    );
-}
-
-export default ObrasLanding; 
-
+export default ObrasLanding;
