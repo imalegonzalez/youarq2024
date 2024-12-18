@@ -9,6 +9,7 @@ interface CardObraProps {
   post: Post;
   className?: string;
   size?: "glass" | "small";
+  width?: any;
 }
 
 const CardObra: React.FC<CardObraProps> = ({ post, width, size, className }) => {
