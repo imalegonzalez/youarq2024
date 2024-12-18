@@ -1,10 +1,10 @@
-
 import {client} from "../lib/contentful/client"
 import InfiniteScroll from "../components/InfiniteScroll";
 import NewInfiniteScroll from "../components/NewInfiniteScroll";
 import Gallery from "../components/Gallery";
 import { Post } from "@/types/contentful";
 import { Reviews } from "../components/Reviews";
+import { Suspense } from 'react';
 
 async function getData(): Promise<Post[]> {
   const res = await client.getEntries({ content_type: 'obra' })
@@ -25,7 +25,9 @@ export default async function Home() {
         {/* <InfiniteScroll data={data}/> */}
         <NewInfiniteScroll data={filteredObrasDestacadas}/>
       </section>
-      <Gallery obras={data} />
+      <Suspense fallback={<div>Cargando...</div>}>
+        <Gallery obras={data} />
+      </Suspense>
       
     </div>
   )
