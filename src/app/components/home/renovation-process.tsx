@@ -9,6 +9,7 @@ import {
 } from "lucide-react";
 import Pricing from "./Pricing";
 import { cn } from "@/lib/utils";
+import Link from "next/link";
 
 interface Step {
   number: string;
@@ -65,12 +66,20 @@ export function RenovationProcess({ className }: { className?: string }) {
         {/* Navigation Steps */}
         <div className="flex flex-col md:flex-row gap-4 mb-16">
           {steps.slice(0, 3).map((step, index) => (
-            <div 
+            <Link
               key={index}
-              className="flex-1 p-6 bg-white rounded-lg flex flex-col gap-3"
+              href={`#step-${step.number}`}
+              className="flex-1 p-6 bg-white rounded-lg flex flex-col gap-3 transition-all hover:bg-gray-50"
+              onClick={(e) => {
+                e.preventDefault();
+                const element = document.getElementById(`step-${step.number}`);
+                element?.scrollIntoView({ behavior: "smooth" });
+              }}
             >
               <div className="flex items-center gap-3">
-                <span className="text-sm font-medium text-gray-400">{step.number}</span>
+                <span className="text-sm font-medium text-gray-400">
+                  {step.number}
+                </span>
                 <h3 className="text-xl font-medium">{step.title}</h3>
               </div>
               <div className="flex flex-col gap-1">
@@ -83,7 +92,7 @@ export function RenovationProcess({ className }: { className?: string }) {
                   <span className="text-sm font-medium">{step.cost}</span>
                 </div>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
 
@@ -106,19 +115,19 @@ export function RenovationProcess({ className }: { className?: string }) {
           <div className="flex flex-col md:grid md:grid-cols-6 gap-12 md:ml-8 pb-[100px]">
             {/* Step Info */}
             <div
-              id="step-1"
-              className="order-2 md:order-1 md:grid md:col-span-4 md:grid-cols-5 md:gap-4"
+              id="step-01"
+              className="order-2 md:order-1 md:grid md:col-span-4 md:grid-cols-5 md:gap-4 scroll-mt-32"
             >
-              <div className="md:col-span-4">
-                <p className="text-sm text-gray-600 font-sans bg-white w-fit px-3 py-1 rounded-full mb-2">Cotizá</p>
-                <h3 className="text-3xl font-normal">
+              <div className="md:col-span-5 bg-white p-6 rounded-lg ">
+                <p className="text-lg text-gray-600 font-sans">Cotizá</p>
+                <h3 className="text-3xl font-normal max-w-lg">
                   Visitamos tu hogar y cotizamos tu obra al detalle.
                 </h3>
               </div>
 
               <div className=" md:col-span-1"></div>
 
-              <div className="md:col-span-4 space-y-3 mt-5">
+              <div className="md:col-span-5 bg-white p-6 rounded-lg space-y-3 ">
                 <h4 className="font-medium text-sm text-gray-600">
                   QUÉ ESPERAR DE ESTE PASO
                 </h4>
@@ -152,17 +161,21 @@ export function RenovationProcess({ className }: { className?: string }) {
                 </p>
               </div>
             </div>
-            <div id="image-step-1" className="order-1 md:order-2 md:col-span-2">
-              <div className="w-full h-64 bg-red-500 "></div>
+            <div
+              id="image-step-1"
+              className="order-1 md:order-2 md:col-span-2 relative"
+            >
+              <div className="w-full h-64 rounded-lg bg-red-500 sticky top-[98px]"></div>
             </div>
             <Pricing className="order-3 md:col-span-6 md:order-3" />
           </div>
         </div>
 
         {/* STEP 2 */}
-        <div className="relative md:grid md:grid-cols-[72px_1fr]">
+        <div className="relative md:grid md:grid-cols-[72px_1fr] ">
           <div
-            className="w-auto mx-3 hidden md:block"
+            className="w-auto mx-3 hidden md:block scroll-mt-28"
+            id="step-02"
             style={{ height: "calc(100% + 200px)" }}
           >
             <div className="md:absolute left-[35px] top-[48px] w-[1px] h-[calc(100%-48px)] bg-gray-300"></div>
@@ -172,83 +185,84 @@ export function RenovationProcess({ className }: { className?: string }) {
           </div>
           <div className="flex flex-col md:grid md:grid-cols-6 gap-12 md:ml-8 pb-[100px]">
             {/* Step Info */}
-            <div id="step-1" className=" md:grid md:col-span-3 md:grid-cols-5">
-              <div className="md:col-span-5">
-                <p className="text-sm text-gray-600 font-sans bg-white w-fit px-3 py-1 rounded-full mb-2">Ajustá</p>
-                <h3 className="text-3xl font-normal">
+            <div id="step-1" className=" md:flex md:col-span-6 md:flex-col gap-4">
+              <div className="md:col-span-6 bg-white p-10 rounded-lg">
+                <p className="text-lg text-gray-600 font-sans">Ajustá</p>
+                <h3 className="text-3xl font-normal max-w-lg">
                   Presentación de propuesta de remodelación
                 </h3>
               </div>
 
-              <div className="md:col-span-5 space-y-3 ">
-                <h4 className="font-medium text-sm text-gray-600">
-                  QUÉ ESPERAR DE ESTE PASO
-                </h4>
-                <ul className="space-y-3">
-                  {[
-                    "Relevamiento presencial de la propiedad",
-                    "Aprendé sobre tus posibilidades de remodelación",
-                    "Conocé los plazos estimados para llevar a cabo la obra",
-                    "Recibí una propuesta detallada por ambientes y gremios, junto con croquis simples.",
-                    "Conocé nuestras financiaciones según tu presupuesto.",
-                  ].map((item, i) => (
-                    <li key={i} className="flex items-start gap-3">
-                      <Check className="w-5 h-5 flex-shrink-0 text-gray-600" />
-                      <span className="text-lg">{item}</span>
-                    </li>
-                  ))}
-                </ul>
+              <div className="md:col-span-6 md:grid md:grid-cols-6 gap-4">
+                <div className="bg-white col-span-3 p-10 rounded-lg">
+                  <h4 className="font-medium text-sm text-gray-600 mb-4">
+                    QUÉ ESPERAR DE ESTE PASO
+                  </h4>
+                  <ul className="space-y-1">
+                    {[
+                      "Relevamiento presencial de la propiedad",
+                      "Aprendé sobre tus posibilidades de remodelación",
+                      "Conocé los plazos estimados para llevar a cabo la obra",
+                      "Recibí una propuesta detallada por ambientes y gremios, junto con croquis simples.",
+                      "Conocé nuestras financiaciones según tu presupuesto.",
+                    ].map((item, i) => (
+                      <li key={i} className="flex items-start gap-3">
+                        <Check className="w-5 h-5 flex-shrink-0 text-gray-600" />
+                        <span className="text-md">{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                <div
+                  className="flex flex-col gap-10 md:col-span-3  bg-white py-10 px-6 rounded-lg"
+                >
+                  <div className="w-full flex items-start justify-center gap-3 ">
+                    <div className="p-2 rounded-lg bg-white">
+                      <CircleDollarSign className="text-gray-500 w-6 h-6  " />
+                    </div>
+                    <div className="">
+                      <h3 className="text-lg font-normal">
+                        Ajustá tu presupuesto
+                      </h3>
+                      <p className="text-gray-600 text-sm">
+                        Será un trabajo uno a uno con tu asesor para ajustar la
+                        propuesta a lo que estas dispuesto a invertir y a las
+                        opciones que mejor se adapten a ello.
+                      </p>
+                    </div>
+                  </div>
+                  <div className="w-full flex items-start justify-center gap-3">
+                    <div className="p-2 rounded-lg bg-white">
+                      <NotebookText className="text-gray-500 w-6 h-6  " />
+                    </div>
+                    <div>
+                      <h3 className="text-lg font-normal">
+                        Personalizá tu contrato
+                      </h3>
+                      <p className="text-gray-600 text-sm">
+                        Ajustamos el contrato tanto como sea necesario. En esta
+                        etapa intentaremos cumplir con tus expectativas para
+                        poder trabajar juntos en tu remodelación.
+                      </p>
+                    </div>
+                  </div>
+                  <div className="w-full flex items-start justify-center gap-3">
+                    <div className="p-2 rounded-lg bg-white">
+                      <CheckCheck className="text-gray-500 w-6 h-6  " />
+                    </div>
+                    <div>
+                      <h3 className="text-lg font-normal">Ultimá detalles</h3>
+                      <p className="text-gray-600 text-sm">
+                        Trabajá con nuestro equipo comercial las formas de pago
+                        y la financiación disponible para tu proyecto. Tambien
+                        vas a recibir toda la información necesaria para poder
+                        empezar la obra en tiempo y forma.
+                      </p>
+                    </div>
+                  </div>
+                </div>
               </div>
               <div className="md:col-span-1"></div>
-            </div>
-            <div
-              id="image-step-1"
-              className="flex flex-col gap-10 md:col-span-3 md:mt-40"
-            >
-              <div className="w-full flex items-start justify-center gap-3">
-                <div className="p-2 rounded-lg bg-white">
-                  <CircleDollarSign className="text-gray-500 w-6 h-6  " />
-                </div>
-                <div>
-                  <h3 className="text-2xl font-normal">
-                    Ajustá tu presupuesto
-                  </h3>
-                  <p className="text-gray-600 text-base">
-                    Será un trabajo uno a uno con tu asesor para ajustar la
-                    propuesta a lo que estas dispuesto a invertir y a las
-                    opciones que mejor se adapten a ello.
-                  </p>
-                </div>
-              </div>
-              <div className="w-full flex items-start justify-center gap-3">
-                <div className="p-2 rounded-lg bg-white">
-                  <NotebookText className="text-gray-500 w-6 h-6  " />
-                </div>
-                <div>
-                  <h3 className="text-2xl font-normal">
-                    Personalizá tu contrato
-                  </h3>
-                  <p className="text-gray-600 text-base">
-                    Ajustamos el contrato tanto como sea necesario. En esta
-                    etapa intentaremos cumplir con tus expectativas para poder
-                    trabajar juntos en tu remodelación.
-                  </p>
-                </div>
-              </div>
-              <div className="w-full flex items-start justify-center gap-3">
-                <div className="p-2 rounded-lg bg-white">
-                  <CheckCheck className="text-gray-500 w-6 h-6  " />
-                </div>
-                <div>
-                  <h3 className="text-2xl font-normal">Ultimá detalles</h3>
-                  <p className="text-gray-600 text-base">
-                    Trabajá con nuestro equipo comercial las formas de pago y la
-                    financiación disponible para tu proyecto. Tambien vas a
-                    recibir toda la información necesaria para poder empezar la
-                    obra en tiempo y forma.
-                  </p>
-                </div>
-              </div>
             </div>
           </div>
         </div>
@@ -260,10 +274,10 @@ export function RenovationProcess({ className }: { className?: string }) {
               3
             </div>
           </div>
-          <div className="flex flex-col md:grid md:grid-cols-6 gap-12 md:ml-8">
+          <div className="flex flex-col md:grid md:grid-cols-6 gap-12 md:ml-8 scroll-mt-28">
             {/* Step Info */}
-            <div id="step-1" className=" md:grid md:col-span-4 md:grid-cols-5">
-              <div className="md:col-span-5">
+            <div id="step-03" className=" md:grid md:col-span-4 md:grid-cols-5">
+              <div className="md:col-span-5 ">
                 <p className="text-sm text-gray-600 font-sans bg-white w-fit px-3 py-1 rounded-full mb-2">Remodelá</p>
                 <h3 className="text-3xl font-normal">
                   Nos encargamos de toda la remodelación

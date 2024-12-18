@@ -37,14 +37,14 @@ export default async function Home() {
       {/* <RenovationProcess/> */}
       <CustomerReview />
 
-      <section className="max-w-6xl mx-auto flex flex-col gap-4 mb-4 ">
-        <div className=" w-full p-12 max-w-6xl mx-auto bg-white flex flex-col rounded-lg ">
+      <section className="w-full px-4 max-w-6xl mx-auto flex flex-col gap-4 mb-4 ">
+        <div className=" w-full p-10 max-w-6xl mx-auto bg-white flex flex-col rounded-lg ">
           <h3 className="text-2xl font-regular md:text-4xl ">
             Nuestras obras destacadas.
           </h3>
         </div>
         <div className="relative">
-          <NewInfiniteScroll data={data} />
+          <NewInfiniteScroll className="max-w-screen-sm md:max-w-none px-4" data={data} />
           <div className="absolute top-0 right-0 w-[50%] h-full bg-gradient-to-r from-transparent to-[#efefef] z-10">
             <Link
               href={"/proyectos"}

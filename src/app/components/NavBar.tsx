@@ -137,22 +137,22 @@ const NavBar = () => {
     return null
   }
   return (
-    <nav className={`w-full fixed z-20 transition-all duration-300 ease-in-out ${isScrolled ? 'mt-1' : 'mt-3'} ${isOpen ? 'p-0' : 'p-3'}`}>
-      <div className={` md:max-w-6xl md:mx-auto md:flex-row md:px-3 flex wrap flex-col bg-white justify-between items-center bg-opacity-70 backdrop-blur-md border border-white border-opacity-20 rounded-full shadow-sm transition-all duration-300 ease-in-out ${isOpen ? 'nav-open' : 'nav-closed'}`}>
+    <nav className={`w-full fixed z-20 transition-none ${isScrolled ? 'mt-1' : 'mt-3'} ${isOpen ? 'p-0 mt-0' : 'p-3'}`}>
+      <div className={`md:max-w-6xl md:mx-auto md:flex-row md:px-3 flex wrap flex-col bg-white justify-between items-center bg-opacity-70 backdrop-blur-md border border-white border-opacity-20 rounded-full shadow-sm ${isOpen ? 'nav-open rounded-none' : 'nav-closed'}`}>
         <div className="menu-header">
           <Link href={"/"} className="flex font-bold items-center">Youarq</Link>
           <a onClick={handleOpen} className="menu_trigger" href="/">{isOpen ? "Cerrar" : "Menu"}</a>
         </div>
         <div className={`menu__bar transition-all duration-300 ease-in-out ${isOpen ? "is-open" : ""}`}>
-          <div className="md:gap-5 font-normal text-sm menu_wrapper ">
-            <div className="item-wrapper object-center items-center md:gap-2">
-              <Link href="/como-trabajamos" className="group inline-flex h-10 w-max items-center justify-center rounded-md bg-transparent p-4 text-sm transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-accent/50 data-[state=open]:bg-accent/50 md:rounded-md md:p-4  md:leading-none md:no-underline md:outline-none md:transition-colors md:hover:bg-accent md:hover:text-accent-foreground md:focus:bg-accent md:focus:text-accent-foreground">Cómo trabajamos</Link>
+          <div className="md:gap-5 font-normal text-sm menu_wrapper px-8 md:px-0 ">
+            <div className="item-wrapper object-center items-left md:items-center md:gap-2">
+              <Link href="/como-trabajamos" className="leading-none group inline-flex h-10 w-max items-center justify-center rounded-md bg-transparent p-4 text-md md:text-sm transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-accent/50 data-[state=open]:bg-accent/50 md:rounded-md md:p-4  md:leading-none md:no-underline md:outline-none md:transition-colors md:hover:bg-accent md:hover:text-accent-foreground md:focus:bg-accent md:focus:text-accent-foreground">Cómo trabajamos</Link>
               <NavigationMenu className=" hidden md:flex">
                 <NavigationMenuList className="">
                   <NavigationMenuItem>
                     <NavigationMenuTrigger className="bg-transparent">Remodelaciones</NavigationMenuTrigger>
                       <NavigationMenuContent>
-                        <ul className="grid w-[200px] gap-1  p-4 md:w-[200px] md:grid-cols-2 md:w-[400px] ">
+                        <ul className="grid w-[200px] gap-1 p-4 md:w-[200px] md:grid-cols-2 md:w-[400px] ">
                           {components.map((component) => (
                             <ListItem
                               key={component.title}
@@ -167,7 +167,7 @@ const NavBar = () => {
                   </NavigationMenuItem>
                 </NavigationMenuList>
               </NavigationMenu>
-              <span onClick={handleOpenServices} className="flex justify-between rounded-md p-4 leading-none no-underline outline-none transition-colors md:hidden hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"><p>Servicios</p><p>{">"}</p></span>
+              <span onClick={handleOpenServices} className="text-md flex justify-between rounded-md p-4 leading-none no-underline outline-none transition-colors md:hidden hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"><p>Servicios</p><p> {">"}</p></span>
               {(serviceIsOpen ? 
                   <div className={`servicesMenu ${serviceIsOpen ? "is-open" : ""}`}>
                     <div className=" text-slate-500 text-[20px]" onClick={handleOpenServices}><h3>{"<"} {"Volver"}</h3></div>
@@ -186,11 +186,11 @@ const NavBar = () => {
                   </ul>
                 </div>
               :null)}
-              <Link href="/proyectos" className="group inline-flex h-10 w-max items-center justify-center rounded-md bg-transparent p-4 text-sm transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-accent/50 data-[state=open]:bg-accent/50 md:rounded-md md:p-4  md:leading-none md:no-underline md:outline-none md:transition-colors md:hover:bg-accent md:hover:text-accent-foreground md:focus:bg-accent md:focus:text-accent-foreground">Nuestras obras</Link>               
-              <Link href="/" className=" group inline-flex h-10 w-max items-center justify-center rounded-md bg-transparent p-4 text-sm transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-accent/50 data-[state=open]:bg-accent/50 md:rounded-md md:p-4  md:leading-none md:no-underline md:outline-none md:transition-colors md:hover:bg-accent md:hover:text-accent-foreground md:focus:bg-accent md:focus:text-accent-foreground">Diseños</Link>
+              <Link href="/proyectos" className="group inline-flex h-10 w-max items-center justify-center rounded-md bg-transparent p-4 text-md md:text-sm transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-accent/50 data-[state=open]:bg-accent/50 md:rounded-md md:p-4  md:leading-none md:no-underline md:outline-none md:transition-colors md:hover:bg-accent md:hover:text-accent-foreground md:focus:bg-accent md:focus:text-accent-foreground">Nuestras obras</Link>               
+              <Link href="/" className=" group inline-flex h-10 w-max items-center justify-center rounded-md bg-transparent p-4 text-md md:text-sm transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-accent/50 data-[state=open]:bg-accent/50 md:rounded-md md:p-4  md:leading-none md:no-underline md:outline-none md:transition-colors md:hover:bg-accent md:hover:text-accent-foreground md:focus:bg-accent md:focus:text-accent-foreground">Diseños</Link>
             </div>
-            <div className="gap-3 text-sm flex cta">
-                <Link href="/asesoramiento" className=" px-8 py-4 md:px-4 md:py-2 md:content-center rounded-full text-white bg-[#EC6956] w-full text-center" >
+            <div className="gap-3 text-sm flex sticky bottom-0 w-full">
+                <Link href="/asesoramiento" className="mt-10 md:mt-0 px-8 py-4 md:px-4 md:py-2 md:content-center rounded-full text-white bg-[#EC6956] w-full text-center" >
                 
                 <p>Pedí un presupuesto</p>
                 </Link>

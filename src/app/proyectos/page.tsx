@@ -15,6 +15,7 @@ async function getData(): Promise<Post[]> {
 export default async function Home() {
   const data = await getData();
   // console.log(data[1].fields.categoria.fields.nombreCategoria)
+   const filteredObrasDestacadas = data.filter(post => post.fields.obraDestacada);
 
   return (
     <div className=" w-full  px-3 py-10 mt-12 overflow-x-hidden">
@@ -22,7 +23,7 @@ export default async function Home() {
       <section className=" md:px-12 flex flex-col">
         <h2 className=" md:text-2xl text-gray-700 my-3 px-1  mt-8 mb-5 ">Obras destacadas</h2>
         {/* <InfiniteScroll data={data}/> */}
-        <NewInfiniteScroll data={data}/>
+        <NewInfiniteScroll data={filteredObrasDestacadas}/>
       </section>
       <Gallery obras={data} />
       

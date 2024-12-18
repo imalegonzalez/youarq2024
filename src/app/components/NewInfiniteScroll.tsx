@@ -10,11 +10,12 @@ import { useRef } from "react";
 interface InfiniteScrollProps {
     data: Post[];
     speed?: number;
+    className?: string;
 }
 
 
-const InfiniteScroll: React.FC<InfiniteScrollProps> = ({ data }) => {
-    const filteredData = data.filter(post => post.fields.obraDestacada);
+const InfiniteScroll: React.FC<InfiniteScrollProps> = ({ data, className }) => {
+    // const filteredData = data.filter(post => post.fields.obraDestacada);
     const plugins = [new AutoPlay({  direction: "NEXT", stopOnHover: true, duration:2000, animationDuration:1000  })];
     const viewportRef = useRef();
     return (
@@ -25,9 +26,9 @@ const InfiniteScroll: React.FC<InfiniteScrollProps> = ({ data }) => {
                 preventDefaultOnDrag={true}
                 plugins={plugins}
                 inputType={["touch", "mouse"]}
-                
+                className={className}
                 >
-               {filteredData.map((post, i) => (
+               {data.map((post, i) => (
                    <div key={post.fields.slug}>
                         
                             <CardObra post={post} size="glass"  />
