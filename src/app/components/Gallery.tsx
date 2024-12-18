@@ -1,5 +1,6 @@
 'use client'
 import { useEffect, useState } from "react";
+import { useRouter, useSearchParams } from 'next/navigation';
 import CardObra from "./CardObra";
 import { Post } from "@/types/contentful";
 
@@ -8,21 +9,37 @@ interface GalleryProps {
 }
 
 const Gallery: React.FC<GalleryProps> = ({ obras }) => {
-  const [filtroCategoria, setFiltroCategoria] = useState<string | null>(null);
+  const router = useRouter();
+  const searchParams = useSearchParams();
+  const [filtroCategoria, setFiltroCategoria] = useState<string | null>(
+    searchParams.get('categoria')
+  );
   const [tarjetasFiltradas, setTarjetasFiltradas] = useState<Post[]>(obras);
 
   useEffect(() => {
     if (!filtroCategoria) {
       setTarjetasFiltradas(obras);
     } else {
-      const tarjetasFiltradas = obras.filter((post) => post.fields.categoria.fields.nombreCategoria === filtroCategoria);
+      const tarjetasFiltradas = obras.filter((post) => 
+        post.fields.categoria.fields.nombreCategoria === filtroCategoria
+      );
       setTarjetasFiltradas(tarjetasFiltradas);
     }
   }, [obras, filtroCategoria]);
 
   const filtrarPorCategoria = (categoria: string | null) => {
     setFiltroCategoria(categoria);
+    
+    // Actualizar URL con searchParams
+    const params = new URLSearchParams(searchParams.toString());
+    if (categoria) {
+      params.set('categoria', categoria);
+    } else {
+      params.delete('categoria');
+    }
+    router.push(`?${params.toString()}`);
   };
+
   return (
     <>
       <section className=" w-full flex flex-col md:px-12 mt-6 ">
