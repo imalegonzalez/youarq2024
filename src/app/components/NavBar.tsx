@@ -28,13 +28,7 @@ const components = [
       "A modal dialog that interrupts the user with important content and expects a response.",
   },
   {
-    title: "Lavaderos",
-    href: "/",
-    description:
-      "A modal dialog that interrupts the user with important content and expects a response.",
-  },
-  {
-    title: "Dormitorios",
+    title: "Estructurales",
     href: "/",
     description:
       "A modal dialog that interrupts the user with important content and expects a response.",
@@ -44,25 +38,7 @@ const components = [
     href: "/",
     description:
       "A modal dialog that interrupts the user with important content and expects a response.",
-  },
-  {
-    title: "Ampliaciones",
-    href: "/",
-    description:
-      "A modal dialog that interrupts the user with important content and expects a response.",
-  },
-  {
-    title: "Estructural",
-    href: "/",
-    description:
-      "A modal dialog that interrupts the user with important content and expects a response.",
-  },
-  {
-    title: "Exterior",
-    href: "/",
-    description:
-      "A modal dialog that interrupts the user with important content and expects a response.",
-  },
+  }
   
 ]
 interface ListItemProps {
@@ -152,7 +128,7 @@ const NavBar = () => {
                   <NavigationMenuItem>
                     <NavigationMenuTrigger className="bg-transparent">Remodelaciones</NavigationMenuTrigger>
                       <NavigationMenuContent>
-                        <ul className="grid w-[200px] gap-1 p-4 md:w-[200px] md:grid-cols-2 md:w-[400px] ">
+                        <ul className="grid w-[200px] gap-1 p-4 md:w-[250px] md:grid-cols-1 ">
                           {components.map((component) => (
                             <ListItem
                               key={component.title}
