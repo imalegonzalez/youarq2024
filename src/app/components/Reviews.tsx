@@ -42,7 +42,7 @@ export function Reviews() {
                 />
                 <div className="absolute inset-x-4 bottom-4 p-4 rounded-lg overflow-hidden">
                   <div className="absolute inset-0 bg-white bg-opacity-20 backdrop-blur-md" />
-                  <div className="relative z-10">
+                  <div className="relative z-10 max-w-xs md:max-w-none text-center">
                     <p className="text-white text-sm mb-2">{review.review}</p>
                     <p className="text-white font-bold">{review.name}</p>
                   </div>
@@ -52,8 +52,8 @@ export function Reviews() {
           </CarouselItem>
         ))}
       </CarouselContent>
-      <CarouselPrevious className="left-2" />
-      <CarouselNext className="right-2" />
+      <CarouselPrevious className="left-2 hidden md:block" />
+      <CarouselNext className="right-2 hidden md:block" />
     </Carousel>
   )
 }

@@ -45,12 +45,12 @@ export default async function Home() {
         </div>
         <div className="relative">
           <NewInfiniteScroll className="max-w-screen-sm md:max-w-none px-4" data={data} />
-          <div className="absolute top-0 right-0 w-[50%] h-full bg-gradient-to-r from-transparent to-[#efefef] z-10">
+          <div className="absolute top-0 right-0 w-[50%] h-full bg-gradient-to-r from-transparent to-[#efefef] z-10 pointer-events-none">
             <Link
               href={"/proyectos"}
-              className="flex justify-end items-center h-full"
+              className="absolute right-0 top-1/2 -translate-y-1/2 font-semibold bg-white/50 backdrop-blur-sm px-4 py-2 rounded-md pointer-events-auto"
             >
-              <span className="font-semibold bg-white/50 backdrop-blur-sm px-4 py-2 rounded-md">Ver más</span>
+              Ver más
             </Link>
           </div>
         </div>

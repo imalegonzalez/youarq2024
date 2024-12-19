@@ -13,24 +13,24 @@ function Hero({
   title = "Remodelaciones \n bien hechas.",
   subtitle = "Dejalo en manos de profesionales.\n Nos encargamos de todo lo necesario para tu remodelación.",
   buttonText = "Quiero remodelar mi casa",
-  imageSrc = "http://images.ctfassets.net/e51cz0cgcy2g/1SWcMG1AKwqYpIK8FjDki5/5001c773dc4b39b7bcbb78674887d9cc/Juan_B_Justo_9.webp",
+  imageSrc = "http://images.ctfassets.net/e51cz0cgcy2g/2qTDHlHNDK4Y9I0KAy3EJG/dd9617384b090923cb81dfe95bdf0c08/Billinhurst_32.webp",
   showButton = true,
   size = 'default'
 }: HeroProps) {
     return (
         <div className="w-full h-auto md:p-3">
             <div className={`relative h-[550px] ${
-                size === 'small' ? 'lg:h-[500px]' : 'lg:h-[calc(100vh-200px)]'
+                size === 'small' ? 'h-[300px] lg:h-[500px]' : 'lg:h-[calc(100vh-200px)]'
             } md:rounded-lg md:overflow-hidden`}>
                 <img 
                     className="absolute h-full w-full object-cover top-0 md:rounded-lg" 
                     src={imageSrc} 
                     alt="" 
                 />
-                <div className="absolute h-full w-full bg-black opacity-40"></div>
+                <div className="absolute h-full w-full bg-black opacity-20"></div>
                 <div className="absolute bottom-10 w-full">
                     <div className="mx-auto max-w-6xl px-5">
-                        <h1 className="text-white font-semibold leading-none" style={{ fontSize: 'clamp(2rem, 10vw, 8rem)' }}>
+                        <h1 className="text-white font-semibold leading-none" style={{ fontSize: 'clamp(3.5rem, 10vw, 8rem)' }}>
                             {title.split('\n').map((line, i) => (
                                 <span key={i}>
                                     {line}

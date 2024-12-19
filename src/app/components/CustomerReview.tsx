@@ -48,18 +48,18 @@ const testimonials: Testimonial[] = [
 
 export default function TestimonialCarousel() {
   return (
-    <div className="w-full max-w-6xl mx-auto px-4">
+    <div className="w-full max-w-6xl px-4 mx-auto">
       <h3 className="text-2xl font-regular text-center md:text-4xl md:text-left mb-12 p-12 bg-white rounded-lg">Qué dicen nuestros clientes</h3>
       <Carousel
         opts={{
           align: "start",
           loop: true,
         }}
-        className="w-full px-4 my-4"
+        className="w-full"
       >
         <CarouselContent>
           {testimonials.map((testimonial) => (
-            <CarouselItem key={testimonial.id} className="md:basis-1/2 lg:basis-1/3">
+            <CarouselItem key={testimonial.id} className="basis-full md:basis-1/2 lg:basis-1/3">
               <Card className=" bg-transparent border-0">
                 <CardContent className="p-1">
                   <div className="grid gap-4">
@@ -77,7 +77,7 @@ export default function TestimonialCarousel() {
                         <div className="text-sm text-muted-foreground">
                           {testimonial.date}
                         </div>
-                        <blockquote className="text-lg font-medium leading-relaxed">
+                        <blockquote className="text-lg font-medium leading-relaxed max-w-xs md:max-w-none">
                           &ldquo;{testimonial.quote}&rdquo;
                         </blockquote>
                         <footer className="text-sm text-muted-foreground">
@@ -95,7 +95,7 @@ export default function TestimonialCarousel() {
             </CarouselItem>
           ))}
         </CarouselContent>
-        <div className="flex justify-end gap-2 pt-4">
+        <div className=" justify-end gap-2 pt-4 hidden md:flex">
           <CarouselPrevious />
           <CarouselNext />
         </div>
