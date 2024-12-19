@@ -10,6 +10,7 @@ import {
 import Pricing from "./Pricing";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
+import { useState } from "react";
 
 interface Step {
   number: string;
@@ -52,6 +53,8 @@ const steps: Step[] = [
 ];
 
 export function RenovationProcess({ className }: { className?: string }) {
+  const [isPricingExpanded, setIsPricingExpanded] = useState(false);
+
   return (
     <section className={cn("max-w-6xl mx-auto flex-col ", className)}>
       <div className="mx-auto max-w-7xl px-4">
@@ -170,7 +173,25 @@ export function RenovationProcess({ className }: { className?: string }) {
             >
               <div className="w-full h-64 rounded-lg bg-red-500 sticky top-[98px]"></div>
             </div>
-            <Pricing className="order-3 md:col-span-6 md:order-3" />
+            {/* <div className="order-3 md:col-span-6 md:order-3 relative">
+              <div className={cn(
+                "transition-all duration-300",
+                !isPricingExpanded && "max-h-[250px] overflow-hidden"
+              )}>
+                <Pricing className="" />
+              </div>
+              
+              {!isPricingExpanded && (
+                <div className="absolute bottom-0 left-0 right-0 h-[200px] bg-gradient-to-t from-white via-white to-transparent flex items-end justify-center pb-6">
+                  <button
+                    onClick={() => setIsPricingExpanded(true)}
+                    className=" bg-white border border-gray-300 text-gray-600 px-6 py-3 rounded-lg hover:bg-gray-800 transition-colors"
+                  >
+                    Ver más
+                  </button>
+                </div>
+              )}
+            </div> */}
           </div>
         </div>
 
