@@ -30,7 +30,7 @@ function Hero({
                 <div className="absolute h-full w-full bg-black opacity-20"></div>
                 <div className="absolute bottom-10 w-full">
                     <div className="mx-auto max-w-6xl px-5">
-                        <h1 className="text-white font-semibold leading-none" style={{ fontSize: 'clamp(3.5rem, 10vw, 8rem)' }}>
+                        <h1 className="text-white font-semibold leading-none" style={{ fontSize: 'clamp(2.5rem, 11vw, 8rem)' }}>
                             {title.split('\n').map((line, i) => (
                                 <span key={i}>
                                     {line}
