@@ -10,14 +10,7 @@ import SimplyProcess from "../components/home/SimplifiedProcess";
 import TestimonialCarousel from "../components/CustomerReview";
 import Pricing from "../components/home/Pricing";
 
-interface ObrasProps {
-  title?: string;
-  subtitle?: string;
-  buttonText?: string;
-  imageSrc?: string;
-  showButton?: boolean;
-  size?: "default" | "small";
-}
+
 
 async function getData(): Promise<Post[]> {
   const res = await client.getEntries({ content_type: "obra" });
@@ -35,6 +28,7 @@ export default async function Banos() {
         imageSrc="http://images.ctfassets.net/e51cz0cgcy2g/1SWcMG1AKwqYpIK8FjDki5/5001c773dc4b39b7bcbb78674887d9cc/Juan_B_Justo_9.webp"
         showButton={true}
         size="default"
+        className="mt-10"
       />
       <SimplyProcess />
       <ObrasLanding data={data} />

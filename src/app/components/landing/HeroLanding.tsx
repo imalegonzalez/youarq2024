@@ -8,6 +8,7 @@ interface HeroProps {
   imageSrc?: string;
   showButton?: boolean;
   size?: "default" | "small";
+  className?: string;
 }
 
 function HeroLanding({
@@ -17,9 +18,10 @@ function HeroLanding({
   imageSrc = "http://images.ctfassets.net/e51cz0cgcy2g/1SWcMG1AKwqYpIK8FjDki5/5001c773dc4b39b7bcbb78674887d9cc/Juan_B_Justo_9.webp",
   showButton = false,
   size = "default",
+  className = ""
 }: HeroProps) {
   return (
-    <div className="flex h-fit w-full flex-col justify-center items-center bg-slate-200">
+    <div className={`flex h-fit w-full flex-col justify-center items-center ${className}`}>
       <div className="mx-auto flex max-w-6xl flex-col gap-6  mt-16 px-4 
                       md:flex-row md:py-20">
         <div className="flex flex-col justify-center items-left order-2

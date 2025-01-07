@@ -17,25 +17,25 @@ import { useEffect, useState } from "react";
 const components = [
   {
     title: "Cocinas",
-    href: "/",
+    href: "/cocinas",
     description:
       "A modal dialog that interrupts the user with important content and expects a response.",
   },
   {
     title: "Baños",
-    href: "/",
+    href: "/banos",
     description:
       "A modal dialog that interrupts the user with important content and expects a response.",
   },
   {
     title: "Estructurales",
-    href: "/",
+    href: "/estructurales",
     description:
       "A modal dialog that interrupts the user with important content and expects a response.",
   },
   {
     title: "Toda la casa",
-    href: "/",
+    href: "/integrales",
     description:
       "A modal dialog that interrupts the user with important content and expects a response.",
   }
@@ -99,6 +99,7 @@ const NavBar = () => {
   }
 
   const handleOpenServices = (e: React.MouseEvent<HTMLSpanElement, MouseEvent>) => {
+    e.preventDefault()
     setServiceIsOpen((open) => !open)
     console.log(serviceIsOpen)
   }
@@ -122,7 +123,7 @@ const NavBar = () => {
         <div className={`menu__bar transition-all duration-300 ease-in-out ${isOpen ? "is-open" : ""}`}>
           <div className="md:gap-5 font-normal text-sm menu_wrapper px-8 md:px-0 ">
             <div className="item-wrapper object-center items-left md:items-center md:gap-2">
-              <Link href="/como-trabajamos" className="leading-none group inline-flex h-10 w-max items-center justify-center rounded-md bg-transparent p-4 text-md md:text-sm transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-accent/50 data-[state=open]:bg-accent/50 md:rounded-md md:p-4  md:leading-none md:no-underline md:outline-none md:transition-colors md:hover:bg-accent md:hover:text-accent-foreground md:focus:bg-accent md:focus:text-accent-foreground">Cómo trabajamos</Link>
+              <Link href="/como-trabajamos" className={`leading-none group inline-flex h-10 w-max items-center justify-center rounded-md bg-transparent p-4 text-md md:text-sm transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-accent/50 data-[state=open]:bg-accent/50 md:rounded-md md:p-4  md:leading-none md:no-underline md:outline-none md:transition-colors md:hover:bg-accent md:hover:text-accent-foreground md:focus:bg-accent md:focus:text-accent-foreground ${serviceIsOpen ? 'opacity-0 pointer-events-none' : 'opacity-100 pointer-events-auto'}`}>Cómo trabajamos</Link>
               <NavigationMenu className=" hidden md:flex">
                 <NavigationMenuList className="">
                   <NavigationMenuItem>
@@ -143,12 +144,13 @@ const NavBar = () => {
                   </NavigationMenuItem>
                 </NavigationMenuList>
               </NavigationMenu>
-              <span onClick={handleOpenServices} className="text-md flex justify-between rounded-md p-4 leading-none no-underline outline-none transition-colors md:hidden hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"><p>Servicios</p><p> {">"}</p></span>
-              {(serviceIsOpen ? 
-                  <div className={`servicesMenu ${serviceIsOpen ? "is-open" : ""}`}>
-                    <div className=" text-slate-500 text-[20px]" onClick={handleOpenServices}><h3>{"<"} {"Volver"}</h3></div>
-                  <ul className="w-[60%]">
-                   
+              <span onClick={handleOpenServices} className={`text-md flex justify-between rounded-md p-4 leading-none no-underline outline-none transition-colors md:hidden hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground ${serviceIsOpen ? 'opacity-0 pointer-events-none' : 'opacity-100 pointer-events-auto'}`}><p>Servicios</p><p> {">"}</p></span>
+              <div className={`flex p-10 absolute w-screen h-screen z-20 bg-transparent left-0 top-10 flex-col justify-start transition-all duration-300 ease-in-out transform ${
+                serviceIsOpen ? "translate-x-0 opacity-100 pointer-events-auto" : "translate-x-full opacity-0 pointer-events-none"
+              }`}>
+                <div className=" text-slate-500 text-[20px]" onClick={handleOpenServices}><h3>{"<"} {"Volver"}</h3></div>
+                <ul className="w-[60%] gap-10 flex flex-col mt-10">
+                 
                             {components.map((component) => (
                               <li
                                 key={component.title}
@@ -159,13 +161,12 @@ const NavBar = () => {
                                 </a>
                               </li>
                             ))}
-                  </ul>
-                </div>
-              :null)}
-              <Link href="/proyectos" className="group inline-flex h-10 w-max items-center justify-center rounded-md bg-transparent p-4 text-md md:text-sm transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-accent/50 data-[state=open]:bg-accent/50 md:rounded-md md:p-4  md:leading-none md:no-underline md:outline-none md:transition-colors md:hover:bg-accent md:hover:text-accent-foreground md:focus:bg-accent md:focus:text-accent-foreground">Nuestras obras</Link>               
-              <Link href="/" className=" group inline-flex h-10 w-max items-center justify-center rounded-md bg-transparent p-4 text-md md:text-sm transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-accent/50 data-[state=open]:bg-accent/50 md:rounded-md md:p-4  md:leading-none md:no-underline md:outline-none md:transition-colors md:hover:bg-accent md:hover:text-accent-foreground md:focus:bg-accent md:focus:text-accent-foreground">Diseños</Link>
+                </ul>
+              </div>
+              <Link href="/proyectos" className={`group inline-flex h-10 w-max items-center justify-center rounded-md bg-transparent p-4 text-md md:text-sm transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-accent/50 data-[state=open]:bg-accent/50 md:rounded-md md:p-4  md:leading-none md:no-underline md:outline-none md:transition-colors md:hover:bg-accent md:hover:text-accent-foreground md:focus:bg-accent md:focus:text-accent-foreground ${serviceIsOpen ? 'opacity-0 pointer-events-none' : 'opacity-100 pointer-events-auto'}`}>Nuestras obras</Link>               
+              <Link href="/" className={`group inline-flex h-10 w-max items-center justify-center rounded-md bg-transparent p-4 text-md md:text-sm transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-accent/50 data-[state=open]:bg-accent/50 md:rounded-md md:p-4  md:leading-none md:no-underline md:outline-none md:transition-colors md:hover:bg-accent md:hover:text-accent-foreground md:focus:bg-accent md:focus:text-accent-foreground ${serviceIsOpen ? 'opacity-0 pointer-events-none' : 'opacity-100 pointer-events-auto'}`}>Diseños</Link>
             </div>
-            <div className="gap-3 text-sm flex sticky bottom-0 w-full">
+            <div className={`gap-3 text-sm flex sticky bottom-0 w-full ${serviceIsOpen ? 'opacity-0 pointer-events-none' : 'opacity-100 pointer-events-auto'}`}>
                 <Link href="/asesoramiento" className="mt-10 md:mt-0 px-8 py-4 md:px-4 md:py-2 md:content-center rounded-full text-white bg-[#EC6956] w-full text-center" >
                 
                 <p>Pedí un presupuesto</p>
