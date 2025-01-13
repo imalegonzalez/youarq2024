@@ -22,16 +22,16 @@ export default async function Banos() {
   return (
     <>
       <HeroLanding
-        title="Remodelá tu baño con profesionales"
+        title="Remodelá tu cocina con profesionales"
         subtitle="Nos encargamos de todo lo necesario para tu remodelación."
-        buttonText="Quiero remodelar mi baño"
+        buttonText="Quiero remodelar mi cocina"
         imageSrc="http://images.ctfassets.net/e51cz0cgcy2g/1SWcMG1AKwqYpIK8FjDki5/5001c773dc4b39b7bcbb78674887d9cc/Juan_B_Justo_9.webp"
         showButton={true}
         size="default"
         className="mt-10"
       />
       <SimplyProcess />
-      <ObrasLanding data={data} />
+      <ObrasLanding data={data} category="Cocina" />
       {/* <RenovationProcess className="max-w-6xl mx-auto mt-10 py-10"/> */}
       <TestimonialCarousel />
       <section className="px-4 grid max-w-6xl mx-auto gap-4">

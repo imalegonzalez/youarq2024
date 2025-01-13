@@ -10,6 +10,7 @@ interface CardObraProps {
   className?: string;
   size?: "glass" | "small";
   width?: any;
+  type?: "link" | "noLink";
 }
 
 const CardObra: React.FC<CardObraProps> = ({
@@ -17,6 +18,7 @@ const CardObra: React.FC<CardObraProps> = ({
   width,
   size,
   className,
+  type,
 }) => {
   const {
     nombreDeObra,
@@ -98,6 +100,31 @@ const CardObra: React.FC<CardObraProps> = ({
     );
   }
 
+  if (type === "noLink") {
+    return (
+      <div key={post.sys.id} className="rounded-lg w-full card">
+        <figure className="relative h-full min-h-64 w-full overflow-hidden flex flex-col justify-between rounded-lg">
+          <p className="text-xs px-3 py-1 m-2 bg-white rounded-full z-10 w-fit">
+            {categoria.fields.nombreCategoria}
+          </p>
+          <img
+            className="absolute inset-0 w-full h-full object-cover"
+            src={imagenDestacada.fields.file.url}
+            alt={nombreDeObra}
+          />
+          <div className="bottom-0 py-2 px-3 flex flex-row min-h-16 justify-between items-center bg-white bg-opacity-40 backdrop-blur-md border border-white border-opacity-20 shadow-lg p-4 rounded-lg">
+            <div>
+              <h2>{nombreDeObra}</h2>
+            </div>
+            <div>
+              <FontAwesomeIcon className="animate-pulse" icon={faArrowRight} />
+            </div>
+          </div>
+        </figure>
+      </div>
+    );
+  }
+  
   return (
     <Link
       className={`${className}`}
