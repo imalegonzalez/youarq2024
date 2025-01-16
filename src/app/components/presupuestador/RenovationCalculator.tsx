@@ -77,6 +77,10 @@ const RenovationCalculator = () => {
     email: '',
     telefono: ''
   });
+  const [feedback, setFeedback] = useState({
+    satisfaccion: '',
+    comentarios: ''
+  });
 
   const calcularPresupuesto = () => {
     let total = 0;
@@ -253,8 +257,6 @@ const RenovationCalculator = () => {
 
     return (
       <div className="space-y-6">
-        <h3 className="text-xl font-semibold text-zinc-900">Resumen de tu presupuesto:</h3>
-        
         {espacios.cocina.selected && (
           <div className="space-y-2 bg-zinc-50 p-4 rounded-lg">
             <h4 className="font-semibold text-zinc-900">Cocina: ${calcularTotalEspacio('cocina')}</h4>
@@ -301,6 +303,39 @@ const RenovationCalculator = () => {
         <div className="text-xl font-base text-zinc-900 pt-4 border-t border-zinc-200">
           Presupuesto total estimado: <br /> <span className="font-bold text-2xl">${total}</span>
           <p className="text-sm text-zinc-500 mt-2">Este es un presupuesto estimado, el precio final dependerá de la complejidad de la obra y los materiales elegidos.</p>
+        </div>
+
+        <div className="space-y-4 pt-6 border-t border-zinc-200">
+          <h4 className="text-lg font-semibold text-zinc-900">Tu opinión nos importa</h4>
+          
+          <div className="space-y-2">
+            <label className="text-sm text-zinc-700">¿Qué te pareció el presupuesto estimado?</label>
+            <Select 
+              value={feedback.satisfaccion}
+              onValueChange={(value) => setFeedback(prev => ({ ...prev, satisfaccion: value }))}
+            >
+              <SelectTrigger className="w-full">
+                <SelectValue placeholder="Selecciona una opción" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="muy_alto">Muy alto</SelectItem>
+                <SelectItem value="alto">Alto</SelectItem>
+                <SelectItem value="razonable">Razonable</SelectItem>
+                <SelectItem value="bajo">Bajo</SelectItem>
+                <SelectItem value="muy_bajo">Muy bajo</SelectItem>
+              </SelectContent>
+            </Select>
+          </div>
+
+          <div className="space-y-2">
+            <label className="text-sm text-zinc-700">Comentarios adicionales</label>
+            <Input
+              placeholder="Escribe tus comentarios aquí..."
+              value={feedback.comentarios}
+              onChange={(e) => setFeedback(prev => ({ ...prev, comentarios: e.target.value }))}
+              className="border-zinc-300 focus:border-zinc-500 focus:ring-zinc-500"
+            />
+          </div>
         </div>
       </div>
     );
@@ -350,7 +385,10 @@ const RenovationCalculator = () => {
         )}
         {step === 4 && (
           <Button 
-            onClick={() => alert('¡Un profesional se pondrá en contacto contigo!')}
+            onClick={() => {
+              alert('¡Gracias por tu feedback! Un profesional se pondrá en contacto contigo.');
+              console.log('Feedback:', feedback);
+            }}
             className="bg-zinc-900 text-white hover:bg-zinc-800"
           >
             Pedir presupuesto a medida
