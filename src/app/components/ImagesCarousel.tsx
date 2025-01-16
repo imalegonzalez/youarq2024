@@ -17,12 +17,12 @@ function ImagesCarousel({ images }: { images: string[] }) {
                   stopOnInteraction: false
                 })
               ]}
-              className="py-10"
+              className="py-10 "
             >
               <CarouselContent>
                 {images?.map((image, index) => (
-                  <CarouselItem key={index} className="flex justify-center">
-                    <div className="aspect-[3/4] w-full relative">
+                  <CarouselItem key={index} className="flex justify-center basis-1/2 md:basis-full">
+                    <div className="aspect-[3/4] w-full relative ">
                       <img 
                         src={image} 
                         alt={`Imagen ${index + 1}`}
