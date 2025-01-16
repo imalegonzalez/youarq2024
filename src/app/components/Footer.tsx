@@ -8,7 +8,7 @@ import Balancer from 'react-wrap-balancer';
 export default function Footer() {
   const pathname = usePathname()
   // Verifica si la ruta actual coincide con las rutas especificadas
-  const dontShowNavbar = pathname.startsWith('/proyectos/') || pathname.startsWith('/estimado');
+  const dontShowNavbar = pathname.startsWith('/proyectos/') || pathname.startsWith('/estimado') || pathname.startsWith('/presupuesto');
 
   if(dontShowNavbar){
     return null

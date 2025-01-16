@@ -18,7 +18,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select"
-import { CheckIcon } from 'lucide-react';
+import { CheckIcon, Utensils, Bath, Home, Wrench, Paint, Cabinet, ShowerHead } from 'lucide-react'; 
 
 // En una implementación real, estos precios vendrían de una API o base de datos
 const PRECIOS = {
@@ -133,42 +133,67 @@ const RenovationCalculator = () => {
     }));
   };
 
+  const TRABAJO_ICONS = {
+    instalaciones: Wrench,
+    revestimientos: Paint,
+    muebles: Cabinet,
+    artefactos: ShowerHead,
+    mampara: ShowerHead,
+  };
+
   const renderSeleccionEspacios = () => (
     <div className="space-y-4">
       <h3 className="text-xl font-semibold text-zinc-900">Selecciona los espacios a remodelar:</h3>
-      <div className="space-y-3">
-        <div className="flex items-center space-x-3">
-          <Checkbox
-            id="cocina"
-            checked={espacios.cocina.selected}
-            onCheckedChange={() => handleEspacioChange('cocina')}
-            className="h-5 w-5 border-2 border-zinc-800 data-[state=checked]:bg-zinc-900 data-[state=checked]:text-[--primary] rounded-sm"
-          />
-          <label htmlFor="cocina" className="text-zinc-800 font-medium">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div
+          onClick={() => handleEspacioChange('cocina')}
+          className={`
+            cursor-pointer p-4 rounded-lg border-[1px] transition-all
+            flex flex-col items-center justify-center space-y-2
+            ${espacios.cocina.selected 
+              ? 'border-zinc-900 bg-zinc-50' 
+              : 'border-zinc-200 hover:border-zinc-300'
+            }
+          `}
+        >
+          <Utensils className={`w-8 h-8 stroke-[1] ${espacios.cocina.selected ? 'text-zinc-900' : 'text-zinc-500'}`} />
+          <span className={`font-medium ${espacios.cocina.selected ? 'text-zinc-900' : 'text-zinc-600'}`}>
             Cocina
-          </label>
+          </span>
         </div>
-        <div className="flex items-center space-x-3">
-          <Checkbox
-            id="bano"
-            checked={espacios.bano.selected}
-            onCheckedChange={() => handleEspacioChange('bano')}
-            className="h-5 w-5 border-2 border-zinc-800 data-[state=checked]:bg-zinc-900 data-[state=checked]:text-[--primary] rounded-sm"
-          />
-          <label htmlFor="bano" className="text-zinc-800 font-medium">
+
+        <div
+          onClick={() => handleEspacioChange('bano')}
+          className={`
+            cursor-pointer p-4 rounded-lg border-[1px] transition-all
+            flex flex-col items-center justify-center space-y-2
+            ${espacios.bano.selected 
+              ? 'border-zinc-900 bg-zinc-50' 
+              : 'border-zinc-200 hover:border-zinc-300'
+            }
+          `}
+        >
+          <Bath className={`w-8 h-8 stroke-[1] ${espacios.bano.selected ? 'text-zinc-900' : 'text-zinc-500'}`} />
+          <span className={`font-medium ${espacios.bano.selected ? 'text-zinc-900' : 'text-zinc-600'}`}>
             Baño
-          </label>
+          </span>
         </div>
-        <div className="flex items-center space-x-3">
-          <Checkbox
-            id="otros"
-            checked={espacios.otros.selected}
-            onCheckedChange={() => handleEspacioChange('otros')}
-            className="h-5 w-5 border-2 border-zinc-800 data-[state=checked]:bg-zinc-900 data-[state=checked]:text-[--primary] rounded-sm"
-          />
-          <label htmlFor="otros" className="text-zinc-800 font-medium">
+
+        <div
+          onClick={() => handleEspacioChange('otros')}
+          className={`
+            cursor-pointer p-4 rounded-lg border-[1px] transition-all
+            flex flex-col items-center justify-center space-y-2
+            ${espacios.otros.selected 
+              ? 'border-zinc-900 bg-zinc-50' 
+              : 'border-zinc-200 hover:border-zinc-300'
+            }
+          `}
+        >
+          <Home className={`w-8 h-8 stroke-[1] ${espacios.otros.selected ? 'text-zinc-900' : 'text-zinc-500'}`} />
+          <span className={`font-medium ${espacios.otros.selected ? 'text-zinc-900' : 'text-zinc-600'}`}>
             Otros espacios
-          </label>
+          </span>
         </div>
       </div>
     </div>
@@ -179,20 +204,29 @@ const RenovationCalculator = () => {
       {espacios.cocina.selected && (
         <div className="space-y-4">
           <h3 className="text-xl font-semibold text-zinc-900">Trabajos en Cocina:</h3>
-          <div className="space-y-3 pl-4">
-            {Object.entries(espacios.cocina.trabajos).map(([trabajo, selected]) => (
-              <div key={trabajo} className="flex items-center space-x-3">
-                <Checkbox
-                  id={`cocina-${trabajo}`}
-                  checked={selected}
-                  onCheckedChange={() => handleTrabajoChange('cocina', trabajo)}
-                  className="h-5 w-5 border-2 border-zinc-800 data-[state=checked]:bg-zinc-900 data-[state=checked]:text-[--primary] rounded-sm"
-                />
-                <label htmlFor={`cocina-${trabajo}`} className="text-zinc-800 font-medium">
-                  {trabajo.charAt(0).toUpperCase() + trabajo.slice(1)}
-                </label>
-              </div>
-            ))}
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
+            {Object.entries(espacios.cocina.trabajos).map(([trabajo, selected]) => {
+              const IconComponent = TRABAJO_ICONS[trabajo] || Wrench;
+              return (
+                <div
+                  key={trabajo}
+                  onClick={() => handleTrabajoChange('cocina', trabajo)}
+                  className={`
+                    cursor-pointer p-4 rounded-lg border-[1px] transition-all
+                    flex md:flex-col gap-2 items-center justify-center space-y-1
+                    ${selected 
+                      ? 'border-zinc-900 bg-zinc-50' 
+                      : 'border-zinc-200 hover:border-zinc-300'
+                    }
+                  `}
+                >
+                  <IconComponent className={`w-6 h-6 stroke-[1] ${selected ? 'text-zinc-900' : 'text-zinc-500'}`} />
+                  <span className={`font-medium text-center ${selected ? 'text-zinc-900' : 'text-zinc-600'}`}>
+                    {trabajo.charAt(0).toUpperCase() + trabajo.slice(1)}
+                  </span>
+                </div>
+              );
+            })}
           </div>
         </div>
       )}
@@ -200,23 +234,32 @@ const RenovationCalculator = () => {
       {espacios.bano.selected && (
         <div className="space-y-4">
           <h3 className="text-xl font-semibold text-zinc-900">Trabajos en Baño:</h3>
-          <div className="space-y-3 pl-4">
-            {Object.entries(espacios.bano.trabajos).map(([trabajo, selected]) => (
-              <div key={trabajo} className="flex items-center space-x-3">
-                <Checkbox
-                  id={`bano-${trabajo}`}
-                  checked={selected}
-                  onCheckedChange={() => handleTrabajoChange('bano', trabajo)}
-                  className="h-5 w-5 border-2 border-zinc-800 data-[state=checked]:bg-zinc-900 data-[state=checked]:text-[--primary] rounded-sm"
-                />
-                <label htmlFor={`bano-${trabajo}`} className="text-zinc-800 font-medium">
-                  {trabajo.charAt(0).toUpperCase() + trabajo.slice(1)}
-                </label>
-              </div>
-            ))}
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
+            {Object.entries(espacios.bano.trabajos).map(([trabajo, selected]) => {
+              const IconComponent = TRABAJO_ICONS[trabajo] || Wrench;
+              return (
+                <div
+                  key={trabajo}
+                  onClick={() => handleTrabajoChange('bano', trabajo)}
+                  className={`
+                    cursor-pointer p-4 rounded-lg border-[1px] transition-all
+                    flex md:flex-col gap-2 items-center justify-center space-y-1
+                    ${selected 
+                      ? 'border-zinc-900 bg-zinc-50' 
+                      : 'border-zinc-200 hover:border-zinc-300'
+                    }
+                  `}
+                >
+                  <IconComponent className={`w-6 h-6 stroke-[1] ${selected ? 'text-zinc-900' : 'text-zinc-500'}`} />
+                  <span className={`font-medium text-center ${selected ? 'text-zinc-900' : 'text-zinc-600'}`}>
+                    {trabajo.charAt(0).toUpperCase() + trabajo.slice(1)}
+                  </span>
+                </div>
+              );
+            })}
           </div>
         </div>
-        )}
+      )}
     </div>
   );
 
