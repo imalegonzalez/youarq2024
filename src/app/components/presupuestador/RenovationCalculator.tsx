@@ -328,7 +328,8 @@ const RenovationCalculator = () => {
           </div>
 
         <div className="text-xl font-base text-zinc-900 pt-4 border-t border-zinc-200">
-          Presupuesto total estimado: <br /> <span className="font-bold text-2xl">${total}</span>
+          Presupuesto estimado: <br /> <span className="font-bold text-2xl"> Desde USD ${total}</span>
+          <p className="text-xs p-4 bg-zinc-100 rounded-lg text-zinc-500 mt-2">Nuestros contraros son en pesos argentinos, pero estimamos el precio en USD para que se mantengan actualizados.</p>
           <p className="text-sm text-zinc-500 mt-2">Este es un presupuesto estimado, el precio final dependerá de la complejidad de la obra y los materiales elegidos.</p>
         </div>
 
