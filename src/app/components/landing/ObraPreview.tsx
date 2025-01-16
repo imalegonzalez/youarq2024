@@ -98,7 +98,7 @@ export function ObraPreview({ post }: ObraPreviewProps) {
       <DrawerTrigger className="w-full">
         <CardObra className="w-full md:aspect-square" post={post} type="noLink" />
       </DrawerTrigger>
-      <DrawerContent className="w-full h-fit p-4">
+      <DrawerContent className="w-full min-h-2/3 p-4">
         <ModalContent />
       </DrawerContent>
     </Drawer>
