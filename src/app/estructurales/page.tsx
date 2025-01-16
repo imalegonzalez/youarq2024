@@ -31,7 +31,7 @@ export default async function Banos() {
         className="mt-10"
       />
       <SimplyProcess />
-      <ObrasLanding data={data} />
+      <ObrasLanding data={data} category="baño" />
       {/* <RenovationProcess className="max-w-6xl mx-auto mt-10 py-10"/> */}
       <TestimonialCarousel />
       <section className="px-4 grid max-w-6xl mx-auto gap-4">

@@ -48,6 +48,9 @@ export interface CardObraProps {
 }
 
 export interface Foto {
+  sys: {
+    id: string;
+  };
   fields: {
     file: {
       url: string;

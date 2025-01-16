@@ -1,7 +1,13 @@
 import { ListChecks, PaintRoller, Receipt, Route } from 'lucide-react';
 import Image from 'next/image';
 
-const SimplyProcess = () => {
+const SimplyProcess = ({ 
+  title = "Remodelá con profesionales", 
+  subtitle = "Facilitamos el proceso de remodelar tu casa" 
+}: { 
+  title?: string, 
+  subtitle?: string 
+}) => {
   const steps = [
     {
       title: "Cotizá",
@@ -23,8 +29,8 @@ const SimplyProcess = () => {
   return (
     <section className="py-3 px-4 max-w-6xl mx-auto flex flex-col items-center gap-3">
       <div className="text-center bg-white p-12 rounded-xl w-full">
-        <h2 className="text-4xl mb-2">Remodelá con profesionales</h2>
-        <p className="text-gray-600">Facilitamos el proceso de remodelar tu casa</p>
+        <h2 className="text-4xl mb-2">{title}</h2>
+        <p className="text-gray-600">{subtitle}</p>
       </div>
 
       <div className="grid lg:grid-cols-3 gap-3 lg:gap-3">

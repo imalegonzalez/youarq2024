@@ -9,6 +9,7 @@ import { client } from "../lib/contentful/client";
 import SimplyProcess from "../components/home/SimplifiedProcess";
 import TestimonialCarousel from "../components/CustomerReview";
 import Pricing from "../components/home/Pricing";
+import ImagesCarousel from "../components/ImagesCarousel";
 
 
 
@@ -19,6 +20,16 @@ async function getData(): Promise<Post[]> {
 
 export default async function Banos() {
   const data = await getData();
+  const filteredData = data.filter(post => post.fields.categoria.fields.nombreCategoria === "Baño");
+  const fotosDespues = filteredData.flatMap(post => post.fields.fotosDespues.map(foto => foto.fields.file.url));
+  const shuffleFotos = (array: string[]) => {
+    for (let i = array.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [array[i], array[j]] = [array[j], array[i]];
+    }
+    return array;
+  };
+  const shuffledFotos = shuffleFotos([...fotosDespues]);
   return (
     <>
       <HeroLanding
@@ -30,8 +41,8 @@ export default async function Banos() {
         size="default"
         className="mt-10"
       />
-      <SimplyProcess />
-      <ObrasLanding data={data} category="Baño" />
+      <ImagesCarousel images={shuffledFotos} /> 
+      <SimplyProcess title="El camino a tu baño nuevo" subtitle="En 3 sencillos pasos, acompañado por nuestros expertos" />
       {/* <RenovationProcess className="max-w-6xl mx-auto mt-10 py-10"/> */}
       <TestimonialCarousel />
       <section className="px-4 grid max-w-6xl mx-auto gap-4">
@@ -39,6 +50,7 @@ export default async function Banos() {
         <p className="text-md bg-white p-10 rounded-lg ">Para empezar a trabajar juntos, primero evaluaremos el tipo de remodelación que necesitas. A partir de esto, te ofreceremos nuestro servicio de asesoramiento y cotización de obra según el caso. Si es necesario, te asesoraremos sobre la mejor opción para tu baño.</p>
         <Pricing />
       </section>
+      <ObrasLanding data={data} category="Baño" />
     </>
   );
 }
