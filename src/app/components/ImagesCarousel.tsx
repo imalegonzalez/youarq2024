@@ -2,14 +2,14 @@
 import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel";
 import AutoScroll from "embla-carousel-auto-scroll";
 
-function ImagesCarousel({ images }: { images: [] }) {
+function ImagesCarousel({ images }: { images: string[] }) {
     return (
         <div className="w-full">
             <Carousel
               opts={{
                 loop: true,
                 dragFree: false,
-                draggable: false,
+          
               }}
               plugins={[
                 AutoScroll({
