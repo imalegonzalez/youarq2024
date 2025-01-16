@@ -18,6 +18,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select"
+import { CheckIcon } from 'lucide-react';
 
 // En una implementación real, estos precios vendrían de una API o base de datos
 const PRECIOS = {
@@ -299,6 +300,32 @@ const RenovationCalculator = () => {
             Descuento por remodelación combinada: -${PRECIOS.descuentoCombinado}
           </div>
         )}
+
+        <div className="space-y-2 bg-zinc-50 p-4 rounded-lg">
+            <h4 className="font-semibold text-zinc-900">Todas nuestras obras incluyen:</h4>
+            <ul className=" text-zinc-700 font-sans text-sm">
+              <li className="my-2 flex items-center">
+                <CheckIcon className="w-4 h-4 text-green-500 mr-2 flex-shrink-0" />
+                Diseño personalizado por un arquitecto/diseñador del equipo
+              </li>
+              <li className="my-2 flex items-center">
+                <CheckIcon className="w-4 h-4 text-green-500 mr-2 flex-shrink-0" />
+                Dirección de obra por un supervisor del equipo
+              </li>
+              <li className="my-2 flex items-center">
+                <CheckIcon className="w-4 h-4 text-green-500 mr-2 flex-shrink-0" />
+                Asesoría en compra de materiales
+              </li>
+              <li className="my-2 flex items-center">
+                <CheckIcon className="w-4 h-4 text-green-500 mr-2 flex-shrink-0" />
+                Todos los fletes, volquetes, seguros y limpieza de la obra
+              </li>
+              <li className="my-2 flex items-center">
+                <CheckIcon className="w-4 h-4 text-green-500 mr-2 flex-shrink-0" />
+                Garantía de 1 años sobre los trabajos realziados
+              </li>
+            </ul>
+          </div>
 
         <div className="text-xl font-base text-zinc-900 pt-4 border-t border-zinc-200">
           Presupuesto total estimado: <br /> <span className="font-bold text-2xl">${total}</span>
