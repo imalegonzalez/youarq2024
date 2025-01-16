@@ -14,7 +14,6 @@ function ObrasLanding({ data, category, title="Nuestras obras destacadas" }: { d
     );
   }
 
-  console.log(filteredData);
 
   // Mostrar solo 4 elementos o todos dependiendo del estado
   const displayData = showAll ? filteredData : filteredData.slice(0, 4);

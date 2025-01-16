@@ -3,6 +3,7 @@ import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carouse
 import AutoScroll from "embla-carousel-auto-scroll";
 
 function ImagesCarousel({ images }: { images: string[] }) {
+ 
     return (
         <div className="w-full">
             <Carousel
@@ -20,7 +21,7 @@ function ImagesCarousel({ images }: { images: string[] }) {
               className="py-10 "
             >
               <CarouselContent>
-                {images?.map((image, index) => (
+                {images?.slice(0, 22).map((image, index) => (
                   <CarouselItem key={index} className="flex justify-center basis-1/2 md:basis-full">
                     <div className="aspect-[3/4] w-full relative ">
                       <img 

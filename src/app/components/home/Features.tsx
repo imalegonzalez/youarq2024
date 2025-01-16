@@ -3,7 +3,7 @@ import { Bath, KeyRound, Ruler, SwatchBook } from "lucide-react";
 
 const features = [
   {
-    name: "Llave en mano",
+    name: "Servicio Integral de Obra",
     icon: <KeyRound strokeWidth={1}  />,
   },
   {

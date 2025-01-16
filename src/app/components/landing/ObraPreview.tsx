@@ -30,26 +30,28 @@ interface ObraPreviewProps {
 
 export function ObraPreview({ post }: ObraPreviewProps) {
   const isDesktop = useMediaQuery("(min-width: 768px)");
+  const allImages = [
+    ...(post.fields.fotosAntes || []), 
+    ...(post.fields.fotosDespues || [])
+  ];
 
   const ModalContent = () => (
     <>
       <div className="flex justify-between items-center pb-4">
         <h1 className="text-3xl">{post.fields.nombreDeObra}</h1>
         {isDesktop ? (
-          <DialogClose>
-            <Button variant="outline">X</Button>
-          </DialogClose>
+          <DialogClose className="text-xl px-2">x</DialogClose>
         ) : (
           <DrawerClose>
-            <Button variant="outline">X</Button>
+            <Button variant="outline">x</Button>
           </DrawerClose>
         )}
       </div>
       <div className="w-full max-h-full">
-        <Carousel className="md:w-full" opts={{ align: "start" }}>
-          <CarouselContent>
-            {post.fields.fotosAntes?.map((image) => (
-              <CarouselItem key={image.sys.id} className="flex justify-center">
+        <Carousel className="" opts={{ align: "start",  }}>
+          <CarouselContent className="w-full">
+            {allImages.map((image) => (
+              <CarouselItem key={image.sys.id} className="flex justify-center basis-full md:basis-96">
                 <div className="aspect-[3/4] w-full relative">
                   <img 
                     src={image.fields.file.url} 
@@ -59,17 +61,7 @@ export function ObraPreview({ post }: ObraPreviewProps) {
                 </div>
               </CarouselItem>
             ))}
-            {post.fields.fotosDespues?.map((image) => (
-              <CarouselItem key={image.sys.id} className="flex justify-center">
-                <div className="aspect-[3/4] w-full relative">
-                  <img 
-                    src={image.fields.file.url} 
-                    alt={`${post.fields.nombreDeObra} - Después`}
-                    className="absolute inset-0 w-full h-full object-cover" 
-                  />
-                </div>
-              </CarouselItem>
-            ))}
+            
           </CarouselContent>
           <div className="absolute flex justify-center items-center bottom-7 right-1/2 z-10">
             <CarouselPrevious />

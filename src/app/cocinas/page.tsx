@@ -9,6 +9,7 @@ import { client } from "../lib/contentful/client";
 import SimplyProcess from "../components/home/SimplifiedProcess";
 import TestimonialCarousel from "../components/CustomerReview";
 import Pricing from "../components/home/Pricing";
+import ImagesCarousel from "../components/ImagesCarousel";
 
 
 
@@ -19,6 +20,16 @@ async function getData(): Promise<Post[]> {
 
 export default async function Banos() {
   const data = await getData();
+  const filteredData = data.filter(post => post.fields.categoria.fields.nombreCategoria === "Cocina");
+  const fotosDespues = filteredData.flatMap(post => post.fields.fotosDespues.map(foto => foto.fields.file.url));
+  const shuffleFotos = (array: string[]) => {
+    for (let i = array.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [array[i], array[j]] = [array[j], array[i]];
+    }
+    return array;
+  };
+  const shuffledFotos = shuffleFotos([...fotosDespues]);
   return (
     <>
       <HeroLanding
@@ -30,6 +41,7 @@ export default async function Banos() {
         size="default"
         className="mt-10"
       />
+      <ImagesCarousel images={shuffledFotos} />
       <SimplyProcess />
       <ObrasLanding data={data} category="Cocina" />
       {/* <RenovationProcess className="max-w-6xl mx-auto mt-10 py-10"/> */}

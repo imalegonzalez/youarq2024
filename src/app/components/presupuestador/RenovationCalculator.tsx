@@ -413,7 +413,7 @@ const RenovationCalculator = () => {
   };
 
   return (
-    <Card className="w-full max-w-2xl mx-auto bg-white shadow-lg">
+    <Card className=" w-full p-10 md:max-w-4xl mx-auto bg-white ">
       <CardHeader className="border-b border-zinc-100">
         <CardTitle className="text-2xl font-bold text-zinc-900">Calculadora de Presupuesto</CardTitle>
         <CardDescription className="text-zinc-600">
