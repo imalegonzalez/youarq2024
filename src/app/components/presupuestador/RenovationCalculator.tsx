@@ -18,7 +18,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select"
-import { CheckIcon, Utensils, Bath, Home, Wrench, Paint, Cabinet, ShowerHead } from 'lucide-react'; 
+import { CheckIcon, Utensils, Bath, Home, Wrench, Paintbrush, Container, ShowerHead } from 'lucide-react'; 
 
 // En una implementación real, estos precios vendrían de una API o base de datos
 const PRECIOS = {
@@ -135,8 +135,8 @@ const RenovationCalculator = () => {
 
   const TRABAJO_ICONS = {
     instalaciones: Wrench,
-    revestimientos: Paint,
-    muebles: Cabinet,
+    revestimientos: Paintbrush,
+    muebles: Container,
     artefactos: ShowerHead,
     mampara: ShowerHead,
   };
