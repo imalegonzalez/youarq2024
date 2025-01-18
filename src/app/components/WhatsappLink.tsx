@@ -1,6 +1,7 @@
-"use client"
-import Link from "next/link";
-import { useEffect, useState } from "react";
+"use client";
+
+import React, { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
 
 interface WhatsappLinkProps {
   className?: string;
@@ -8,7 +9,12 @@ interface WhatsappLinkProps {
   visible?: boolean;
 }
 
-const WhatsappLink: React.FC<WhatsappLinkProps> = ({ className, children, visible = true }) => {
+const WhatsappLink: React.FC<WhatsappLinkProps> = ({ 
+  className = "", 
+  children,
+  visible = true 
+}) => {
+  const pathname = usePathname();
   const [isVisible, setIsVisible] = useState(visible);
 
   useEffect(() => {
@@ -16,24 +22,26 @@ const WhatsappLink: React.FC<WhatsappLinkProps> = ({ className, children, visibl
       const timeout = setTimeout(() => {
         setIsVisible(true);
       }, 6000);
+      
       return () => clearTimeout(timeout);
     }
-  }, [visible]);
+  }, [visible, pathname]);
 
-  const whatsappLink = "https://api.whatsapp.com/send?phone=";
-  const whatsappNumber = "5491133266363";
-  const origin = window.location.href;
-  const whatsappMessage = `Hola, visité tu pagina ${origin} y quisiera más información sobre como puedo empezar con mi remodelación.`;
-  
-  return (
-    <>
-      {isVisible && (
-        <Link target="_blank" href={`${whatsappLink}${whatsappNumber}&text=${whatsappMessage}`} className={className}>
-          {children}
-        </Link>
-      )}
-    </>
+  const message = encodeURIComponent(
+    `¡Hola! Visité https://youarq.com${pathname} y me gustaría recibir más información sobre sus servicios de remodelación.`
   );
-}
+  const whatsappUrl = `https://wa.me/5491133266363?text=${message}`;
+
+  return (
+    <a
+      href={whatsappUrl}
+      target="_blank"
+      rel="noopener noreferrer"
+      className={`${className} ${isVisible ? "opacity-100" : "opacity-0"} transition-opacity duration-500`}
+    >
+      {children}
+    </a>
+  );
+};
 
 export default WhatsappLink;
