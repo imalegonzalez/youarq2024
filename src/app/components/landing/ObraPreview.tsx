@@ -23,6 +23,7 @@ import {
 } from "@/components/ui/carousel";
 import CardObra from "@/app/components/CardObra";
 import { useMediaQuery } from "@/hooks/useMediaQuery"; // Necesitarás crear este hook
+import Image from "next/image";
 
 interface ObraPreviewProps {
   post: Post;
@@ -53,10 +54,12 @@ export function ObraPreview({ post }: ObraPreviewProps) {
             {allImages.map((image) => (
               <CarouselItem key={image.sys.id} className="flex justify-center basis-full md:basis-96">
                 <div className="aspect-[3/4] w-full relative">
-                  <img 
+                  <Image 
                     src={image.fields.file.url} 
                     alt={`${post.fields.nombreDeObra} - Antes`}
                     className="absolute inset-0 w-full h-full object-cover" 
+                    priority
+                    fill
                   />
                 </div>
               </CarouselItem>

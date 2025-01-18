@@ -31,7 +31,7 @@ export default function Form() {
   };
 
   return (
-    <section className="inset-0 flex flex-col justify-between p-24">
+    <section className="inset-0 flex flex-col justify-between p-4 py-20">
       {/* steps */}
       {/* <nav aria-label='Progress'>
         <ol role='list' className='space-y-4 md:flex md:space-x-8 md:space-y-0'>
