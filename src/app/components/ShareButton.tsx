@@ -18,8 +18,12 @@ const Gallery = ({url, type, nombreDeObra}: {url: string, type: string, nombreDe
       try {
         await navigator.share({ title: `Youarq - ${nombreDeObra}`, url: url });
         console.log("Data was shared successfully");
-      } catch (err) {
-        console.error("Share failed:", err.message);
+      } catch (err: unknown) {
+        if (err instanceof Error) {
+          console.error("Share failed:", err.message);
+        } else {
+          console.error("Share failed:", String(err));
+        }
       }
     };
     
