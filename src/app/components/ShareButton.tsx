@@ -3,7 +3,7 @@ import { useToast } from "@/components/ui/use-toast"
 import { faLink, faShare} from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-const Gallery = ({url, type, nombreDeObra}: {url?: string, type: string, nombreDeObra: string}) => {
+const Gallery = ({url, type, nombreDeObra}: {url: string, type: string, nombreDeObra: string}) => {
     const { toast } = useToast()
 
     const copyToClipboard = e => {
@@ -16,7 +16,7 @@ const Gallery = ({url, type, nombreDeObra}: {url?: string, type: string, nombreD
 
     const handleShare = async () => {
       try {
-        await navigator.share({ title: `Youarq - ${nombreDeObra}`, url: "" });
+        await navigator.share({ title: `Youarq - ${nombreDeObra}`, url: url });
         console.log("Data was shared successfully");
       } catch (err) {
         console.error("Share failed:", err.message);
