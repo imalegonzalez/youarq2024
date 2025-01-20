@@ -51,8 +51,6 @@ export default async function PostObra({ params }: { params: { slug: string } })
     directorDeObra,
   } = proyecto.fields;
 
-
-
   return (
     <div className="bg-[#F7F6F5] p-1 obraSection">
       <div className="horizontal-scroll-wrapper">
@@ -61,13 +59,8 @@ export default async function PostObra({ params }: { params: { slug: string } })
             <FontAwesomeIcon className="" icon={faArrowLeft} />
           </Link> */}
           <BackButton />
-          <Link href="/" className="font-semibold align-middle content-center">youarq</Link>
-          <div className="flex items-center justify-center gap-4 px-2">
-            <span className="flex items-center justify-center">
-              <ShareButton type="share" url="" />
-            </span>
-              {/* <ShareButton type="copy" url="" /> */}
-          </div>
+          <p className="font-semibold align-middle content-center">youarq</p>
+          <ShareButton url="" />
         </nav>
         <div className="">
           <div className="">

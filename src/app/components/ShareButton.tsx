@@ -1,9 +1,9 @@
 'use client'
 import { useToast } from "@/components/ui/use-toast"
-import { faLink} from '@fortawesome/free-solid-svg-icons';
+import { faLink, faShare} from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-const Gallery = ({url}) => {
+const Gallery = ({url, type}) => {
     const { toast } = useToast()
 
     const copyToClipboard = e => {
@@ -13,10 +13,20 @@ const Gallery = ({url}) => {
         description: "Comparte este proyecto",
       })
     }
+
+    const handleShare = async () => {
+      try {
+        await navigator.share({ title: "Example Page", url: "" });
+        console.log("Data was shared successfully");
+      } catch (err) {
+        console.error("Share failed:", err.message);
+      }
+    };
     
     return (
     <>
-       <button onClick={copyToClipboard}><FontAwesomeIcon className="" icon={faLink} /></button>
+    {type === "copy" && <button onClick={copyToClipboard}><FontAwesomeIcon className="" icon={faLink} /></button>}
+    {type === "share" && <button onClick={handleShare}><FontAwesomeIcon className="" icon={faShare} /></button>}
     </>
   )
 }

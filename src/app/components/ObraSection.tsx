@@ -1,5 +1,13 @@
 import AdaptativeImagen from "./AdaptativeImagen"; // Asegúrate de importar el componente correctamente
 import { PostFields, Foto, Arquitecto } from "@/types/contentful";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
+import Image from "next/image";
 
 interface ObraSectionProps {
   nombreDeObra?: string;
@@ -27,21 +35,32 @@ const ObraSection: React.FC<ObraSectionProps> = (props) => {
   if (props.nombreDeObra) {
     return (
       <section className="p-5 flex flex-col rounded-xl mt-1 bg-white ">
-        <div className="flex flex-wrap justify-between w-full bg-white rounded-md md:flex-nowrap  ">
-          <div className=" py-10 md:min-w-[50%] md:p-16 md:h-fit md:sticky md:top-[calc(100vh-70%)] md:flex-col">
-            <h3 className="text-sm md:text-xl text-gray-400">{props.subtitle}</h3>
-            <h1 className="text-4xl md:text-7xl font-bold mt-2 md:mt-10">{props.nombreDeObra}</h1>
+        <div className="flex flex-wrap justify-between w-full bg-white rounded-md md:flex-nowrap max-w-6xl mx-auto  ">
+          <div className=" py-10 md:min-w-[40%]  md:flex md:justify-center md:items-center ">
+            <div>
+            <h3 className="text-sm md:text-xl text-gray-400">
+              {props.subtitle}
+            </h3>
+            <h1 className="text-4xl md:text-6xl font-bold mt-2  md:max-w-lg">
+              {props.nombreDeObra}
+            </h1>
             <p className="mb-3 text-md md:text-lg flex mt-2 text-gray-600 flex-row md:max-w-3xl">
               {props.descripcionCorta}
             </p>
             <div className="flex gap-1 text-sm text-slate-600 flex-wrap w-full ">
               {props.tag?.map((tag, index) => (
-                <p key={index} className=" text-xs px-3 py-1 border-slate-00 border-solid border capitalize rounded-full">{tag}</p>
+                <p
+                  key={index}
+                  className=" text-xs px-3 py-1 border-slate-00 border-solid border capitalize rounded-full"
+                >
+                  {tag}
+                </p>
               ))}
             </div>
+            </div>
           </div>
-          <div className="md:flex md:justify-end ">
-          {props.imagenDestacada && (
+          <div className="md:flex md:justify-end md:sticky top-20 md:h-fit md:w-full ">
+            {props.imagenDestacada && (
               <AdaptativeImagen
                 src={props.imagenDestacada.fields.file.url}
                 alt={props.nombreDeObra}
@@ -56,20 +75,46 @@ const ObraSection: React.FC<ObraSectionProps> = (props) => {
 
   if (props.fotosAntes) {
     return (
-      <section className="flex justify-end flex-col bg-white rounded-xl mt-1 py-10  p-5 md:flex-row">
-        <div className="md:min-w-[50%] md:p-16 md:flex md:h-fit  md:content-center md:sticky md:top-[calc(100vh-70%)] md:flex-col">
-          <h4 className="text-4xl md:text-5xl font-bold mt-2">Primeros pasos</h4>
-          {props.descripcionAntes && (<p className="mb-3 text-md flex mt-2 text-gray-600 flex-row md:max-w-3xl">{props.descripcionAntes}</p>)}
+      <section className="flex flex-col justify-center items-start md:items-center py-10 bg-white rounded-xl mt-1 p-5 ">
+        <div className=" text-left md:text-center ">
+          <h4 className="text-4xl md:text-4xl font-bold mt-2">Primeros Pasos</h4>
+          {props.descripcionAntes && (
+            <p className="mb-3 text-md flex mt-2 text-gray-600 flex-row md:max-w-3xl">
+              {props.descripcionAntes}
+            </p>
+          )}
         </div>
-        <div className="gap-2 flex flex-col">
-          <h3 className="text-xl font-medium mb-2 ">Fotos del Antes</h3>
-          <div className="grid gap-5">
-            {props.fotosAntes.map((foto, i) => (
-              <AdaptativeImagen key={i}
-                src={foto.fields.file.url}
-                alt={`Foto antes ${i}`}
-              />
-            ))}
+        <div className="gap-2 flex flex-col min-w-full mx-auto">
+          <div className="w-full max-w-6xl mx-auto">
+            <Carousel className="" opts={{ align: "start" }}>
+              <CarouselContent className="w-full">
+                {props.fotosAntes.map((image) => (
+                  <CarouselItem
+                    key={image.sys.id}
+                    className="flex justify-center basis-full md:basis-96"
+                  >
+                    <div className="aspect-[3/4] w-full relative">
+                      <p className="text-xs text-black bg-white px-2 py-1 rounded-full absolute top-2 left-2 z-10">Antes</p>
+                      <Image
+                        src={
+                          image.fields.file.url.startsWith("//")
+                            ? `https:${image.fields.file.url}`
+                            : image.fields.file.url
+                        }
+                        alt={`${props.nombreDeObra} - Antes`}
+                        className="absolute inset-0 w-full h-full object-cover rounded-lg"
+                        priority
+                        fill
+                      />
+                    </div>
+                  </CarouselItem>
+                ))}
+              </CarouselContent>
+              <div className="absolute flex justify-center items-center bottom-7 right-1/2 z-10">
+                <CarouselPrevious />
+                <CarouselNext />
+              </div>
+            </Carousel>
           </div>
         </div>
       </section>
@@ -78,20 +123,46 @@ const ObraSection: React.FC<ObraSectionProps> = (props) => {
 
   if (props.fotosDurantes) {
     return (
-      <section className="flex  py-10 justify-end flex-col bg-white rounded-xl mt-1 p-5  md:flex-row">
-        <div className=" md:min-w-[50%] md:p-16 md:flex md:h-fit  md:content-center md:sticky md:top-[calc(100vh-70%)] md:flex-col">
-          <h4 className="text-4xl md:text-5xl font-bold mt-2">En la obra</h4>
-          {props.descripcionDurante && (<p className=" mb-3 text-md flex mt-2 text-gray-600 flex-row md:max-w-3xl">{props.descripcionDurante}</p>)}
+      <section className="flex flex-col justify-center items-start md:items-center py-10 bg-white rounded-xl mt-1 p-5 ">
+        <div className=" text-left md:text-center ">
+          <h4 className="text-4xl md:text-4xl font-bold mt-2">Durantes</h4>
+          {props.descripcionDurante && (
+            <p className="mb-3 text-md flex mt-2 text-gray-600 flex-row md:max-w-3xl">
+              {props.descripcionDurante}
+            </p>
+          )}
         </div>
-        <div className="gap-2 flex flex-col">
-          <h3 className="text-xl font-medium mb-2 ">Fotos Durante</h3>
-          <div className="grid gap-5">
-            {props.fotosDurantes.map((foto, i) => (
-              <AdaptativeImagen key={i}
-                src={foto.fields.file.url}
-                alt={`Foto antes ${i}`}
-              />
-            ))}
+        <div className="gap-2 flex flex-col min-w-full mx-auto">
+          <div className="w-full max-w-6xl mx-auto">
+            <Carousel className="" opts={{ align: "start" }}>
+              <CarouselContent className="w-full">
+                {props.fotosDurantes.map((image) => (
+                  <CarouselItem
+                    key={image.sys.id}
+                    className="flex justify-center basis-full md:basis-96"
+                  >
+                    <div className="aspect-[3/4] w-full relative">
+                      <p className="text-xs text-black bg-white px-2 py-1 rounded-full absolute top-2 left-2 z-10">Durantes</p>
+                      <Image
+                        src={
+                          image.fields.file.url.startsWith("//")
+                            ? `https:${image.fields.file.url}`
+                            : image.fields.file.url
+                        }
+                        alt={`${props.nombreDeObra} - Durantes`}
+                        className="absolute inset-0 w-full h-full object-cover rounded-lg"
+                        
+                        fill
+                      />
+                    </div>
+                  </CarouselItem>
+                ))}
+              </CarouselContent>
+              <div className="absolute flex justify-center items-center bottom-7 right-1/2 z-10">
+                <CarouselPrevious />
+                <CarouselNext />
+              </div>
+            </Carousel>
           </div>
         </div>
       </section>
@@ -101,20 +172,46 @@ const ObraSection: React.FC<ObraSectionProps> = (props) => {
   if (props.fotosDespues) {
     // console.log(props.fotosDespues);
     return (
-      <section className="flex flex-col py-10 bg-white rounded-xl mt-1  p-5 md:flex-row">
-        <div className=" max-w-4xl flex flex-col justify-center md:min-w-[50%] md:p-16 md:flex md:h-fit  md:content-center md:sticky md:top-[calc(100vh-70%)] md:flex-col">
-          <h4 className="text-4xl md:text-5xl font-bold mt-2">Resultado</h4>
-          {props.descripcionDespues && (<p className="mb-3 text-md flex mt-2 text-gray-600 flex-row md:max-w-3xl">{props.descripcionDespues}</p>)}
+      <section className="flex flex-col justify-center items-start md:items-center py-10 bg-white rounded-xl mt-1 p-5 ">
+        <div className=" text-left md:text-center ">
+          <h4 className="text-4xl md:text-4xl font-bold mt-2">Resultado</h4>
+          {props.descripcionDespues && (
+            <p className="mb-3 text-md flex mt-2 text-gray-600 flex-row md:max-w-3xl">
+              {props.descripcionDespues}
+            </p>
+          )}
         </div>
-        <div className="gap-2 flex flex-col">
-          <h3 className="text-xl font-medium mb-2 ">Fotos Despues</h3>
-          <div className="grid gap-5">
-            {props.fotosDespues.map((foto, i) => (
-              <AdaptativeImagen key={i}
-                src={foto.fields.file.url}
-                alt={`Foto antes ${i}`}
-              />
-            ))}
+        <div className="gap-2 flex flex-col min-w-full mx-auto">
+          <div className="w-full max-w-6xl mx-auto">
+            <Carousel className="" opts={{ align: "start" }}>
+              <CarouselContent className="w-full">
+                {props.fotosDespues.map((image) => (
+                  <CarouselItem
+                    key={image.sys.id}
+                    className="flex justify-center basis-full md:basis-96"
+                  >
+                    <div className="aspect-[3/4] w-full relative">
+                      <p className="text-xs text-black bg-white px-2 py-1 rounded-full absolute top-2 left-2 z-10">Despues</p>
+                      <Image
+                        src={
+                          image.fields.file.url.startsWith("//")
+                            ? `https:${image.fields.file.url}`
+                            : image.fields.file.url
+                        }
+                        alt={`${props.nombreDeObra} - Despues`}
+                        className="absolute inset-0 w-full h-full object-cover rounded-lg"
+                        
+                        fill
+                      />
+                    </div>
+                  </CarouselItem>
+                ))}
+              </CarouselContent>
+              <div className="absolute flex justify-center items-center bottom-7 right-1/2 z-10">
+                <CarouselPrevious />
+                <CarouselNext />
+              </div>
+            </Carousel>
           </div>
         </div>
       </section>
