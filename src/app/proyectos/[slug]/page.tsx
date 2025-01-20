@@ -66,7 +66,6 @@ export default async function PostObra({ params }: { params: { slug: string } })
             <span className="flex items-center justify-center">
               <ShareButton nombreDeObra={nombreDeObra} type="share" url="" />
             </span>
-              {/* <ShareButton type="copy" url="" /> */}
           </div>
         </nav>
         <div className="">

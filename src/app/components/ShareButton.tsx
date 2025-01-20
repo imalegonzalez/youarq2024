@@ -16,7 +16,7 @@ const Gallery = ({url, type, nombreDeObra}: {url?: string, type: string, nombreD
 
     const handleShare = async () => {
       try {
-        await navigator.share({ title: "Youarq - ${nombreDeObra}", url: "" });
+        await navigator.share({ title: `Youarq - ${nombreDeObra}`, url: "" });
         console.log("Data was shared successfully");
       } catch (err) {
         console.error("Share failed:", err.message);
