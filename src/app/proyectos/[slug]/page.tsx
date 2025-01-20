@@ -64,7 +64,7 @@ export default async function PostObra({ params }: { params: { slug: string } })
           <Link href="/" className="font-semibold align-middle content-center">youarq</Link>
           <div className="flex items-center justify-center gap-4 px-2">
             <span className="flex items-center justify-center">
-              <ShareButton type="share" url="" />
+              <ShareButton nombreDeObra={nombreDeObra} type="share" url="" />
             </span>
               {/* <ShareButton type="copy" url="" /> */}
           </div>
