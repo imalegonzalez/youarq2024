@@ -96,13 +96,13 @@ const NavBar = () => {
     e.preventDefault()
     setIsOpen((open) => !open)
     setServiceIsOpen((open) => false)
-    console.log(isOpen)
+    
   }
 
   const handleOpenServices = (e: React.MouseEvent<HTMLSpanElement, MouseEvent>) => {
     e.preventDefault()
     setServiceIsOpen((open) => !open)
-    console.log(serviceIsOpen)
+    
   }
 
   useEffect(() => {

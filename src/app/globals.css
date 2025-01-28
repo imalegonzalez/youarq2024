@@ -176,7 +176,7 @@
     flex-wrap: nowrap;
     justify-content: center;
     align-items: center;
-    overflow: hidden;
+    
     transition: opacity 300ms ease-in-out,
                 max-height 300ms ease-in-out,
                 transform 300ms ease-in-out;
