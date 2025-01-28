@@ -28,6 +28,7 @@ function ImagesCarousel({ images }: { images: string[] }) {
                         src={image} 
                         alt={`Imagen ${index + 1}`}
                         className="absolute inset-0 w-full h-full object-cover rounded-lg" 
+                        fetchPriority="high"
                       />
                     </div>
                   </CarouselItem>

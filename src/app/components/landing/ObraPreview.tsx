@@ -55,7 +55,7 @@ export function ObraPreview({ post }: ObraPreviewProps) {
               <CarouselItem key={image.sys.id} className="flex justify-center basis-full md:basis-96">
                 <div className="aspect-[3/4] w-full relative">
                   <Image 
-                    src={image.fields.file.url} 
+                    src={`https:${image.fields.file.url}`} 
                     alt={`${post.fields.nombreDeObra} - Antes`}
                     className="absolute inset-0 w-full h-full object-cover" 
                     priority
