@@ -116,12 +116,12 @@ const NavBar = () => {
   }
   return (
     <nav className={`w-full fixed z-20 transition-none ${isScrolled ? 'mt-1' : 'mt-3'} ${isOpen ? 'p-0 mt-0' : 'p-3'}`}>
-      <div className={`md:max-w-6xl md:mx-auto md:flex-row md:px-3 flex wrap flex-col bg-white justify-between items-center bg-opacity-70 backdrop-blur-md border border-white border-opacity-20 rounded-full shadow-sm ${isOpen ? 'nav-open rounded-none' : 'nav-closed'}`}>
-        <div className="menu-header">
+      <div className={`md:max-w-6xl md:mx-auto md:flex-row md:px-3 flex wrap flex-col bg-white justify-between items-center bg-opacity-70 backdrop-blur-md border border-white border-opacity-20 rounded-full shadow-sm transition-[background-color,opacity,transform] duration-300 ease-in-out ${isOpen ? 'nav-open rounded-none -mt-3' : 'nav-closed'}`}>
+        <div className={`menu-header transition-[opacity,transform] duration-300 ease-in-out ${isOpen ? 'mt-6' : ''}`}>
           <Link href={"/"} className="flex font-bold items-center">Youarq</Link>
           <a onClick={handleOpen} className="menu_trigger" href="/">{isOpen ? "Cerrar" : "Menu"}</a>
         </div>
-        <div className={`menu__bar transition-all duration-300 ease-in-out ${isOpen ? "is-open" : ""}`}>
+        <div className={`menu__bar transition-[opacity,max-height,transform] duration-300 ease-in-out ${isOpen ? "is-open opacity-100 max-h-screen" : "opacity-0 max-h-0 md:opacity-100 md:max-h-screen"}`}>
           <div className="md:gap-5 font-normal text-sm menu_wrapper px-8 md:px-0 ">
             <div className="item-wrapper object-center items-left md:items-center md:gap-2">
               <Link href="/como-trabajamos" className={`leading-none group inline-flex h-10 w-max items-center justify-center rounded-md bg-transparent p-4 text-md md:text-sm transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-accent/50 data-[state=open]:bg-accent/50 md:rounded-md md:p-4  md:leading-none md:no-underline md:outline-none md:transition-colors md:hover:bg-accent md:hover:text-accent-foreground md:focus:bg-accent md:focus:text-accent-foreground ${serviceIsOpen ? 'opacity-0 pointer-events-none' : 'opacity-100 pointer-events-auto'}`}>Cómo trabajamos</Link>
